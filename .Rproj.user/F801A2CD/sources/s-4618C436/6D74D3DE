@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1550695814828.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6D74D3DE",
+    "lastKnownWriteTime" : 1550696121,
+    "last_content_update" : 1550696121275,
+    "path" : "~/Documents/Projects/2019_scWorkshop/03-literature.Rmd",
+    "project_path" : "03-literature.Rmd",
+    "properties" : {
+        "cursorPosition" : "4,210",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
