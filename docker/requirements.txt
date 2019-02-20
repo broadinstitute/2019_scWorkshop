@@ -1,0 +1,6 @@
+numpy
+scipy
+pandas
+matplotlib
+setuptools
+CITE-seq-Count
