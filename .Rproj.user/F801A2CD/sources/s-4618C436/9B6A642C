@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2791391532",
+    "hash" : "0",
     "id" : "9B6A642C",
-    "lastKnownWriteTime" : 1550694446,
-    "last_content_update" : 1550694446,
+    "lastKnownWriteTime" : 1550704974,
+    "last_content_update" : 1550704974,
     "path" : "~/Documents/Projects/2019_scWorkshop/README.md",
     "project_path" : "README.md",
     "properties" : {
+        "cursorPosition" : "1,0",
+        "scrollLine" : "2"
     },
     "relative_order" : 1,
     "source_on_save" : false,
