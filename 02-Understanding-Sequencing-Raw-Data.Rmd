@@ -6,3 +6,30 @@ output: html_document
 # Understanding Sequencing Raw Data
 
 
+## Common Linux Commands
+```{bash, eval=FALSE}
+ls .
+```
+
+```{bash, eval=FALSE}
+cd
+```
+
+```{bash, eval=FALSE}
+cat
+```
+
+
+```{bash, eval=FALSE}
+grep
+```
+
+
+```{bash, eval=FALSE}
+more
+```
+
+
+```{bash, eval=FALSE}
+mkdir
+```
