@@ -14,3 +14,6 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: true

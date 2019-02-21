@@ -5,6 +5,12 @@ output: html_document
 
 # Understanding Sequencing Raw Data
 
+## Google Slides
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSavPAPY3WXe2EiqaRXJmAajFTeGcRbD1qJq4Sp4YlcF1_m7I1X89D1uC-8jDDGinqFLNO2oJNALbNx/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+
+## R Chunks
 Lab based around data wrangling from public data repositories: get data from 10x website, single cell portal, from GEO (fastqs, counts)
 
 ## Common Linux Commands
