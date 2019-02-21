@@ -34,22 +34,37 @@ RUN pip3 install -r /usr/local/src/requirements.txt
 
 ## FASTQC
 COPY fastqc_v0.11.8.zip /usr/local/src/fastqc_v0.11.8.zip
-RUN unzip /usr/local/src/fastqc_v0.11.8.zip
+RUN cd /usr/local/src/ && \
+  unzip fastqc_v0.11.8.zip && \
+  cd /
 
 
 ## IGViewer
 COPY IGV_2.4.19.zip /usr/local/src/IGV_2.4.19.zip
-RUN unzip /usr/local/src/IGV_2.4.19.zip
+RUN cd /usr/local/src && \
+   unzip IGV_2.4.19.zip && \
+   cd /
 
 
 ## cellranger
 COPY cellranger-3.0.2.tar.gz /usr/local/src
-RUN tar -xvzf /usr/local/src/cellranger-3.0.2.tar.gz
+RUN cd /usr/local/src && \
+  tar -xvzf cellranger-3.0.2.tar.gz && \
+  cd /
 
 COPY cellranger_count_3.0.2.sh /usr/local/src
 
 
 ## Alternatively, get STAR source using git
-RUN git clone https://github.com/alexdobin/STAR.git && \
-  cd STAR/source && \
-  make STAR
+RUN git clone https://github.com/alexdobin/STAR.git usr/local/src/STAR && \
+  cd /usr/local/src/STAR/source && \
+  make STAR && \
+  cd /
+
+
+RUN wget -O /usr/local/src/samtools-1.9.tar.bz2 https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2 && \
+  cd /usr/local/src && \
+  tar xvjf samtools-1.9.tar.bz2 && \
+  cd samtools-1.9 && \
+   ./configure  && \
+   make && make install

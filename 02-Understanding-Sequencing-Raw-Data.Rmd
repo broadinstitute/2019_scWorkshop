@@ -5,8 +5,10 @@ output: html_document
 
 # Understanding Sequencing Raw Data
 
+Lab based around data wrangling from public data repositories: get data from 10x website, single cell portal, from GEO (fastqs, counts)
 
 ## Common Linux Commands
+
 ```{bash, eval=FALSE}
 ls .
 ```
@@ -33,3 +35,9 @@ more
 ```{bash, eval=FALSE}
 mkdir
 ```
+
+## Raw file formats
+
+## GEO
+
+## Single Cell Portal

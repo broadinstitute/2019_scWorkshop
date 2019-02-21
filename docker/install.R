@@ -12,7 +12,7 @@ install.packages("BiocManager")
 install.packages("devtools")
 install.packages('umap')
 
-## Bioconductor Pacakges
+## Bioconductor Packages
 BiocManager::install("SingleCellExperiment", version = "3.8", update = FALSE)
 BiocManager::install("destiny", version = "3.8", update = FALSE)
 BiocManager::install("slingshot", version = "3.8", update = FALSE)
@@ -21,7 +21,7 @@ BiocManager::install("scater", version = "3.8", update = FALSE)
 BiocManager::install("DropletUtils", version = "3.8", update = FALSE)
 BiocManager::install("pcaMethods", version = "3.8", update = FALSE)
 
-## Github Pacakges
+## Github Packages
 devtools::install_github("broadinstitute/inferCNV")
 devtools::install_github("velocyto-team/velocyto.R")
 devtools::install_github('MacoskoLab/liger')
