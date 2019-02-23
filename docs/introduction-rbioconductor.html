@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-22">
+<meta name="date" content="2019-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,6 +123,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html"><i class="fa fa-check"></i><b>3</b> Understanding Sequencing Raw Data</a><ul>
 <li class="chapter" data-level="3.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#shell-and-unix-commands"><i class="fa fa-check"></i><b>3.1</b> Shell and Unix commands</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#common-linux-commands"><i class="fa fa-check"></i><b>3.1.1</b> Common Linux Commands</a></li>
+<li class="chapter" data-level="3.1.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#lab-1a"><i class="fa fa-check"></i><b>3.1.2</b> Lab 1a</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#file-formats"><i class="fa fa-check"></i><b>3.2</b> File formats</a></li>
 <li class="chapter" data-level="3.3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#public-data-repositories"><i class="fa fa-check"></i><b>3.3</b> Public data repositories</a><ul>
@@ -151,7 +152,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#basic-data-structures"><i class="fa fa-check"></i><b>7.4</b> Basic data structures</a></li>
 <li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.5</b> More information</a></li>
-<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a></li>
+<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-basics"><i class="fa fa-check"></i><b>7.6.1</b> S4 Basics</a></li>
+<li class="chapter" data-level="7.6.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-case-studies"><i class="fa fa-check"></i><b>7.6.2</b> S4 Case Studies</a></li>
+<li class="chapter" data-level="7.6.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-exercises"><i class="fa fa-check"></i><b>7.6.3</b> S4 Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="7.7" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.7</b> Grammer of Graphics (ggplot2)</a><ul>
 <li class="chapter" data-level="7.7.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.7.1</b> What is ggplot2?</a></li>
 <li class="chapter" data-level="7.7.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.7.2</b> Principles of ggplot2</a></li>
@@ -223,8 +228,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>20.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="21" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>21</b> Introduction</a></li>
-<li class="chapter" data-level="22" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>22</b> Literature</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -248,6 +251,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="introduction-rbioconductor" class="section level1">
 <h1><span class="header-section-number">7</span> Introduction R/Bioconductor</h1>
 <p><a href="http://www.bioconductor.org/help/course-materials/2010/AdvancedR/S4InBioconductor.pdf">Presentation</a></p>
+<ul>
+<li>R/Rstudio parts</li>
+<li>Data Types and classes</li>
+<li>Packages and where to get them</li>
+<li>S3 vs S4</li>
+<li>Visualizations and ggplot</li>
+</ul>
 <div id="installing-packages" class="section level2">
 <h2><span class="header-section-number">7.1</span> Installing packages</h2>
 <div id="cran" class="section level3">
@@ -347,7 +357,7 @@ b</code></pre></div>
 reds</code></pre></div>
 <pre><code>## [1] &quot;red&quot;     &quot;#FF0000&quot; &quot;#FF0000&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">col=</span>reds, <span class="dt">names=</span><span class="kw">c</span>(<span class="st">&quot;by_name&quot;</span>, <span class="st">&quot;by_rgb&quot;</span>, <span class="st">&quot;by_hsv&quot;</span>))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-22-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-24-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="logical" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Logical</h3>
@@ -521,6 +531,15 @@ ll</code></pre></div>
 <li>Class Union &amp; Group Generic (Rle)</li>
 </ul></li>
 </ul>
+<div id="s4-basics" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> S4 Basics</h3>
+</div>
+<div id="s4-case-studies" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> S4 Case Studies</h3>
+</div>
+<div id="s4-exercises" class="section level3">
+<h3><span class="header-section-number">7.6.3</span> S4 Exercises</h3>
+</div>
 </div>
 <div id="grammer-of-graphics-ggplot2" class="section level2">
 <h2><span class="header-section-number">7.7</span> Grammer of Graphics (ggplot2)</h2>
@@ -559,7 +578,7 @@ counts</code></pre></div>
 ## 9     gene9    14    12    11     7    10    10     8    14     7     10
 ## 10   gene10    11    10     9     7    11    16     8     7     7      4</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cell1, <span class="dt">y =</span> cell2))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-36-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-38-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Let’s take a closer look at the final command, <code>ggplot(data = counts, mapping = aes(x = cell1, y = cell2))</code>. <code>ggplot()</code> initialises a ggplot object and takes the arguments <code>data</code> and <code>mapping</code>. We pass our dataframe of counts to <code>data</code> and use the <code>aes()</code> function to specify that we would like to use the variable cell1 as our x variable and the variable cell2 as our y variable.</p>
 <p>Task 1: Modify the command above to initialise a ggplot object where cell10 is the x variable and cell8 is the y variable.</p>
 <p>Clearly, the plots we have just created are not very informative because no data is displayed on them. To display data, we will need to use geoms.</p>
@@ -569,7 +588,7 @@ counts</code></pre></div>
 <p>We can use geoms to specify how we would like data to be displayed on our graphs. For example, our choice of geom could specify that we would like our data to be displayed as a scatterplot, a barplot or a boxplot.</p>
 <p>Let’s see how our graph would look as a scatterplot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> counts, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cell1, <span class="dt">y =</span> cell2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-37-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Now we can see that there doesn’t seem to be any correlation between gene expression in cell1 and cell2. Given we generated <code>counts</code> randomly, this isn’t too surprising.</p>
 <p>Task 2: Modify the command above to create a line plot. Hint: execute <code>?ggplot</code> and scroll down the help page. At the bottom is a link to the ggplot package index. Scroll through the index until you find the geom options.</p>
 </div>
@@ -588,7 +607,7 @@ counts</code></pre></div>
 ## 6    gene6   cell1     12</code></pre>
 <p>Essentially, the problem before was that our data was not tidy because one variable (Cell_ID) was spread over multiple columns. Now that we’ve fixed this problem, it is much easier for us to plot data from all 10 cells on one graph.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(counts,<span class="kw">aes</span>(<span class="dt">x=</span>Cell_ID, <span class="dt">y=</span>Counts)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-41-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Task 3: Use the updated <code>counts</code> dataframe to plot a barplot with Cell_ID as the x variable and Counts as the y variable. Hint: you may find it helpful to read <code>?geom_bar</code>.</p>
 <p>Task 4: Use the updated <code>counts</code> dataframe to plot a scatterplot with Gene_ids as the x variable and Counts as the y variable.</p>
 </div>
@@ -619,7 +638,7 @@ test[<span class="dv">15</span><span class="op">:</span><span class="dv">20</spa
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggfortify)
 Principal_Components&lt;-<span class="kw">prcomp</span>(test)
 <span class="kw">autoplot</span>(Principal_Components, <span class="dt">label=</span><span class="ot">TRUE</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-42-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-44-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Task 6: Compare your clusters to the pheatmap clusters. Are they related? (Hint: have a look at the gene tree for the first pheatmap we plotted)</p>
 <p>Task 7: Produce a heatmap and PCA plot for <code>counts</code> (below):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)

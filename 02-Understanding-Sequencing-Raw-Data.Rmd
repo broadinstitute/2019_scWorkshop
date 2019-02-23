@@ -11,6 +11,14 @@ output: html_document
 
 ### Common Linux Commands
 
+
+redirect command ">"
+pipe command "|"
+
+```{bash, eval=FALSE}
+man <COMMAND>
+```
+
 ```{bash, eval=FALSE}
 ls .
 ```
@@ -21,6 +29,8 @@ cd
 
 ```{bash, eval=FALSE}
 cat
+
+zcat
 ```
 
 
@@ -39,6 +49,29 @@ mkdir
 ```
 
 
+```{bash, eval=FALSE}
+wget
+```
+
+
+### Lab 1a
+
+  - check the your present directory
+    - <code> pwd </code>
+  - make a directory called data
+    - <code> mkdir data </code>
+  - change into data directory
+    - <code> cd data </code>
+  - check manual page of wget command
+    - <code> man wget </code>
+  - redirect wget maunual page output into a file called wget.txt
+    - <code> man wget > wget.txt </code>
+  - return the lines that contain output in the wget.txt file
+    - <code> cat wget.txt | grep output </code> OR
+    - <code> grep -i output wget.txt </code>
+
+
+
 ## File formats
 
   - bcl
@@ -51,7 +84,7 @@ mkdir
 
 ### Cellranger/10x
 
-#### Lab 1a
+#### Lab 1b
 
   - Create data directory
   - get 10x PBMC data
@@ -71,13 +104,29 @@ cd ..
 
 ### GEO
 
-#### Lab 1b
  - https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81905
 
 
+#### Lab 1c
+
+**Get GEO Data**
+  - ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL19057_series_matrix.txt.gz
+  - ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL17021_series_matrix.txt.gz
+
+
+ - make a directory for the files
+ - go into that directory
+ - get files and place them in the directory
+ - View files (try keeping in compressed format and view that way)
+ 
+ 
 ### Single Cell Portal
 
   - https://portals.broadinstitute.org/single_cell
 
+  - Study: Salk Institute - Single-cell Methylome Sequencing Identifies Distinct Neuronal Populations in Mouse Frontal Cortex
 
-#### Lab 1c
+#### Lab 1d
+
+  - Get R2 fastq file from the Salk Institute study 
+  - Look at files

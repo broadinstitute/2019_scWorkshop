@@ -13,7 +13,12 @@ opts_chunk$set(out.width='90%', fig.align = 'center')
 [Presentation](http://www.bioconductor.org/help/course-materials/2010/AdvancedR/S4InBioconductor.pdf)
 
 
-
+  - R/Rstudio parts
+  - Data Types and classes
+  - Packages and where to get them
+  - S3 vs S4
+  - Visualizations and ggplot
+  
 
 ## Installing packages
 
@@ -303,7 +308,27 @@ You can get more information about any R commands relevant to these datatypes us
     - Build or Reuse? (CompresssedIRangesList)
     - Class Union & Group Generic (Rle)
     
-    
+
+### S4 Basics
+
+```{r s4_basics}
+
+```
+
+### S4 Case Studies
+
+```{r s4_case_studies}
+
+```
+
+
+### S4 Exercises
+
+```{r s4_exercises}
+
+```
+
+
     
 ## Grammer of Graphics (ggplot2)
 

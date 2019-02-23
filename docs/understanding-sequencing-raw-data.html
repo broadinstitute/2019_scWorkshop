@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-22">
+<meta name="date" content="2019-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,6 +123,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html"><i class="fa fa-check"></i><b>3</b> Understanding Sequencing Raw Data</a><ul>
 <li class="chapter" data-level="3.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#shell-and-unix-commands"><i class="fa fa-check"></i><b>3.1</b> Shell and Unix commands</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#common-linux-commands"><i class="fa fa-check"></i><b>3.1.1</b> Common Linux Commands</a></li>
+<li class="chapter" data-level="3.1.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#lab-1a"><i class="fa fa-check"></i><b>3.1.2</b> Lab 1a</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#file-formats"><i class="fa fa-check"></i><b>3.2</b> File formats</a></li>
 <li class="chapter" data-level="3.3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#public-data-repositories"><i class="fa fa-check"></i><b>3.3</b> Public data repositories</a><ul>
@@ -151,7 +152,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#basic-data-structures"><i class="fa fa-check"></i><b>7.4</b> Basic data structures</a></li>
 <li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.5</b> More information</a></li>
-<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a></li>
+<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-basics"><i class="fa fa-check"></i><b>7.6.1</b> S4 Basics</a></li>
+<li class="chapter" data-level="7.6.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-case-studies"><i class="fa fa-check"></i><b>7.6.2</b> S4 Case Studies</a></li>
+<li class="chapter" data-level="7.6.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-exercises"><i class="fa fa-check"></i><b>7.6.3</b> S4 Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="7.7" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.7</b> Grammer of Graphics (ggplot2)</a><ul>
 <li class="chapter" data-level="7.7.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.7.1</b> What is ggplot2?</a></li>
 <li class="chapter" data-level="7.7.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.7.2</b> Principles of ggplot2</a></li>
@@ -223,8 +228,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>20.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="21" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>21</b> Introduction</a></li>
-<li class="chapter" data-level="22" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>22</b> Literature</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -253,12 +256,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </iframe>
 <div id="common-linux-commands" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Common Linux Commands</h3>
+<p>redirect command “&gt;” pipe command “|”</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">man</span> <span class="op">&lt;</span>COMMAND<span class="op">&gt;</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> .</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span>
+
+<span class="fu">zcat</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">grep</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">more</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span></code></pre></div>
+</div>
+<div id="lab-1a" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Lab 1a</h3>
+<ul>
+<li>check the your present directory
+<ul>
+<li><code> pwd </code></li>
+</ul></li>
+<li>make a directory called data
+<ul>
+<li><code> mkdir data </code></li>
+</ul></li>
+<li>change into data directory
+<ul>
+<li><code> cd data </code></li>
+</ul></li>
+<li>check manual page of wget command
+<ul>
+<li><code> man wget </code></li>
+</ul></li>
+<li>redirect wget maunual page output into a file called wget.txt
+<ul>
+<li><code> man wget &gt; wget.txt </code></li>
+</ul></li>
+<li>return the lines that contain output in the wget.txt file
+<ul>
+<li><code> cat wget.txt | grep output </code> OR</li>
+<li><code> grep -i output wget.txt </code></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="file-formats" class="section level2">
@@ -275,8 +313,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.3</span> Public data repositories</h2>
 <div id="cellranger10x" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Cellranger/10x</h3>
-<div id="lab-1a" class="section level4">
-<h4><span class="header-section-number">3.3.1.1</span> Lab 1a</h4>
+<div id="lab-1b" class="section level4">
+<h4><span class="header-section-number">3.3.1.1</span> Lab 1b</h4>
 <ul>
 <li>Create data directory</li>
 <li>get 10x PBMC data</li>
@@ -288,20 +326,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="geo" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> GEO</h3>
-<div id="lab-1b" class="section level4">
-<h4><span class="header-section-number">3.3.2.1</span> Lab 1b</h4>
 <ul>
 <li><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81905" class="uri">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81905</a></li>
+</ul>
+<div id="lab-1c" class="section level4">
+<h4><span class="header-section-number">3.3.2.1</span> Lab 1c</h4>
+<p><strong>Get GEO Data</strong> - <a href="ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL19057_series_matrix.txt.gz" class="uri">ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL19057_series_matrix.txt.gz</a> - <a href="ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL17021_series_matrix.txt.gz" class="uri">ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL17021_series_matrix.txt.gz</a></p>
+<ul>
+<li>make a directory for the files</li>
+<li>go into that directory</li>
+<li>get files and place them in the directory</li>
+<li>View files (try keeping in compressed format and view that way)</li>
 </ul>
 </div>
 </div>
 <div id="single-cell-portal" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Single Cell Portal</h3>
 <ul>
-<li><a href="https://portals.broadinstitute.org/single_cell" class="uri">https://portals.broadinstitute.org/single_cell</a></li>
+<li><p><a href="https://portals.broadinstitute.org/single_cell" class="uri">https://portals.broadinstitute.org/single_cell</a></p></li>
+<li><p>Study: Salk Institute - Single-cell Methylome Sequencing Identifies Distinct Neuronal Populations in Mouse Frontal Cortex</p></li>
 </ul>
-<div id="lab-1c" class="section level4">
-<h4><span class="header-section-number">3.3.3.1</span> Lab 1c</h4>
+<div id="lab-1d" class="section level4">
+<h4><span class="header-section-number">3.3.3.1</span> Lab 1d</h4>
+<ul>
+<li>Get R2 fastq file from the Salk Institute study</li>
+<li>Look at files</li>
+</ul>
 
 </div>
 </div>

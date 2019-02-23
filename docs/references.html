@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-22">
+<meta name="date" content="2019-02-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +35,7 @@
   
   
 <link rel="prev" href="single-cell-resources.html">
-<link rel="next" href="intro.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -123,6 +123,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html"><i class="fa fa-check"></i><b>3</b> Understanding Sequencing Raw Data</a><ul>
 <li class="chapter" data-level="3.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#shell-and-unix-commands"><i class="fa fa-check"></i><b>3.1</b> Shell and Unix commands</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#common-linux-commands"><i class="fa fa-check"></i><b>3.1.1</b> Common Linux Commands</a></li>
+<li class="chapter" data-level="3.1.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#lab-1a"><i class="fa fa-check"></i><b>3.1.2</b> Lab 1a</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#file-formats"><i class="fa fa-check"></i><b>3.2</b> File formats</a></li>
 <li class="chapter" data-level="3.3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#public-data-repositories"><i class="fa fa-check"></i><b>3.3</b> Public data repositories</a><ul>
@@ -151,7 +152,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#basic-data-structures"><i class="fa fa-check"></i><b>7.4</b> Basic data structures</a></li>
 <li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.5</b> More information</a></li>
-<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a></li>
+<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.6</b> Bioconductor S4 Classes</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-basics"><i class="fa fa-check"></i><b>7.6.1</b> S4 Basics</a></li>
+<li class="chapter" data-level="7.6.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-case-studies"><i class="fa fa-check"></i><b>7.6.2</b> S4 Case Studies</a></li>
+<li class="chapter" data-level="7.6.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-exercises"><i class="fa fa-check"></i><b>7.6.3</b> S4 Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="7.7" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.7</b> Grammer of Graphics (ggplot2)</a><ul>
 <li class="chapter" data-level="7.7.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.7.1</b> What is ggplot2?</a></li>
 <li class="chapter" data-level="7.7.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.7.2</b> Principles of ggplot2</a></li>
@@ -223,8 +228,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="20.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>20.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="21" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>21</b> Introduction</a></li>
-<li class="chapter" data-level="22" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>22</b> Literature</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -248,14 +251,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
+<div id="refs" class="references">
+<div>
+<p>Hedlund, Eva, and Qiaolin Deng. 2018. “Single-Cell Rna Sequencing: Technical Advancements and Biological Applications.” <em>Molecular Aspects of Medicine</em> 59. Elsevier: 36–46.</p>
+</div>
+<div>
+<p>Ji, Zhicheng, and Hongkai Ji. 2016. “TSCAN: Pseudo-Time Reconstruction and Evaluation in Single-Cell Rna-Seq Analysis.” <em>Nucleic Acids Research</em> 44 (13). Oxford University Press: e117–e117.</p>
+</div>
+<div>
+<p>Saelens, Wouter, Robrecht Cannoodt, Helena Todorov, and Yvan Saeys. 2018. “A Comparison of Single-Cell Trajectory Inference Methods: Towards More Accurate and Robust Tools.” <em>bioRxiv</em>. Cold Spring Harbor Laboratory, 276907.</p>
+</div>
+<div>
+<p>Soneson, Charlotte, and Mark D Robinson. 2018. “Bias, Robustness and Scalability in Single-Cell Differential Expression Analysis.” <em>Nature Methods</em> 15 (4). Nature Publishing Group: 255.</p>
+</div>
+<div>
+<p>Street, Kelly, Davide Risso, Russell B Fletcher, Diya Das, John Ngai, Nir Yosef, Elizabeth Purdom, and Sandrine Dudoit. 2018. “Slingshot: Cell Lineage and Pseudotime Inference for Single-Cell Transcriptomics.” <em>BMC Genomics</em> 19 (1). BioMed Central: 477.</p>
+</div>
+<div>
+<p>Trapnell, Cole, Davide Cacchiarelli, Jonna Grimsby, Prapti Pokharel, Shuqiang Li, Michael Morse, Niall J Lennon, Kenneth J Livak, Tarjei S Mikkelsen, and John L Rinn. 2014. “The Dynamics and Regulators of Cell Fate Decisions Are Revealed by Pseudotemporal Ordering of Single Cells.” <em>Nature Biotechnology</em> 32 (4). Nature Publishing Group: 381.</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="single-cell-resources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="single-cell-resources.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
