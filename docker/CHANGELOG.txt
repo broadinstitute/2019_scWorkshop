@@ -3,3 +3,4 @@
 0.0.3: issues with SRAtools, removed from image
 0.0.4: Included FASTQC, IGViewr and the R package liger
 0.0.5: Installed Samtools
+0.0.6: Included Rmarkdown in the R package install

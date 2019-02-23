@@ -7,7 +7,7 @@ output: html_document
 
 ## Google Slides
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT6PPJ9MLfG9Ri71Tn_BG0Ko8te2WPPf5pgeaMaopRwdfGqv3WkKWiuxXD86rXpR-5DSA62QvmOKJd4/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT6PPJ9MLfG9Ri71Tn_BG0Ko8te2WPPf5pgeaMaopRwdfGqv3WkKWiuxXD86rXpR-5DSA62QvmOKJd4/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ## Gene sets and signatures
 

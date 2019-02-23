@@ -12,7 +12,7 @@ output: html_document
 
 ## Google Slides
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuzaq2kbvEEc3mrUwILcCHuovrKKZWU45EQVEzWISgRVgl3A5KYR1FuY1cS2w0DHG-0wO19zGtvaNj/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuzaq2kbvEEc3mrUwILcCHuovrKKZWU45EQVEzWISgRVgl3A5KYR1FuY1cS2w0DHG-0wO19zGtvaNj/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ## Comparison Abstract
 

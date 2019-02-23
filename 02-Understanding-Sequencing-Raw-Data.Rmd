@@ -5,15 +5,11 @@ output: html_document
 
 # Understanding Sequencing Raw Data
 
-## Google Slides
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSavPAPY3WXe2EiqaRXJmAajFTeGcRbD1qJq4Sp4YlcF1_m7I1X89D1uC-8jDDGinqFLNO2oJNALbNx/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+## Shell and Unix commands
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSavPAPY3WXe2EiqaRXJmAajFTeGcRbD1qJq4Sp4YlcF1_m7I1X89D1uC-8jDDGinqFLNO2oJNALbNx/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
-
-## R Chunks
-Lab based around data wrangling from public data repositories: get data from 10x website, single cell portal, from GEO (fastqs, counts)
-
-## Common Linux Commands
+### Common Linux Commands
 
 ```{bash, eval=FALSE}
 ls .
@@ -42,8 +38,46 @@ more
 mkdir
 ```
 
-## Raw file formats
 
-## GEO
+## File formats
 
-## Single Cell Portal
+  - bcl
+  - fastq
+  - bam
+  - mtx, tsv
+  - hdf5 (.h5, .h5ad)
+
+## Public data repositories
+
+### Cellranger/10x
+
+#### Lab 1a
+
+  - Create data directory
+  - get 10x PBMC data
+  - unzip data
+  - explore directory
+  - explore files
+
+```{bash, echo = FALSE, eval = FALSE}
+mkdir data
+wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd ..
+```
+
+
+
+
+### GEO
+
+#### Lab 1b
+ - https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81905
+
+
+### Single Cell Portal
+
+  - https://portals.broadinstitute.org/single_cell
+
+
+#### Lab 1c

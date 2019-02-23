@@ -11,6 +11,7 @@ install.packages("Seurat")
 install.packages("BiocManager")
 install.packages("devtools")
 install.packages('umap')
+install.packages('rmarkdown')
 
 ## Bioconductor Packages
 BiocManager::install("SingleCellExperiment", version = "3.8", update = FALSE)
