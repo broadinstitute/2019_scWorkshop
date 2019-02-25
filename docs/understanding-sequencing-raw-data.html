@@ -123,7 +123,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html"><i class="fa fa-check"></i><b>3</b> Understanding Sequencing Raw Data</a><ul>
 <li class="chapter" data-level="3.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#class-environment"><i class="fa fa-check"></i><b>3.1</b> Class Environment</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#getting-into-aws-instance"><i class="fa fa-check"></i><b>3.1.1</b> Getting into AWS Instance</a></li>
-<li class="chapter" data-level="3.1.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#rstudio"><i class="fa fa-check"></i><b>3.1.2</b> Rstudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#shell-and-unix-commands"><i class="fa fa-check"></i><b>3.2</b> Shell and Unix commands</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#common-linux-commands"><i class="fa fa-check"></i><b>3.2.1</b> Common Linux Commands</a></li>
@@ -264,9 +263,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co">## Actual Command</span>
 <span class="fu">ssh</span> i berlin.pem ubuntu@34.213.180.241</code></pre></div>
-</div>
-<div id="rstudio" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Rstudio</h3>
+<!--
+### Rstudio
+
+
+-->
 </div>
 </div>
 <div id="shell-and-unix-commands" class="section level2">
@@ -282,12 +283,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pwd</code></pre></div>
 <ul>
+<li>check history</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">history</code></pre></div>
+<ul>
+<li>pipe history to grep to search for the cd command</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">history <span class="op">|</span><span class="st"> </span>grep cd</code></pre></div>
+<ul>
+<li>put history into a history.txt file</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">history <span class="op">&gt;</span><span class="st"> </span>history.txt</code></pre></div>
+<ul>
 <li>make a directory called data</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mkdir data</code></pre></div>
 <ul>
 <li><p>change into data directory</p></li>
+<li><p>move history.txt file into data directory</p></li>
 <li><p>check manual page of wget command</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">man</span> wget</code></pre></div>
+<ul>
 <li><p>redirect wget maunual page output into a file called wget.txt</p></li>
 <li><p>return the lines that contain output in the wget.txt file</p></li>
 <li><p>Compress wget.txt file</p></li>
@@ -296,6 +313,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="docker-commands" class="section level4">
 <h4><span class="header-section-number">3.2.1.2</span> Docker Commands</h4>
+<p>Consistent compute enviornment to ensure all software that you need is on the machine and able to be used.</p>
+<ul>
+<li>change directory to your user directory</li>
+<li>run following command to start docker</li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">## maybe take away the --rm so they can save the container for later</span>
 
 <span class="fu">sudo</span> docker run --rm -it -v <span class="va">$PWD</span>/Share:/Share kdgosik/scellbern2019 bash</code></pre></div>
