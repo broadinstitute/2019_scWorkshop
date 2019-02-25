@@ -38,7 +38,10 @@ docker pull kdgosik/scellbern2019:latest
 ### Running Rstudio in Docker
 
 ```{sh}
-docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019
+sudo docker run --rm -it -e PASSWORD=train \
+-v $PWD/Share:/Share \
+-v $PWD:/home \
+-p 9000:8787 kdgosik/scellbern2019 bash
 ```
 
 **Explaination of commands**
@@ -100,5 +103,5 @@ devtools::install_github('MacoskoLab/liger')
 Same command as above but add the option bash at the end to access the ternimal in the docker container.
 
 ```{sh}
-docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019 bash
+sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern2019 bash
 ```

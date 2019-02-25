@@ -325,7 +325,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">## run from your home directory</span>
 
 <span class="fu">sudo</span> docker run --rm -it -v <span class="va">$PWD</span>/Share:/Share -v <span class="va">$PWD</span>:/home kdgosik/scellbern2019 bash</code></pre></div>
-<p><strong>Explaination of commands</strong> - docker: command to run docker - run: asking docker to run a container - –rm: flag to remove the container when you exit from it - nothing will be saved from your session to access again later - this flag can be removed to keep container - -it: flag to run the container interactively - this will keep all session output displaying on the terminal - to stop container go to terminal and press Crtl+c -v $PWD/Share:/Share: map the share directory from AWS to Share inside docker container -v $PWD:/home: map your home directory to a directory inside docker container called home - kdgosik/scellbern2019: the image to run. It will be the image into a container if not already built on your computer - <a href="https://hub.docker.com/r/kdgosik/scellbern2019">image link</a></p>
+<p><strong>Explaination of commands</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  <span class="ex">-</span> docker: command to run docker
+  <span class="ex">-</span> run: asking docker to run a container
+  <span class="ex">-</span> --rm: flag to remove the container when you exit from it
+      <span class="ex">-</span> nothing will be saved from your session to access again later
+      <span class="ex">-</span> this flag can be removed to keep container
+  <span class="ex">-</span> -it: flag to run the container interactively
+    <span class="ex">-</span> this will keep all session output displaying on the terminal
+    <span class="ex">-</span> to stop container go to terminal and press Crtl+c
+    <span class="ex">-v</span> <span class="va">$PWD</span>/Share:/Share: map the share directory from AWS to Share inside docker container
+    <span class="ex">-v</span> <span class="va">$PWD</span>:/home: map your home directory to a directory inside docker container called home
+  <span class="ex">-</span> kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
+    <span class="ex">-</span> [image link](https://hub.docker.com/r/kdgosik/scellbern2019)</code></pre></div>
 </div>
 </div>
 </div>
