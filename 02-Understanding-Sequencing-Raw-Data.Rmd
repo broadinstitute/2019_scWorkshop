@@ -14,7 +14,7 @@ output: html_document
 ssh -i berlin.pem ubuntu@<PUBLIC IP ADDRESS> (e.g.34.219.254.245)
 
 ## Actual Command
-ssh i berlin.pem ubuntu@34.213.180.241
+ssh -i berlin.pem ubuntu@34.213.180.241
 ```
 
 <!--
@@ -38,37 +38,37 @@ sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolde
 #### Lab 1a
 
   - check the your present directory
-```{r, eval = FALSE}
+```{bash, eval = FALSE}
 pwd
 ```
 
   - check history
-```{r, eval = FALSE}
+```{bash, eval = FALSE}
 history
 ```
 
   - pipe history to grep to search for the cd command
-```{r, eval = FALSE}
+```{bash, eval = FALSE}
 history | grep cd
 ```
 
   - put history into a history.txt file
-```{r, eval = FALSE}
+```{bash, eval = FALSE}
 history > history.txt
 ```
 
   - make a directory called data
-```{r, eval = FALSE}
+```{bash, eval = FALSE}
 mkdir data
 ```
 
   - change into data directory
-```{r, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 cd data
 ```
 
   - move history.txt file into data directory
-```{r, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 mv ../history.txt ./
 ```
 
@@ -78,36 +78,36 @@ man wget
 ```
 
   - redirect wget maunual page output into a file called wget.txt
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 man wget > wget.txt
 ```
 
   - return the lines that contain output in the wget.txt file
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 cat wget.txt | grep output
 ```
 
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 grep -i output wget.txt
 ```
 
   - Compress wget.txt file
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 gzip wget.txt
 ```
 
   - View Compressed file
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 cat wget.txt.qz
 ```
   
 
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 zcat wget.txt.qz
 ```
 
 
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 zcat wget.txt.qz | less
 ```
 
@@ -133,10 +133,10 @@ sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolde
 ```
 
 ```{bash, eval = FALSE}
-## maybe take away the --rm so they can save the container for later
+## maybe take away the --rm so you can save the container for later
 ## run from your home directory
-
-sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern2019 bash
+cd 
+docker run --rm -it -v $PWD/Share:/Share -v $PWD:/mydir kdgosik/scellbern2019 bash
 ```
 
 **Explaination of commands**
@@ -150,7 +150,7 @@ sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern201
     - this will keep all session output displaying on the terminal
     - to stop container go to terminal and press Crtl+c
     -v $PWD/Share:/Share: map the share directory from AWS to Share inside docker container
-    -v $PWD:/home: map your home directory to a directory inside docker container called home
+    -v $PWD:/mydir: map your home directory to a directory inside docker container called home
   - kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 ```
@@ -167,19 +167,19 @@ sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern201
 
 #### Viewing entire file
 ```{bash, eval = FALSE}
-cat Teichmann_2i_2_2_2.fastq
+cat /Share/data/Teichmann_2i_2_2_2.fastq
 ```
 
 #### Viewing first 10 lines
 
 ```{bash, eval = FALSE}
-head Teichmann_2i_2_2_2.fastq
+head /Share/data/Teichmann_2i_2_2_2.fastq
 ```
 
 #### Stream Viewing with less command
 
 ```{bash, eval = FALSE}
-less Teichmann_2i_2_2_2.fastq
+less /Share/data/Teichmann_2i_2_2_2.fastq
 ```
 
 
@@ -188,13 +188,13 @@ less Teichmann_2i_2_2_2.fastq
 #### Viewing first 10 lines
 
 ```{bash, eval = FALSE}
-samtools view pbmc_1k_protein_v3_possorted_genome_bam.bam | head
+samtools view /Share/data/pbmc_1k_protein_v3_possorted_genome_bam.bam | head
 ```
 
 #### Stream Viewing with less command
 
 ```{bash, eval = FALSE}
-samtools view pbmc_1k_protein_v3_possorted_genome_bam.bam | less
+samtools view /Share/data/pbmc_1k_protein_v3_possorted_genome_bam.bam | less
 ```
 
 
@@ -214,7 +214,7 @@ samtools view pbmc_1k_protein_v3_possorted_genome_bam.bam | less
   - explore files
 
 
-```{bash, echo = FALSE, eval = FALSE}
+```{bash, eval = FALSE}
 mkdir data
 wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
 cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
@@ -239,7 +239,13 @@ cd ..
  - get files and place them in the directory
  - View files (try keeping in compressed format and view that way)
  
- 
+ ```{bash, eval = FALSE}
+cd data
+wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd ..
+```
+
 ### Single Cell Portal
 
   - https://portals.broadinstitute.org/single_cell

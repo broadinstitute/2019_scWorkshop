@@ -31,16 +31,16 @@ All additional software is included in the /usr/local/src directory inside the d
 
 The first thing you will need to do is pull the docker image to your computer.  You do this by running the command:
 
-```{sh}
+```{bash}
 docker pull kdgosik/scellbern2019:latest
 ```
 
 ### Running Rstudio in Docker
 
-```{sh}
+```{bash}
 sudo docker run --rm -it -e PASSWORD=train \
 -v $PWD/Share:/Share \
--v $PWD:/home \
+-v $PWD:/mydir \
 -p 9000:8787 kdgosik/scellbern2019 bash
 ```
 
@@ -102,6 +102,6 @@ devtools::install_github('MacoskoLab/liger')
 
 Same command as above but add the option bash at the end to access the ternimal in the docker container.
 
-```{sh}
-sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern2019 bash
+```{bash}
+sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/mydir kdgosik/scellbern2019 bash
 ```

@@ -10,14 +10,64 @@ opts_chunk$set(out.width='90%', fig.align = 'center')
 
 
 # Introduction R/Bioconductor
-[Presentation](http://www.bioconductor.org/help/course-materials/2010/AdvancedR/S4InBioconductor.pdf)
 
+```{bash, eval = FALSE, echo = FALSE}
+mkdir data
+wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
+cd ..
+```
+
+## Start Environment
+
+```{bash, eval = FALSE}
+## maybe take away the --rm so they can save the container for later
+## run from your home directory
+cd 
+
+## example for user17
+docker run --rm -it -e PASSWORD=train \
+  -v $PWD/Share:/Share \
+  -v $PWD:/mydir \
+  -p 9017:8787 kdgosik/scellbern2019
+```
+
+**Explaination of commands**
+```{bash, eval = FALSE}
+  - docker: command to run docker
+  - run: asking docker to run a container
+  - --rm: flag to remove the container when you exit from it
+      - nothing will be saved from your session to access again later
+      - this flag can be removed to keep container
+  - -it: flag to run the container interactively
+  - - this will keep all session output displaying on the terminal
+  - - to stop container go to terminal and press Crtl+c
+  - -v $PWD/Share:/Share: map the share directory from AWS to Share inside docker container
+  - -v $PWD:/mydir: map your home directory to a directory inside docker container called home
+  - -p 9017:8787: map docker container port of 8787(rstudio port default) to your computer port 9017
+  - kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
+    - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
+```
+
+[localhost:9017](https://localhost:9017)
+or on AWS
+[<AWS PUBLIC IP ADDRESS>:9017](https://:9017)
 
   - R/Rstudio parts
   - Data Types and classes
   - Packages and where to get them
   - S3 vs S4
   - Visualizations and ggplot
+  
+  
+  - Installing packages
+  - Data-types
+  - Data manipulation, slicing
+  - Strings manipulations
+  - Introducing object oriented programming / S4 objects
+  - Visualization tools
+  - Bonus create FeaturePlot from Seurat in base ggplot
+  - Bonus: run RSEM on Dana’s bam files if you are bored 
   
 
 ## Installing packages
@@ -28,7 +78,10 @@ The Comprehensive R Archive Network [CRAN](https://cran.r-project.org/) is the b
 
 ```{r, eval=FALSE}
 install.packages("devtools")
-require("devtools")
+
+# or multiple packages
+
+install.packages(c("ggplot2", "stringr"))
 ```
 
 ### Github
@@ -36,16 +89,20 @@ require("devtools")
 [Github](https://github.com/) isn't specific to R, any code of any type in any state can be uploaded. There is no guarantee a package uploaded to github will even install, nevermind do what it claims to do. R packages can be downloaded and installed directly from github using the "devtools" package installed above.
 
 ```{r, eval=FALSE}
-devtools::install_github("tallulandrews/M3Drop")
+## username/repository
+devtools::install_github("satijalab/seurat") # latest stable version of Seurat package
 ```
 
 Github is also a version control system which stores multiple versions of any package. By default the most recent "master" version of the package is installed. If you want an older version or the development branch this can be specified using the "ref" parameter:
 
 ```{r, eval=FALSE}
 # different branch
-devtools::install_github("tallulandrews/M3D", ref="nbumi")
+devtools::install_github("satijalab/seurat", ref="release3.0")
+
 # previous commit
-devtools::install_github("tallulandrews/M3Drop", ref="434d2da28254acc8de4940c1dc3907ac72973135")
+## Merge branch 'develop' into feat/MultiModal
+  - Shiwei Zheng committed on Jul 2, 2018
+devtools::install_github("tallulandrews/M3Drop", ref="551014f488770627ab154a62e59d49df5df98a3f")
 ```
 Note: make sure you re-install the M3Drop master branch for later in the course.
 
@@ -56,22 +113,93 @@ Bioconductor is a repository of R-packages specifically for biological analyses.
 
 Bioconductor also requires creators to support their packages and has a regular 6-month release schedule. Make sure you are using the most recent release of bioconductor before trying to install packages for the course.
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 ## >= R 3.5.0
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install("MAST", version = "3.8")
+BiocManager::install("Rsamtools", version = "3.8", ask = FALSE)
 ```
 
 ### Source
-The final way to install packages is directly from source. In this case you have to download a fully built source code file, usually packagename.tar.gz, or clone the github repository and rebuild the package yourself. Generally this will only be done if you want to edit a package yourself, or if for some reason the former methods have failed.
+
+The final way to install packages is directly from source. In this case you have to download a fully built source code file, usually packagename.tar.gz, or clone the github repository and rebuild the package yourself. Generally this will only be done if you want to edit a package yourself, or if for some reason the former methods have failed.  You can also get previous packages that aren't supported any more on the [CRAN package archive](https://cran.r-project.org/)
 
 ```{r, eval=FALSE}
-install.packages("M3Drop_3.05.00.tar.gz", type="source")
+## Get an old package and install from source
+install.packages("GenABEL_1.8-0.tar.gz", type="source")
 ```
 
 ## Installation instructions:
-All the packages necessary for this course are available [here](https://github.com/hemberg-lab/scRNA.seq.course/blob/master/Dockerfile). Starting from "RUN Rscript -e "install.packages('devtools')" ", run each of the commands (minus "RUN") on the command line or start an R session and run each of the commands within the quotation marks. Note the ordering of the installation is important in some cases, so make sure you run them in order from top to bottom. 
+All the packages necessary for this course are available [here](https://github.com/broadinstitute/2019_scWorkshop). A list of the packages will be on the README.md for the repository.  A script is also available inside the docker/install.R file.  
+
+
+
+  - Data structures
+  
+    - 1D
+```{r, eval = FALSE}
+character_vector
+
+numeric_vector
+
+factor_vector
+
+named_vector
+
+```
+
+  - 2D
+```{r, eval = FALSE}
+matrix
+
+sparseMatrix
+
+data.frame
+```
+
+
+  - array/3D or more
+  
+```{r, eval = FALSE}
+array
+
+list
+```
+
+Subsetting
+```{r, eval = FALSE}
+[1]
+['X1']
+$X1
+[['X1]]
+
+[,,1]
+[,,'X1']
+```
+
+Functions
+
+```{r, eval = FALSE}
+
+create_function <- function(x) {
+  
+}
+```
+
+
+S3/S4
+
+  - S3 most of R uses
+  - Bioconductor requires R packages to be written as S4 objects
+  - OO field guide
+
+```{r, eval= FALSE}
+object@
+  
+
+```
+
+<!-- Hemberg Lab Examples
 
 ## Data-types/classes
 
@@ -119,6 +247,7 @@ b = x # variable x
 b
 ```
 
+
 In addition to standard alphanumeric characters, strings can also store various special characters. Special characters are identified using a backlash followed by a single character, the most relevant are the special character for tab : `\t` and new line : `\n`. To demonstrate the these special characters lets concatenate (cat) together two strings with these characters separating (sep) them:
 ```{r}
 cat("Hello", "World", sep= " ")
@@ -138,6 +267,7 @@ Single or double backslash is also used as an `escape` character to turn off spe
 ```{r}
 cat("This \"string\" contains quotation marks.")
 ```
+
 
 Special characters are generally only used in pattern matching, and reading/writing data to files. For instance this is how you would read a tab-separated file into R.
 ```{r, eval=FALSE}
@@ -170,6 +300,8 @@ as.logical(y)
 z = 0
 as.logical(z)
 ```
+
+
 __Exercise 1__
 Experiment with other character and numeric values, which are coerced to TRUE or FALSE? which are coerced to neither? 
 Do you ever throw a warning/error message?
@@ -281,6 +413,8 @@ ll
 
 Lists are most commonly used when returning a large number of results from a function that do not fit into any of the previous data structures. 
 
+-->
+
 ## More information
 
 You can get more information about any R commands relevant to these datatypes using by typing `?function` in an interactive session.
@@ -335,7 +469,32 @@ You can get more information about any R commands relevant to these datatypes us
 
 ### What is ggplot2?
 
-ggplot2 is an R package designed by Hadley Wickham which facilitates data plotting. In this lab, we will touch briefly on some of the features of the package. If you would like to learn more about how to use ggplot2, we would recommend reading "ggplot2 Elegant graphics for data analysis", by Hadley Wickham.
+ggplot2 is an R package designed by Hadley Wickham which facilitates data plotting. In this lab, we will touch briefly on some of the features of the package. If you would like to learn more about how to use ggplot2, we would recommend reading "ggplot2 Elegant graphics for data analysis", by Hadley Wickham or checking out his original paper on the [package](http://vita.had.co.nz/papers/layered-grammar.pdf)
+
+
+  - Data: Always start with the data, identify the dimensions you want to visualize.
+  - Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.
+  - Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?
+  - Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?
+  - Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?
+  - Facets: Do we need to create subplots based on specific data dimensions?
+  - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
+
+
+```{r, eval = FALSE}
+# If you don't have Tmisc installed, first install devtools, then install
+# from github: install.packages('devtools')
+# devtools::install_github('stephenturner/Tmisc')
+library(Tmisc)
+library(ggplot2)
+data(quartet)
+
+p <- ggplot(quartet, aes(x, y)) + geom_point()
+p <- p + geom_smooth(method = lm, se = FALSE)
+p <- p + facet_wrap(~set)
+p
+```
+
 
 
 ### Principles of ggplot2
@@ -344,18 +503,78 @@ ggplot2 is an R package designed by Hadley Wickham which facilitates data plotti
 * Use the `aes` mapping function to specify how variables in the dataframe map to features on your plot
 * Use geoms to specify how your data should be represented on your graph eg. as a scatterplot, a barplot, a boxplot etc.
 
+
+  - Data: Always start with the data, identify the dimensions you want to visualize.
+```{r}
+library(Seurat)
+library(ggplot2)
+
+gbm <- pbmc_small@data
+
+gbm <- as.data.frame(as.matrix(t(gbm)))
+
+ggplot(gbm)
+```
+
+  - Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.
+  
+```{r}
+ggplot(gbm, aes(x = MS4A1))
+```
+
+  - Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?
+  
+  - Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?
+  
+```{r}
+ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
+```
+
+
+  - Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?
+  
+  
+```{r}
+ggplot(gbm, aes(x = MS4A1)) + geom_histogram() + stat_bin(bins = 10)
+```
+
+
+
+
+  
+```{r}
+ggplot(gbm, aes(MS4A1, CD79B)) + geom_point()
+```
+
+```{r}
+ggplot(gbm, aes(MS4A1, CD79B)) + geom_point() + stat_smooth(method = "lm")
+```
+
+
+```{r}
+ggplot(gbm, aes(MS4A1, CD79B)) + geom_point() + stat_smooth(method = "lm") + geom_text(aes(label = rownames(gbm)))
+```
+
+  - Facets: Do we need to create subplots based on specific data dimensions?
+  - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
+
+
+
+
+<!-- Hember Lab Example
+
+
 ### Using the `aes` mapping function
 
 The `aes` function specifies how variables in your dataframe map to features on your plot. To understand how this works, let's look at an example:
 
-```{R, eval=TRUE, message=FALSE}
+```{R, eval=FALSE, message=FALSE}
 library(ggplot2)
-library(tidyverse)
 set.seed(1)
 counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
 Gene_ids <- paste("gene", 1:10, sep = "")
 colnames(counts) <- paste("cell", 1:10, sep = "")
-counts<-data.frame(Gene_ids, counts)
+counts <- data.frame(Gene_ids, counts)
 counts
 ggplot(data = counts, mapping = aes(x = cell1, y = cell2))
 ```
@@ -372,7 +591,7 @@ We can use geoms to specify how we would like data to be displayed on our graphs
 
 Let's see how our graph would look as a scatterplot.
 
-```{R, eval=TRUE}
+```{R, eval=FALSE}
 ggplot(data = counts, mapping = aes(x = cell1, y = cell2)) + geom_point()
 ```
 
@@ -386,14 +605,14 @@ So far we've been considering the gene counts from 2 of the cells in our datafra
 
 At the moment we can't do this because we are treating each individual cell as a variable and assigning that variable to either the x or the y axis. We could create a 10 dimensional graph to plot data from all 10 cells on, but this is a) not possible to do with ggplot and b) not very easy to interpret. What we could do instead is to tidy our data so that we had one variable representing cell ID and another variable representing gene counts, and plot those against each other. In code, this would look like:
 
-```{R, eval=TRUE}
+```{R, eval=FALSE}
 counts<-gather(counts, colnames(counts)[2:11], key = 'Cell_ID', value='Counts')
 head(counts)
 ```
 
 Essentially, the problem before was that our data was not tidy because one variable (Cell_ID) was spread over multiple columns. Now that we've fixed this problem, it is much easier for us to plot data from all 10 cells on one graph.
 
-```{R, eval=TRUE}
+```{R, eval=FALSE}
 ggplot(counts,aes(x=Cell_ID, y=Counts)) + geom_boxplot()
 ```
 
@@ -405,7 +624,7 @@ Task 4: Use the updated `counts` dataframe to plot a scatterplot with Gene_ids a
 
 A common method for visualising gene expression data is with a heatmap. Here we will use the R package `pheatmap` to perform this analysis with some gene expression data we will name `test`.
 
-```{R, eval=TRUE, message=FALSE}
+```{R, eval=FALSE, message=FALSE}
 library(pheatmap)
 set.seed(2)
 test = matrix(rnorm(200), 20, 10)
@@ -423,7 +642,7 @@ This plot also gives us information on the results of a clustering algorithm. In
 
 If we look closely at the trees, we can see that eventually they have the same number of branches as there are cells and genes. In other words, the total number of cell clusters is the same as the total number of cells, and the total number of gene clusters is the same as the total number of genes. Clearly, this is not very informative, and will become impractical when we are looking at more than 10 cells and 20 genes. Fortunately, we can set the number of clusters we see on the plot. Let's try setting the number of gene clusters to 2:
 
-```{R, eval=TRUE}
+```{R, eval=FALSE}
 pheatmap(test, kmeans_k = 2)
 ```
 
@@ -439,7 +658,7 @@ PCA plots are a good way to get an overview of your data, and can sometimes help
 
 Let's make a PCA plot for our `test` data. We can use the  `ggfortify` package to let ggplot know how to interpret principle components.
 
-```{R,eval=TRUE, message=FALSE}
+```{R,eval=FALSE, message=FALSE}
 library(ggfortify)
 Principal_Components<-prcomp(test)
 autoplot(Principal_Components, label=TRUE)
@@ -449,10 +668,25 @@ Task 6: Compare your clusters to the pheatmap clusters. Are they related? (Hint:
 
 Task 7: Produce a heatmap and PCA plot for `counts` (below):
 
-```{R,eval=TRUE}
+```{R,eval=FALSE}
 set.seed(1)
 counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
 rownames(counts) <- paste("gene", 1:10, sep = "")
 colnames(counts) <- paste("cell", 1:10, sep = "")
 ```
 
+-->
+
+
+
+## Reference
+
+  - [R for Data Science](https://r4ds.had.co.nz/)
+  - [Advanced R](http://adv-r.had.co.nz/)
+  - [Bioconductor Workflows](http://bioconductor.org/packages/release/BiocViews.html#___Workflow)
+  - [Bioconductor Presentation](http://www.bioconductor.org/help/course-materials/2010/AdvancedR/S4InBioconductor.pdf)
+  - [Original ggplot2 paper](http://vita.had.co.nz/papers/layered-grammar.pdf)
+  - [ggplot2 reference](https://ggplot2.tidyverse.org/reference/index.html)
+  - [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+  - [blog post](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149)
+  
