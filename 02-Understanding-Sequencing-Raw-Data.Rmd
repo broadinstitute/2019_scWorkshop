@@ -134,8 +134,9 @@ sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolde
 
 ```{bash, eval = FALSE}
 ## maybe take away the --rm so they can save the container for later
+## run from your home directory
 
-sudo docker run --rm -it -v $PWD/Share:/Share kdgosik/scellbern2019 bash
+sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern2019 bash
 ```
 
 **Explaination of commands**
@@ -147,6 +148,8 @@ sudo docker run --rm -it -v $PWD/Share:/Share kdgosik/scellbern2019 bash
   - -it: flag to run the container interactively
     - this will keep all session output displaying on the terminal
     - to stop container go to terminal and press Crtl+c
+    -v $PWD/Share:/Share: map the share directory from AWS to Share inside docker container
+    -v $PWD:/home: map your home directory to a directory inside docker container called home
   - kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 
