@@ -140,6 +140,7 @@ sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern201
 ```
 
 **Explaination of commands**
+```{bash, eval = FALSE}
   - docker: command to run docker
   - run: asking docker to run a container
   - --rm: flag to remove the container when you exit from it
@@ -152,7 +153,7 @@ sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/home kdgosik/scellbern201
     -v $PWD:/home: map your home directory to a directory inside docker container called home
   - kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
-
+```
 
 ## File formats
 
