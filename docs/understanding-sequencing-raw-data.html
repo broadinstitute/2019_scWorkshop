@@ -127,7 +127,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#shell-and-unix-commands"><i class="fa fa-check"></i><b>3.2</b> Shell and Unix commands</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#common-linux-commands"><i class="fa fa-check"></i><b>3.2.1</b> Common Linux Commands</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#file-formats"><i class="fa fa-check"></i><b>3.3</b> File formats</a></li>
+<li class="chapter" data-level="3.3" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#file-formats"><i class="fa fa-check"></i><b>3.3</b> File formats</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#view-fastq-files"><i class="fa fa-check"></i><b>3.3.1</b> View FASTQ Files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#view-bam-files"><i class="fa fa-check"></i><b>3.3.2</b> View BAM Files</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#public-data-repositories"><i class="fa fa-check"></i><b>3.4</b> Public data repositories</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#cellranger10x"><i class="fa fa-check"></i><b>3.4.1</b> Cellranger/10x</a></li>
 <li class="chapter" data-level="3.4.2" data-path="understanding-sequencing-raw-data.html"><a href="understanding-sequencing-raw-data.html#geo"><i class="fa fa-check"></i><b>3.4.2</b> GEO</a></li>
@@ -334,6 +337,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>mtx, tsv</li>
 <li>hdf5 (.h5, .h5ad)</li>
 </ul>
+<div id="view-fastq-files" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> View FASTQ Files</h3>
+<div id="viewing-entire-file" class="section level4">
+<h4><span class="header-section-number">3.3.1.1</span> Viewing entire file</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> Teichmann_2i_2_2_2.fastq</code></pre></div>
+</div>
+<div id="viewing-first-10-lines" class="section level4">
+<h4><span class="header-section-number">3.3.1.2</span> Viewing first 10 lines</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">head</span> Teichmann_2i_2_2_2.fastq</code></pre></div>
+</div>
+<div id="stream-viewing-with-less-command" class="section level4">
+<h4><span class="header-section-number">3.3.1.3</span> Stream Viewing with less command</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">less</span> Teichmann_2i_2_2_2.fastq</code></pre></div>
+</div>
+</div>
+<div id="view-bam-files" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> View BAM Files</h3>
+<div id="viewing-first-10-lines-1" class="section level4">
+<h4><span class="header-section-number">3.3.2.1</span> Viewing first 10 lines</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">samtools</span> view pbmc_1k_protein_v3_possorted_genome_bam.bam <span class="kw">|</span> <span class="fu">head</span></code></pre></div>
+</div>
+<div id="stream-viewing-with-less-command-1" class="section level4">
+<h4><span class="header-section-number">3.3.2.2</span> Stream Viewing with less command</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">samtools</span> view pbmc_1k_protein_v3_possorted_genome_bam.bam <span class="kw">|</span> <span class="fu">less</span></code></pre></div>
+</div>
+</div>
 </div>
 <div id="public-data-repositories" class="section level2">
 <h2><span class="header-section-number">3.4</span> Public data repositories</h2>

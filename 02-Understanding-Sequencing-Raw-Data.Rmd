@@ -158,6 +158,41 @@ sudo docker run --rm -it -v $PWD/Share:/Share kdgosik/scellbern2019 bash
   - bam
   - mtx, tsv
   - hdf5 (.h5, .h5ad)
+  
+### View FASTQ Files
+
+#### Viewing entire file
+```{bash, eval = FALSE}
+cat Teichmann_2i_2_2_2.fastq
+```
+
+#### Viewing first 10 lines
+
+```{bash, eval = FALSE}
+head Teichmann_2i_2_2_2.fastq
+```
+
+#### Stream Viewing with less command
+
+```{bash, eval = FALSE}
+less Teichmann_2i_2_2_2.fastq
+```
+
+
+### View BAM Files
+
+#### Viewing first 10 lines
+
+```{bash, eval = FALSE}
+samtools view pbmc_1k_protein_v3_possorted_genome_bam.bam | head
+```
+
+#### Stream Viewing with less command
+
+```{bash, eval = FALSE}
+samtools view pbmc_1k_protein_v3_possorted_genome_bam.bam | less
+```
+
 
 ## Public data repositories
 
@@ -181,8 +216,6 @@ wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_fil
 cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
 cd ..
 ```
-
-
 
 
 ### GEO
