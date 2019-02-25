@@ -17,6 +17,7 @@ ssh -i berlin.pem ubuntu@<PUBLIC IP ADDRESS> (e.g.34.219.254.245)
 ssh i berlin.pem ubuntu@34.213.180.241
 ```
 
+<!--
 ### Rstudio
 
 ```{bash, eval = FALSE, echo = FALSE}
@@ -26,7 +27,7 @@ docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019
 
 sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolders/Dana:/mydir kdgosik/scellbern2019
 ```
-
+-->
 
 ## Shell and Unix commands
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSavPAPY3WXe2EiqaRXJmAajFTeGcRbD1qJq4Sp4YlcF1_m7I1X89D1uC-8jDDGinqFLNO2oJNALbNx/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
