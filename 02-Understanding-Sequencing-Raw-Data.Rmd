@@ -5,71 +5,124 @@ output: html_document
 
 # Understanding Sequencing Raw Data
 
+## Class Environment
+
+### Getting into AWS Instance
+
+```{bash, eval = FALSE}
+## Example
+ssh -i berlin.pem ubuntu@<PUBLIC IP ADDRESS> (e.g.34.219.254.245)
+
+## Actual Command
+ssh i berlin.pem ubuntu@34.213.180.241
+```
+
+### Rstudio
+
+```{bash, eval = FALSE, echo = FALSE}
+## maybe take away the --rm so they can save the container for later
+## or whatever port
+docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019
+
+sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolders/Dana:/mydir kdgosik/scellbern2019
+```
+
+
 ## Shell and Unix commands
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSavPAPY3WXe2EiqaRXJmAajFTeGcRbD1qJq4Sp4YlcF1_m7I1X89D1uC-8jDDGinqFLNO2oJNALbNx/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 ### Common Linux Commands
 
-
-redirect command ">"
-pipe command "|"
-
-```{bash, eval=FALSE}
-man <COMMAND>
-```
-
-```{bash, eval=FALSE}
-ls .
-```
-
-```{bash, eval=FALSE}
-cd
-```
-
-```{bash, eval=FALSE}
-cat
-
-zcat
-```
-
-
-```{bash, eval=FALSE}
-grep
-```
-
-
-```{bash, eval=FALSE}
-more
-```
-
-
-```{bash, eval=FALSE}
-mkdir
-```
-
-
-```{bash, eval=FALSE}
-wget
-```
-
-
-### Lab 1a
+#### Lab 1a
 
   - check the your present directory
-    - <code> pwd </code>
-  - make a directory called data
-    - <code> mkdir data </code>
-  - change into data directory
-    - <code> cd data </code>
-  - check manual page of wget command
-    - <code> man wget </code>
-  - redirect wget maunual page output into a file called wget.txt
-    - <code> man wget > wget.txt </code>
-  - return the lines that contain output in the wget.txt file
-    - <code> cat wget.txt | grep output </code> OR
-    - <code> grep -i output wget.txt </code>
+```{r, eval = FALSE}
+pwd
+```
 
+  - make a directory called data
+```{r, eval = FALSE}
+mkdir data
+```
+
+  - change into data directory
+```{r, eval = FALSE, echo = FALSE}
+cd data
+```
+
+  - check manual page of wget command
+```{bash, eval = FALSE, echo = FALSE}
+man wget
+```
+
+  - redirect wget maunual page output into a file called wget.txt
+```{bash, eval = FALSE, echo = FALSE}
+man wget > wget.txt
+```
+
+  - return the lines that contain output in the wget.txt file
+```{bash, eval = FALSE, echo = FALSE}
+cat wget.txt | grep output
+```
+
+```{bash, eval = FALSE, echo = FALSE}
+grep -i output wget.txt
+```
+
+  - Compress wget.txt file
+```{bash, eval = FALSE, echo = FALSE}
+gzip wget.txt
+```
+
+  - View Compressed file
+```{bash, eval = FALSE, echo = FALSE}
+cat wget.txt.qz
+```
+  
+
+```{bash, eval = FALSE, echo = FALSE}
+zcat wget.txt.qz
+```
+
+
+```{bash, eval = FALSE, echo = FALSE}
+zcat wget.txt.qz | less
+```
+
+
+
+
+
+#### Docker Commands
+
+```{bash, eval = FALSE, echo = FALSE}
+## maybe take away the --rm so they can save the container for later
+## or whatever port
+docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019 bash
+
+sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data kdgosik/scellbern2019 bash
+
+sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolders/Dana:/mydir kdgosik/scellbern2019 bash
+```
+
+```{bash, eval = FALSE}
+## maybe take away the --rm so they can save the container for later
+
+sudo docker run --rm -it -v $PWD/Share:/Share kdgosik/scellbern2019 bash
+```
+
+**Explaination of commands**
+  - docker: command to run docker
+  - run: asking docker to run a container
+  - --rm: flag to remove the container when you exit from it
+      - nothing will be saved from your session to access again later
+      - this flag can be removed to keep container
+  - -it: flag to run the container interactively
+    - this will keep all session output displaying on the terminal
+    - to stop container go to terminal and press Crtl+c
+  - kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
+    - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 
 
 ## File formats
@@ -86,11 +139,15 @@ wget
 
 #### Lab 1b
 
-  - Create data directory
+10x PBMC data are hosted in https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz
+
+
+  - change directory into the data directory
   - get 10x PBMC data
   - unzip data
   - explore directory
   - explore files
+
 
 ```{bash, echo = FALSE, eval = FALSE}
 mkdir data
@@ -114,7 +171,7 @@ cd ..
   - ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL17021_series_matrix.txt.gz
 
 
- - make a directory for the files
+ - make a directory for the files or use data directory
  - go into that directory
  - get files and place them in the directory
  - View files (try keeping in compressed format and view that way)
@@ -130,3 +187,10 @@ cd ..
 
   - Get R2 fastq file from the Salk Institute study 
   - Look at files
+  
+  
+#### Lab 1e
+
+  - Get Docker on your local computer for you to have 
+  - Explore Single Cell Portal
+  - Explore GEO

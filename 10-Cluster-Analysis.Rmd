@@ -280,24 +280,117 @@ FeaturePlot(object = pbmc, features.plot = c("S100A4", "CCR7"), cols.use = c("gr
 
 ### Differential Expression / Variable Genes
 
+
+#### Variable Genes
+
+```{r, eval = FALSE}
+pbmc <- FindVariableGenes(object = pbmc, mean.function = ExpMean, dispersion.function = LogVMR, 
+    x.low.cutoff = 0.0125, x.high.cutoff = 3, y.cutoff = 0.5)
+```
+
+```{r, eval = FALSE}
+VariableGenePlot(object, do.text = TRUE, cex.use = 0.5,
+cex.text.use = 0.5, do.spike = FALSE, pch.use = 16, col.use = "black",
+spike.col.use = "red", plot.both = FALSE, do.contour = TRUE,
+contour.lwd = 3, contour.col = "white", contour.lty = 2,
+x.low.cutoff = 0.1, x.high.cutoff = 8, y.cutoff = 1,
+y.high.cutoff = Inf)
+```
+
+#### Differential Expression
+
   One of the most commonly performed tasks for RNA-seq data is differential gene expression (DE) analysis. Although well- established tools exist for such analysis in bulk RNA-seq data6–8, methods for scRNA-seq data are just emerging. Given the special characteristics of scRNA-seq data, including generally low library sizes, high noise levels and a large fraction of so-called ‘dropout’ events, it is unclear whether DE methods that have been devel- oped for bulk RNA-seq are suitable also for scRNA-seq
 
+```{r, eval = FALSE}
+## Differential expression using DESeq2
+DESeq2DETest(object, cells.1, cells.2, genes.use = NULL, assay.type = "RNA",
+...)
+
+## Likelihood ratio test for zero-inflated data
+DiffExpTest(object, cells.1, cells.2, assay.type = "RNA", genes.use = NULL,
+print.bar = TRUE)
+
+## t-test
+DiffTTest(object, cells.1, cells.2, genes.use = NULL, print.bar = TRUE,
+assay.type = "RNA")
+```
 
 ### Dimensionality Reduction
 
-#### PCA
+#### Principal Components Analysis (PCA)
 
-####
+```{r, eval = FALSE}
+RunPCA()
+```
+
+### Independent Components Analysis (ICA)
+
+```{r, eval = FALSE}
+RunICA()
+```
+
+
+#### Multidimensional Scaling (MDS)
 
 
 
 ### Clustering
 
 #### Kmeans
+```{r, eval = FALSE}
+DoKMeans(object, genes.use = NULL, k.genes = NULL, k.cells = 0,
+k.seed = 1, do.plot = FALSE, data.cut = 2.5,
+k.cols = PurpleAndYellow(), set.ident = TRUE, do.constrained = FALSE,
+assay.type = "RNA", ...)
+```
 
 #### Louvain
 
-#### Probalistic (LDA)
+```{r, eval = FALSE}
+
+##  Neighborhood graph
+BuildSNN(object, genes.use = NULL, reduction.type = "pca",
+dims.use = NULL, k.param = 10, plot.SNN = FALSE, prune.SNN = 1/15,
+print.output = TRUE, distance.matrix = NULL, force.recalc = FALSE,
+filename = NULL, save.SNN = TRUE, nn.eps = 0)
+
+FindClusters(object, genes.use = NULL, reduction.type = "pca",
+dims.use = NULL, k.param = 30, plot.SNN = FALSE, prune.SNN = 1/15,
+print.output = TRUE, distance.matrix = NULL, save.SNN = FALSE,
+reuse.SNN = FALSE, force.recalc = FALSE, nn.eps = 0,
+modularity.fxn = 1, resolution = 0.8, algorithm = 1, n.start = 100,
+n.iter = 10, random.seed = 0, temp.file.location = NULL,
+edge.file.name = NULL)
+```
+
+
+
+#### Probabilistic (LDA)
+
+```{r, eval = FALSE}
+library(CountClust)
+library(singleCellRNASeqMouseDeng2014)
+deng.counts <- exprs(Deng2014MouseESC)
+deng.meta_data <- pData(Deng2014MouseESC)
+deng.gene_names <- rownames(deng.counts)
+
+FitGoM(t(deng.counts),K=3,path_rda="data/MouseDeng2014.FitGoM.rda")
+```
+
+
+### Check Clusters
+
+Use Classifier to predict cell cluster.  See how it predicts using hold out data.
+```{r, eval = FALSE}
+ClassifyCells(object, classifier, training.genes = NULL,
+training.classes = NULL, new.data = NULL, ...)
+```
+
+
+Visually check by comparing centroids of clusters in gene space and embedding space.
+```{r, eval = FALSE}
+GetCentroids(object, cells.use = NULL, get.exact = TRUE)
+```
 
 ### Visualizing/Embedding
 
