@@ -42,6 +42,21 @@ sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data -v $PWD/userfolde
 pwd
 ```
 
+  - check history
+```{r, eval = FALSE}
+history
+```
+
+  - pipe history to grep to search for the cd command
+```{r, eval = FALSE}
+history | grep cd
+```
+
+  - put history into a history.txt file
+```{r, eval = FALSE}
+history > history.txt
+```
+
   - make a directory called data
 ```{r, eval = FALSE}
 mkdir data
@@ -52,8 +67,13 @@ mkdir data
 cd data
 ```
 
+  - move history.txt file into data directory
+```{r, eval = FALSE, echo = FALSE}
+mv ../history.txt ./
+```
+
   - check manual page of wget command
-```{bash, eval = FALSE, echo = FALSE}
+```{bash, eval = FALSE}
 man wget
 ```
 
@@ -96,6 +116,11 @@ zcat wget.txt.qz | less
 
 
 #### Docker Commands
+
+Consistent compute enviornment to ensure all software that you need is on the machine and able to be used. 
+
+  - change directory to your user directory
+  - run following command to start docker
 
 ```{bash, eval = FALSE, echo = FALSE}
 ## maybe take away the --rm so they can save the container for later
