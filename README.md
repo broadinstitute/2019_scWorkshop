@@ -35,14 +35,30 @@ The first thing you will need to do is pull the docker image to your computer.  
 sudo docker pull kdgosik/scellbern2019:latest
 ```
 
-### Running Rstudio in Docker
+### Running Rstudio in Docker locally on your computer
 
 ```{bash}
 sudo docker run --rm -it -e PASSWORD=train \
 -v $PWD/Share:/Share \
 -v $PWD:/mydir \
--p 9000:8787 kdgosik/scellbern2019 bash
+-p 9000:8787 kdgosik/scellbern2019
 ```
+  - Need to type your computers password to use sudo
+  - You can choose any port (in this exmaple above the PORT NUMBER is 9000)
+  - Go to your web browser at [localhost:9000](https://localhost:9000)
+    - Generic webiste https://localhost:<PORT NUMBER>
+  
+
+### Running Rstudio in Docker AWS
+
+```{bash}
+docker run --rm -it -e PASSWORD=train \
+-v $PWD/Share:/Share \
+-v $PWD:/mydir \
+-p 9000:8787 kdgosik/scellbern2019
+```
+  - no sudo needed
+  - Change the PORT NUMBER to your user number (e.g. user1 should use 9001, user99 should use 9099)
   - ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER>
   - ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9000
 
@@ -65,7 +81,9 @@ sudo docker run --rm -it -e PASSWORD=train \
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 
 
+
 #### Accessing Rstudio
+
 Once you run the docker run command above, you can go to your browser at localhost:9000.  This will bring you to a log-in screen for rstudio.  Enter the username: rstudio and password: train.  This will log you into Rstudio where you can do your analysis.  After this you can install whichever R packages you would like.  
 
 

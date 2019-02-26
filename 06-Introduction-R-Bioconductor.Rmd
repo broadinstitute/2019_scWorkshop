@@ -146,6 +146,9 @@ All the packages necessary for this course are available [here](https://github.c
 
 ### Classes/Types
 
+
+R is a high level language so the underlying data-type is generally not important. The exception if you are accessing R data directly using another language such as C, but that is beyond the scope of this course. Instead we will consider the basic data classes: numeric, integer, logical, and character, and the higher level data class called "factor". You can check what class your data is using the "class()" function.
+
 #### Integer
 
 ```{r}
@@ -187,6 +190,8 @@ x ## check value of x
 
 
 #### Logical/ Boolean
+
+The `logical` class stores boolean truth values, i.e. TRUE and FALSE. It is used for storing the results of logical operations and conditional statements will be coerced to this class. Most other data-types can be coerced to boolean without triggering (or "throwing") error messages, which may cause unexpected behaviour.
 
 ```{r}
 z <- TRUE ## assign value of TRUE to z
@@ -233,6 +238,8 @@ character_vector[grep("A", character_vector)]
 
 #### Numeric Vector
 
+The "numeric" class is the default class for storing any numeric data - integers, decimal numbers, numbers in scientific notation, etc...
+
 ```{r}
 ## assign a character vector with c() operator
 numeric_vector <- c(1, 5, 21, 17, 98, 35, 11, 13)
@@ -259,8 +266,11 @@ class(`numeric?_vecotr`)
 
 #### Factor Vector
 
+String/Character data is very memory inefficient to store, each letter generally requires the same amount of memory as any integer. Thus when storing a vector of strings with repeated elements it is more efficient assign each element to an integer and store the vector as integers and an additional string-to-integer association table. Thus, by default R will read in text columns of a data table as factors. 
+
 ```{r}
 factor_vector <- factor(numeric_vector)
+factor_vector
 ```
 
 
@@ -279,7 +289,9 @@ numeric_vector
 ## change the c() operator to list() operator
 new_list <- list("A", 1, 5, 21, 17, 98, 35, 11, 13)
 new_list
+```
 
+```{r}
 ## get 2nd element of list
 new_list[[2]]
 ```
@@ -290,55 +302,158 @@ names(new_list) <- paste0("Patient", 1 : length(new_list))
 new_list
 ```
 
-
+```{r}
+## get 2nd element of list
+new_list[[2]]
+```
 
   - 2D
 
+#### matrix
+
+**Create Matrix**
 ```{r}
 ## create numeric matrix
-numeric_matrix <- matrix(sample(1:10, 1000, replace = TRUE), nrow = 10, ncol = 10)
-numeric_matrix
+numeric_matrix <- matrix(sample(1:10, 100, replace = TRUE), nrow = 10, ncol = 10)
+class(numeric_matrix) ## check class
+```
 
+
+**Check Structure**
+```{r}
+str(numeric_matrix)
+```
+
+**Get 3rd Row**
+```{r}
 ## get 3rd row
 numeric_matrix[3, ]
+```
 
 
-
+**Get 4th Column**
+```{r}
 ## get 4th colum
 numeric_matrix[, 4]
 ```
 
 
+
+####  data.frame
+
+**Get data.frame**
 ```{r}
-sparse_matrix <- pbmc_small@data[1:20, ]
+## built in R data.frame iris
+iris
+```
+
+**Check Class**
+```{r}
+
+```
+
+**Check Structure**
+```{r}
+
+```
+
+**Get 3rd Row**
+```{r}
+## get 3rd row
+
 ```
 
 
+**Get 4th Column**
 ```{r}
-data.frame
+## get 4th colum
+
+```
+
+**Get 3rd Row**
+```{r}
+## get 3rd row
+numeric_matrix[3, ]
 ```
 
 
-  - array/3D or more
+**Get Species Variable**
+```{r}
+## get variable
+iris$Species
+```
+
+
+
+### Detour to S3/S4
+
+  - S3 most of R uses
+  - Bioconductor requires R packages to be written as S4 objects
+  - OO field guide
+  - Closer to a typical programming language
+    - Classes/Methods and Generics
+    - Lots of Generics implemented for Bioinformatics!
   
-```{r, eval = FALSE}
-array
+Different way to access values.  Need to use the @ symbol instead of $
 
-nested_list
+```{r, eval= FALSE}
+## example
+object@
 ```
 
-Subsetting
-```{r, eval = FALSE}
-[1]
-['X1']
-$X1
-[['X1]]
 
-[,,1]
-[,,'X1']
+#### Sparse Matrix
+
+Triplet format for storing a matrix
+row, column, value
+i, p, x
+
+
+Different from base R.  Uses the S4 methods that Bioconductor uses. 
+```{r}
+sparse_matrix <- pbmc_small@data[1:10, ]
+class(sparse_matrix)
 ```
 
-Functions
+
+**ith row - 1**
+```{r}
+sparse_matrix@i
+```
+
+**pth column - 1**
+```{r}
+sparse_matrix@p
+```
+
+
+**value**
+```{r}
+sparse_matrix@x
+```
+
+**Get First Value**
+```{r}
+sparse_matrix[2,1]
+```
+**dense matrix**
+```{r}
+dense_matrix <- as.matrix(sparse_matrix)
+class(dense_matrix)
+```
+
+```{r}
+str(dense_matrix)
+```
+
+**Get First Value**
+```{r}
+dense_matrix[2,1]
+```
+
+
+
+#### Functions
 
 ```{r, eval = FALSE}
 
@@ -348,280 +463,23 @@ create_function <- function(x) {
 ```
 
 
-S3/S4
 
-  - S3 most of R uses
-  - Bioconductor requires R packages to be written as S4 objects
-  - OO field guide
+#### Reading Files
 
-```{r, eval= FALSE}
-object@
-  
+```{r, eval = FALSE}
+
+## read csv files
+read.csv("PATH/TO/FILENAME.csv")
+
+## read tsv files
+read.delim("PATH/TO/FILENAME.tsv", sep = '/t)
 
 ```
 
-<!-- Hemberg Lab Examples
-
-## Data-types/classes
-
-R is a high level language so the underlying data-type is generally not important. The exception if you are accessing R data directly using another language such as C, but that is beyond the scope of this course. Instead we will consider the basic data classes: numeric, integer, logical, and character, and the higher level data class called "factor". You can check what class your data is using the "class()" function.
-
-Aside: R can also store data as "complex" for complex numbers but generally this isn't relevant for biological analyses.
-
-### Numeric
-
-The "numeric" class is the default class for storing any numeric data - integers, decimal numbers, numbers in scientific notation, etc... 
-
-```{r}
-x = 1.141
-class(x)
-y = 42
-class(y)
-z = 6.02e23
-class(z)
-```
-
-Here we see that even though R has an "integer" class and 42 could be stored more efficiently as an integer the default is to store it as "numeric". If we want 42 to be stored as an integer we must "coerce" it to that class:
-
-```{r}
-y = as.integer(42)
-class(y)
-```
-
-
-Coercion will force R to store data as a particular class, if our data is incompatible with that class it will still do it but the data will be converted to NAs:
-
-```{r}
-as.numeric("H")
-```
-
-Above we tried to coerce "character" data, identified by the double quotation marks, into numeric data which doesn't make sense, so we triggered ("threw") an warning message. Since this is only a warning R would continue with any subsequent commands in a script/function, whereas an "error" would cause R to halt. 
-
-### Character/String
-
-The "character" class stores all kinds of text data. Programing convention calls data containing multiple letters a "string", thus most R functions which act on character data will refer to the data as "strings" and will often have "str" or "string" in it's name. Strings are identified by being flanked by double quotation marks, whereas variable/function names are not:
-```{r}
-x = 5
-a = "x" # character "x"
-a
-b = x # variable x
-b
-```
-
-
-In addition to standard alphanumeric characters, strings can also store various special characters. Special characters are identified using a backlash followed by a single character, the most relevant are the special character for tab : `\t` and new line : `\n`. To demonstrate the these special characters lets concatenate (cat) together two strings with these characters separating (sep) them:
-```{r}
-cat("Hello", "World", sep= " ")
-cat("Hello", "World", sep= "\t")
-cat("Hello", "World", sep= "\n")
-```
-Note that special characters work differently in different functions. For instance the `paste` function does the same thing as `cat` but does not recognize special characters.
-
-```{r}
-paste("Hello", "World", sep= " ")
-paste("Hello", "World", sep= "\t")
-paste("Hello", "World", sep= "\n")
-```
-
-Single or double backslash is also used as an `escape` character to turn off special characters or allow quotation marks to be included in strings:
-
-```{r}
-cat("This \"string\" contains quotation marks.")
-```
-
-
-Special characters are generally only used in pattern matching, and reading/writing data to files. For instance this is how you would read a tab-separated file into R.
-```{r, eval=FALSE}
-dat = read.delim("file.tsv", sep="\t")
-```
-
-Another special type of character data are colours. Colours can be specified in three main ways: by name from those [available](http://bxhorn.com/r-color-tables/), by red, green, blue values using the `rgb` function, and by hue (colour), saturation (colour vs white) and value (colour/white vs black) using the `hsv` function. By default rgb and hsv expect three values in 0-1 with an optional fourth value for transparency. Alternatively, sets of predetermined colours with useful properties can be loaded from many different packages with [RColorBrewer](http://colorbrewer2.org/) being one of the most popular.
-
-```{r}
-reds = c("red", rgb(1,0,0), hsv(0, 1, 1))
-reds
-barplot(c(1,1,1), col=reds, names=c("by_name", "by_rgb", "by_hsv"))
-```
-
-### Logical
-
-The `logical` class stores boolean truth values, i.e. TRUE and FALSE. It is used for storing the results of logical operations and conditional statements will be coerced to this class. Most other data-types can be coerced to boolean without triggering (or "throwing") error messages, which may cause unexpected behaviour.
-
-```{r}
-x = TRUE
-class(x)
-y = "T"
-as.logical(y)
-z = 5
-as.logical(z)
-x = FALSE
-class(x)
-y = "F"
-as.logical(y)
-z = 0
-as.logical(z)
-```
-
-
-__Exercise 1__
-Experiment with other character and numeric values, which are coerced to TRUE or FALSE? which are coerced to neither? 
-Do you ever throw a warning/error message?
-
-### Factors
-
-String/Character data is very memory inefficient to store, each letter generally requires the same amount of memory as any integer. Thus when storing a vector of strings with repeated elements it is more efficient assign each element to an integer and store the vector as integers and an additional string-to-integer association table. Thus, by default R will read in text columns of a data table as factors. 
-
-```{r}
-str_vector = c("Apple", "Apple", "Banana", "Banana", "Banana", "Carrot", "Carrot", "Apple", "Banana") 
-factored_vector = factor(str_vector)
-factored_vector
-as.numeric(factored_vector)
-```
-
-The double nature of factors can cause some unintuitive behaviour. E.g. joining two factors together will convert them to the numeric form and the original strings will be lost.
-
-```{r}
-c(factored_vector, factored_vector)
-```
-
-Likewise if due to formatting issues numeric data is mistakenly interpretted as strings, then you must convert the factor back to strings before coercing to numeric values:
-```{r}
-x = c("20", "25", "23", "38", "20", "40", "25", "30")
-x = factor(x)
-as.numeric(x)
-as.numeric(as.character(x))
-```
-
-To make R read text as character data instead of factors set the environment option `stringsAsFactors=FALSE`. This must be done at the start of each R session.
-
-```{r}
-options(stringsAsFactors=FALSE)
-```
-__Exercise__
-How would you use factors to create a vector of colours for an arbitrarily long vector of fruits like `str_vector` above?
-__Answer__
-```{r, include=FALSE}
-long_str_vector = c(str_vector, str_vector, str_vector)
-fruit_cols = c("red", "yellow", "orange")
-fruit_colour_vec = fruit_cols[as.numeric(factor(long_str_vector, levels=c("Apple", "Banana", "Carrot")))]
-```
-
-### Checking class/type
-We recommend checking your data is of the correct class after reading from files:
-
-```{r}
-x = 1.4
-is.numeric(x)
-is.character(x)
-is.logical(x)
-is.factor(x)
-```
-
-
-## Basic data structures
-So far we have only looked at single values and vectors. Vectors are the simplest data structure in R. They are a 1-dimensional array of data all of the same type. If the input when creating a vector is of different types it will be coerced to the data-type that is most consistent with the data.
-
-```{r}
-x = c("Hello", 5, TRUE)
-x
-class(x)
-```
-Here we tried to put character, numeric and logical data into a single vector so all the values were coerced to `character` data.
-
-A `matrix` is the two dimensional version of a vector, it also requires all data to be of the same type. 
-If we combine a character vector and a numeric vector into a matrix, all the data will be coerced to characters:
-
-```{r}
-x = c("A", "B", "C")
-y = c(1, 2, 3)
-class(x)
-class(y)
-m = cbind(x, y)
-m
-```
-
-The quotation marks indicate that the numeric vector has been coerced to characters. Alternatively, to store data with columns of different data-types we can use a dataframe.
-
-```{r}
-z = data.frame(x, y)
-z
-class(z[,1])
-class(z[,2])
-```
-
-If you have set stringsAsFactors=FALSE as above you will find the first column remains characters, otherwise it will be automatically converted to a factor.
-
-```{r}
-options(stringsAsFactors=TRUE)
-z = data.frame(x, y)
-class(z[,1])
-```
-
-Another difference between matrices and dataframes is the ability to select columns using the `$` operator:
-
-```{r, eval=FALSE}
-m$x # throws an error
-z$x # ok
-```
-
-The final basic data structure is the `list`. Lists allow data of different types and different lengths to be stored in a single object. Each element of a list can be any other R object : data of any type, any data structure, even other lists or functions. 
-
-```{r}
-l = list(m, z)
-ll = list(sublist=l, a_matrix=m, numeric_value=42, this_string="Hello World", even_a_function=cbind)
-ll
-```
-
-Lists are most commonly used when returning a large number of results from a function that do not fit into any of the previous data structures. 
-
--->
 
 ## More information
 
 You can get more information about any R commands relevant to these datatypes using by typing `?function` in an interactive session.
-
-
-
-
-## Bioconductor S4 Classes
-
-  - Introduction
-    - Object-Oriented Programming in R
-    - Role of S4 in Bioconductor
-  - S4 Basics
-    - S4 Classes
-    - S4 Generic Functions & Methods
-  - S4 Exercises
-  - S4 Constraints
-    - Copy on Slot Modification
-    - Object Overhead
-    - Method Dispatch
-  - S4 Case Studies
-    - Slot-Oriented Virtual Class (eSet)
-    - Method-Oriented Virtual Class (Sequence)
-    - Multiple Inheritance & Vectorization (CompressedIRangesList)
-    - Build or Reuse? (CompresssedIRangesList)
-    - Class Union & Group Generic (Rle)
-    
-
-### S4 Basics
-
-```{r s4_basics}
-
-```
-
-### S4 Case Studies
-
-```{r s4_case_studies}
-
-```
-
-
-### S4 Exercises
-
-```{r s4_exercises}
-
-```
 
 
     
@@ -642,7 +500,7 @@ ggplot2 is an R package designed by Hadley Wickham which facilitates data plotti
   - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
 
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 # If you don't have Tmisc installed, first install devtools, then install
 # from github: install.packages('devtools')
 # devtools::install_github('stephenturner/Tmisc')
@@ -674,13 +532,15 @@ gbm <- pbmc_small@data
 
 gbm <- as.data.frame(as.matrix(t(gbm)))
 
-ggplot(gbm)
+new_plot <- ggplot(gbm)
 ```
 
   - Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.
-  
+
+**1D Plots**
 ```{r}
-ggplot(gbm, aes(x = MS4A1))
+new_plot <- ggplot(gbm, aes(x = MS4A1))
+new_plot
 ```
 
   - Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?
@@ -688,8 +548,20 @@ ggplot(gbm, aes(x = MS4A1))
   - Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?
   
 ```{r}
-ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
+## ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
+new_plot2 <- new_plot + geom_histogram()
 ```
+
+#### Lab A
+
+Use different geom_ to make a different plots
+  - try _bar()
+  - try _density()
+  
+```{r}
+new_plot
+```
+
 
 
   - Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?
@@ -701,7 +573,7 @@ ggplot(gbm, aes(x = MS4A1)) + geom_histogram() + stat_bin(bins = 10)
 
 
 
-
+**2D Plots**
   
 ```{r}
 ggplot(gbm, aes(MS4A1, CD79B)) + geom_point()

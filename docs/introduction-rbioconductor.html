@@ -162,18 +162,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#installation-instructions"><i class="fa fa-check"></i><b>7.3</b> Installation instructions:</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#classestypes"><i class="fa fa-check"></i><b>7.3.1</b> Classes/Types</a></li>
 <li class="chapter" data-level="7.3.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#data-structures"><i class="fa fa-check"></i><b>7.3.2</b> Data structures</a></li>
+<li class="chapter" data-level="7.3.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#detour-to-s3s4"><i class="fa fa-check"></i><b>7.3.3</b> Detour to S3/S4</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.4</b> More information</a></li>
-<li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.5</b> Bioconductor S4 Classes</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-basics"><i class="fa fa-check"></i><b>7.5.1</b> S4 Basics</a></li>
-<li class="chapter" data-level="7.5.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-case-studies"><i class="fa fa-check"></i><b>7.5.2</b> S4 Case Studies</a></li>
-<li class="chapter" data-level="7.5.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-exercises"><i class="fa fa-check"></i><b>7.5.3</b> S4 Exercises</a></li>
+<li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.5</b> Grammer of Graphics (ggplot2)</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.5.1</b> What is ggplot2?</a></li>
+<li class="chapter" data-level="7.5.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.5.2</b> Principles of ggplot2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.6</b> Grammer of Graphics (ggplot2)</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.6.1</b> What is ggplot2?</a></li>
-<li class="chapter" data-level="7.6.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.6.2</b> Principles of ggplot2</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#reference"><i class="fa fa-check"></i><b>7.7</b> Reference</a></li>
+<li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#reference"><i class="fa fa-check"></i><b>7.6</b> Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="expression-qc-and-normalization.html"><a href="expression-qc-and-normalization.html"><i class="fa fa-check"></i><b>8</b> Expression QC and Normalization</a></li>
 <li class="chapter" data-level="9" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling scRNAseq</a></li>
@@ -286,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ex">-</span> kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     <span class="ex">-</span> [image link](https://hub.docker.com/r/kdgosik/scellbern2019)</code></pre></div>
 <p><a href="https://localhost:9017">localhost:9017</a> or on AWS <a href="https://:9017"><AWS PUBLIC IP ADDRESS>:9017</a></p>
-<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com ec2-54-202-32-102.us-west-2.compute.amazonaws.com</p>
+<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER> ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9017</p>
 <ul>
 <li>R/Rstudio parts</li>
 <li>Data Types and classes</li>
@@ -350,6 +346,7 @@ BiocManager<span class="op">::</span><span class="kw">install</span>(<span class
 <p>All the packages necessary for this course are available <a href="https://github.com/broadinstitute/2019_scWorkshop">here</a>. A list of the packages will be on the README.md for the repository. A script is also available inside the docker/install.R file.</p>
 <div id="classestypes" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Classes/Types</h3>
+<p>R is a high level language so the underlying data-type is generally not important. The exception if you are accessing R data directly using another language such as C, but that is beyond the scope of this course. Instead we will consider the basic data classes: numeric, integer, logical, and character, and the higher level data class called “factor”. You can check what class your data is using the “class()” function.</p>
 <div id="integer" class="section level4">
 <h4><span class="header-section-number">7.3.1.1</span> Integer</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">4</span> ## assign value of 4 to x
@@ -387,6 +384,7 @@ BiocManager<span class="op">::</span><span class="kw">install</span>(<span class
 </div>
 <div id="logical-boolean" class="section level4">
 <h4><span class="header-section-number">7.3.1.3</span> Logical/ Boolean</h4>
+<p>The <code>logical</code> class stores boolean truth values, i.e. TRUE and FALSE. It is used for storing the results of logical operations and conditional statements will be coerced to this class. Most other data-types can be coerced to boolean without triggering (or “throwing”) error messages, which may cause unexpected behaviour.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="ot">TRUE</span> ## assign value of TRUE to z
 <span class="kw">class</span>(z) ## check class of z</code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
@@ -433,6 +431,7 @@ character_vector[<span class="kw">grep</span>(<span class="st">&quot;A&quot;</sp
 </div>
 <div id="numeric-vector" class="section level4">
 <h4><span class="header-section-number">7.3.2.2</span> Numeric Vector</h4>
+<p>The “numeric” class is the default class for storing any numeric data - integers, decimal numbers, numbers in scientific notation, etc…</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign a character vector with c() operator
 numeric_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
 
@@ -455,7 +454,11 @@ numeric_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span cla
 </div>
 <div id="factor-vector" class="section level4">
 <h4><span class="header-section-number">7.3.2.3</span> Factor Vector</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">factor_vector &lt;-<span class="st"> </span><span class="kw">factor</span>(numeric_vector)</code></pre></div>
+<p>String/Character data is very memory inefficient to store, each letter generally requires the same amount of memory as any integer. Thus when storing a vector of strings with repeated elements it is more efficient assign each element to an integer and store the vector as integers and an additional string-to-integer association table. Thus, by default R will read in text columns of a data table as factors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">factor_vector &lt;-<span class="st"> </span><span class="kw">factor</span>(numeric_vector)
+factor_vector</code></pre></div>
+<pre><code>## [1] 1  5  21 17 98 35 11 13
+## Levels: 1 5 11 13 17 21 35 98</code></pre>
 </div>
 <div id="named-vector" class="section level4">
 <h4><span class="header-section-number">7.3.2.4</span> Named Vector</h4>
@@ -526,729 +529,333 @@ new_list</code></pre></div>
 ## 
 ## $Patient9
 ## [1] 13</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 2nd element of list
+new_list[[<span class="dv">2</span>]]</code></pre></div>
+<pre><code>## [1] 1</code></pre>
 <ul>
 <li>2D</li>
 </ul>
+</div>
+<div id="matrix" class="section level4">
+<h4><span class="header-section-number">7.3.2.6</span> matrix</h4>
+<p><strong>Create Matrix</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## create numeric matrix
-numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1000</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
-numeric_matrix</code></pre></div>
-<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-##  [1,]    4    6    2    8    4    6    9    2    5     2
-##  [2,]    4    1    8    4    8    4    9    3    6     9
-##  [3,]    1    3   10    8    9    8    5   10    7     4
-##  [4,]    1   10    5    3    7    8    1   10    7     2
-##  [5,]    9   10    2    4    7    3    6    8    8     7
-##  [6,]    5   10    4    6    2    3    4    1    2     2
-##  [7,]    5    8    6   10    9    7    5    6    2     1
-##  [8,]    5    8   10    1    8    5    4    7    8     1
-##  [9,]    8    1    1    4   10    4    1    5    5     9
-## [10,]    4    2    2    3    1    1    6    1    7     4</code></pre>
+numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
+<span class="kw">class</span>(numeric_matrix) ## check class</code></pre></div>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<p><strong>Check Structure</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
+<pre><code>##  int [1:10, 1:10] 6 8 3 4 9 2 9 10 3 9 ...</code></pre>
+<p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1]  1  3 10  8  9  8  5 10  7  4</code></pre>
+<pre><code>##  [1] 3 5 8 2 3 7 4 6 5 1</code></pre>
+<p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1]  8  4  8  3  4  6 10  1  4  3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data.frame</code></pre></div>
-<pre><code>## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
-##     fix.empty.names = TRUE, stringsAsFactors = default.stringsAsFactors()) 
-## {
-##     data.row.names &lt;- if (check.rows &amp;&amp; is.null(row.names)) 
-##         function(current, new, i) {
-##             if (is.character(current)) 
-##                 new &lt;- as.character(new)
-##             if (is.character(new)) 
-##                 current &lt;- as.character(current)
-##             if (anyDuplicated(new)) 
-##                 return(current)
-##             if (is.null(current)) 
-##                 return(new)
-##             if (all(current == new) || all(current == &quot;&quot;)) 
-##                 return(new)
-##             stop(gettextf(&quot;mismatch of row names in arguments of &#39;data.frame&#39;, item %d&quot;, 
-##                 i), domain = NA)
-##         }
-##     else function(current, new, i) {
-##         if (is.null(current)) {
-##             if (anyDuplicated(new)) {
-##                 warning(gettextf(&quot;some row.names duplicated: %s --&gt; row.names NOT used&quot;, 
-##                   paste(which(duplicated(new)), collapse = &quot;,&quot;)), 
-##                   domain = NA)
-##                 current
-##             }
-##             else new
-##         }
-##         else current
-##     }
-##     object &lt;- as.list(substitute(list(...)))[-1L]
-##     mirn &lt;- missing(row.names)
-##     mrn &lt;- is.null(row.names)
-##     x &lt;- list(...)
-##     n &lt;- length(x)
-##     if (n &lt; 1L) {
-##         if (!mrn) {
-##             if (is.object(row.names) || !is.integer(row.names)) 
-##                 row.names &lt;- as.character(row.names)
-##             if (anyNA(row.names)) 
-##                 stop(&quot;row names contain missing values&quot;)
-##             if (anyDuplicated(row.names)) 
-##                 stop(gettextf(&quot;duplicate row.names: %s&quot;, paste(unique(row.names[duplicated(row.names)]), 
-##                   collapse = &quot;, &quot;)), domain = NA)
-##         }
-##         else row.names &lt;- integer()
-##         return(structure(list(), names = character(), row.names = row.names, 
-##             class = &quot;data.frame&quot;))
-##     }
-##     vnames &lt;- names(x)
-##     if (length(vnames) != n) 
-##         vnames &lt;- character(n)
-##     no.vn &lt;- !nzchar(vnames)
-##     vlist &lt;- vnames &lt;- as.list(vnames)
-##     nrows &lt;- ncols &lt;- integer(n)
-##     for (i in seq_len(n)) {
-##         xi &lt;- if (is.character(x[[i]]) || is.list(x[[i]])) 
-##             as.data.frame(x[[i]], optional = TRUE, stringsAsFactors = stringsAsFactors)
-##         else as.data.frame(x[[i]], optional = TRUE)
-##         nrows[i] &lt;- .row_names_info(xi)
-##         ncols[i] &lt;- length(xi)
-##         namesi &lt;- names(xi)
-##         if (ncols[i] &gt; 1L) {
-##             if (length(namesi) == 0L) 
-##                 namesi &lt;- seq_len(ncols[i])
-##             vnames[[i]] &lt;- if (no.vn[i]) 
-##                 namesi
-##             else paste(vnames[[i]], namesi, sep = &quot;.&quot;)
-##         }
-##         else if (length(namesi)) {
-##             vnames[[i]] &lt;- namesi
-##         }
-##         else if (fix.empty.names &amp;&amp; no.vn[[i]]) {
-##             tmpname &lt;- deparse(object[[i]], nlines = 1L)[1L]
-##             if (substr(tmpname, 1L, 2L) == &quot;I(&quot;) {
-##                 ntmpn &lt;- nchar(tmpname, &quot;c&quot;)
-##                 if (substr(tmpname, ntmpn, ntmpn) == &quot;)&quot;) 
-##                   tmpname &lt;- substr(tmpname, 3L, ntmpn - 1L)
-##             }
-##             vnames[[i]] &lt;- tmpname
-##         }
-##         if (mirn &amp;&amp; nrows[i] &gt; 0L) {
-##             rowsi &lt;- attr(xi, &quot;row.names&quot;)
-##             if (any(nzchar(rowsi))) 
-##                 row.names &lt;- data.row.names(row.names, rowsi, 
-##                   i)
-##         }
-##         nrows[i] &lt;- abs(nrows[i])
-##         vlist[[i]] &lt;- xi
-##     }
-##     nr &lt;- max(nrows)
-##     for (i in seq_len(n)[nrows &lt; nr]) {
-##         xi &lt;- vlist[[i]]
-##         if (nrows[i] &gt; 0L &amp;&amp; (nr%%nrows[i] == 0L)) {
-##             xi &lt;- unclass(xi)
-##             fixed &lt;- TRUE
-##             for (j in seq_along(xi)) {
-##                 xi1 &lt;- xi[[j]]
-##                 if (is.vector(xi1) || is.factor(xi1)) 
-##                   xi[[j]] &lt;- rep(xi1, length.out = nr)
-##                 else if (is.character(xi1) &amp;&amp; inherits(xi1, &quot;AsIs&quot;)) 
-##                   xi[[j]] &lt;- structure(rep(xi1, length.out = nr), 
-##                     class = class(xi1))
-##                 else if (inherits(xi1, &quot;Date&quot;) || inherits(xi1, 
-##                   &quot;POSIXct&quot;)) 
-##                   xi[[j]] &lt;- rep(xi1, length.out = nr)
-##                 else {
-##                   fixed &lt;- FALSE
-##                   break
-##                 }
-##             }
-##             if (fixed) {
-##                 vlist[[i]] &lt;- xi
-##                 next
-##             }
-##         }
-##         stop(gettextf(&quot;arguments imply differing number of rows: %s&quot;, 
-##             paste(unique(nrows), collapse = &quot;, &quot;)), domain = NA)
-##     }
-##     value &lt;- unlist(vlist, recursive = FALSE, use.names = FALSE)
-##     vnames &lt;- unlist(vnames[ncols &gt; 0L])
-##     if (fix.empty.names &amp;&amp; any(noname &lt;- !nzchar(vnames))) 
-##         vnames[noname] &lt;- paste0(&quot;Var.&quot;, seq_along(vnames))[noname]
-##     if (check.names) {
-##         if (fix.empty.names) 
-##             vnames &lt;- make.names(vnames, unique = TRUE)
-##         else {
-##             nz &lt;- nzchar(vnames)
-##             vnames[nz] &lt;- make.names(vnames[nz], unique = TRUE)
-##         }
-##     }
-##     names(value) &lt;- vnames
-##     if (!mrn) {
-##         if (length(row.names) == 1L &amp;&amp; nr != 1L) {
-##             if (is.character(row.names)) 
-##                 row.names &lt;- match(row.names, vnames, 0L)
-##             if (length(row.names) != 1L || row.names &lt; 1L || 
-##                 row.names &gt; length(vnames)) 
-##                 stop(&quot;&#39;row.names&#39; should specify one of the variables&quot;)
-##             i &lt;- row.names
-##             row.names &lt;- value[[i]]
-##             value &lt;- value[-i]
-##         }
-##         else if (!is.null(row.names) &amp;&amp; length(row.names) != 
-##             nr) 
-##             stop(&quot;row names supplied are of the wrong length&quot;)
-##     }
-##     else if (!is.null(row.names) &amp;&amp; length(row.names) != nr) {
-##         warning(&quot;row names were found from a short variable and have been discarded&quot;)
-##         row.names &lt;- NULL
-##     }
-##     class(value) &lt;- &quot;data.frame&quot;
-##     if (is.null(row.names)) 
-##         attr(value, &quot;row.names&quot;) &lt;- .set_row_names(nr)
-##     else {
-##         if (is.object(row.names) || !is.integer(row.names)) 
-##             row.names &lt;- as.character(row.names)
-##         if (anyNA(row.names)) 
-##             stop(&quot;row names contain missing values&quot;)
-##         if (anyDuplicated(row.names)) 
-##             stop(gettextf(&quot;duplicate row.names: %s&quot;, paste(unique(row.names[duplicated(row.names)]), 
-##                 collapse = &quot;, &quot;)), domain = NA)
-##         row.names(value) &lt;- row.names
-##     }
-##     value
-## }
-## &lt;bytecode: 0x10d2b1320&gt;
-## &lt;environment: namespace:base&gt;</code></pre>
-<ul>
-<li>array/3D or more</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">array
-
-nested_list</code></pre></div>
-<p>Subsetting</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">[<span class="dv">1</span>]
-[<span class="st">&#39;X1&#39;</span>]
-<span class="op">$</span>X1
-[[<span class="st">&#39;X1]]</span>
-
-<span class="st">[,,1]</span>
-<span class="st">[,,&#39;</span>X1<span class="st">&#39;]</span></code></pre></div>
-<p>Functions</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
-  
-}</code></pre></div>
-<p>S3/S4</p>
+<pre><code>##  [1]  5  8  2 10  9 10  1  6  5  5</code></pre>
+</div>
+<div id="data.frame" class="section level4">
+<h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
+<p><strong>Get data.frame</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## built in R data.frame iris
+iris</code></pre></div>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1            5.1         3.5          1.4         0.2     setosa
+## 2            4.9         3.0          1.4         0.2     setosa
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 17           5.4         3.9          1.3         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 21           5.4         3.4          1.7         0.2     setosa
+## 22           5.1         3.7          1.5         0.4     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 24           5.1         3.3          1.7         0.5     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 27           5.0         3.4          1.6         0.4     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 29           5.2         3.4          1.4         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 37           5.5         3.5          1.3         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 63           6.0         2.2          4.0         1.0 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 70           5.6         2.5          3.9         1.1 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 105          6.5         3.0          5.8         2.2  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 108          7.3         2.9          6.3         1.8  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 114          5.7         2.5          5.0         2.0  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 134          6.3         2.8          5.1         1.5  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 141          6.7         3.1          5.6         2.4  virginica
+## 142          6.9         3.1          5.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 145          6.7         3.3          5.7         2.5  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 149          6.2         3.4          5.4         2.3  virginica
+## 150          5.9         3.0          5.1         1.8  virginica</code></pre>
+<p><strong>Check Class</strong></p>
+<p><strong>Check Structure</strong></p>
+<p><strong>Get 3rd Row</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row</code></pre></div>
+<p><strong>Get 4th Column</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum</code></pre></div>
+<p><strong>Get 3rd Row</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
+numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
+<pre><code>##  [1] 3 5 8 2 3 7 4 6 5 1</code></pre>
+<p><strong>Get Species Variable</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
+iris<span class="op">$</span>Species</code></pre></div>
+<pre><code>##   [1] setosa     setosa     setosa     setosa     setosa     setosa    
+##   [7] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [13] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [19] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [25] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [31] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [37] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [43] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [49] setosa     setosa     versicolor versicolor versicolor versicolor
+##  [55] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [61] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [67] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [73] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [79] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [85] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [91] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [97] versicolor versicolor versicolor versicolor virginica  virginica 
+## [103] virginica  virginica  virginica  virginica  virginica  virginica 
+## [109] virginica  virginica  virginica  virginica  virginica  virginica 
+## [115] virginica  virginica  virginica  virginica  virginica  virginica 
+## [121] virginica  virginica  virginica  virginica  virginica  virginica 
+## [127] virginica  virginica  virginica  virginica  virginica  virginica 
+## [133] virginica  virginica  virginica  virginica  virginica  virginica 
+## [139] virginica  virginica  virginica  virginica  virginica  virginica 
+## [145] virginica  virginica  virginica  virginica  virginica  virginica 
+## Levels: setosa versicolor virginica</code></pre>
+</div>
+</div>
+<div id="detour-to-s3s4" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Detour to S3/S4</h3>
 <ul>
 <li>S3 most of R uses</li>
 <li>Bioconductor requires R packages to be written as S4 objects</li>
 <li>OO field guide</li>
+<li>Closer to a typical programming language
+<ul>
+<li>Classes/Methods and Generics</li>
+<li>Lots of Generics implemented for Bioinformatics!</li>
+</ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">object<span class="op">@</span></code></pre></div>
-<!-- Hemberg Lab Examples
-
-## Data-types/classes
-
-R is a high level language so the underlying data-type is generally not important. The exception if you are accessing R data directly using another language such as C, but that is beyond the scope of this course. Instead we will consider the basic data classes: numeric, integer, logical, and character, and the higher level data class called "factor". You can check what class your data is using the "class()" function.
-
-Aside: R can also store data as "complex" for complex numbers but generally this isn't relevant for biological analyses.
-
-### Numeric
-
-The "numeric" class is the default class for storing any numeric data - integers, decimal numbers, numbers in scientific notation, etc... 
-
-
-```r
-x = 1.141
-class(x)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-y = 42
-class(y)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-z = 6.02e23
-class(z)
-```
-
-```
-## [1] "numeric"
-```
-
-Here we see that even though R has an "integer" class and 42 could be stored more efficiently as an integer the default is to store it as "numeric". If we want 42 to be stored as an integer we must "coerce" it to that class:
-
-
-```r
-y = as.integer(42)
-class(y)
-```
-
-```
-## [1] "integer"
-```
-
-
-Coercion will force R to store data as a particular class, if our data is incompatible with that class it will still do it but the data will be converted to NAs:
-
-
-```r
-as.numeric("H")
-```
-
-```
-## Warning: NAs introduced by coercion
-```
-
-```
-## [1] NA
-```
-
-Above we tried to coerce "character" data, identified by the double quotation marks, into numeric data which doesn't make sense, so we triggered ("threw") an warning message. Since this is only a warning R would continue with any subsequent commands in a script/function, whereas an "error" would cause R to halt. 
-
-### Character/String
-
-The "character" class stores all kinds of text data. Programing convention calls data containing multiple letters a "string", thus most R functions which act on character data will refer to the data as "strings" and will often have "str" or "string" in it's name. Strings are identified by being flanked by double quotation marks, whereas variable/function names are not:
-
-```r
-x = 5
-a = "x" # character "x"
-a
-```
-
-```
-## [1] "x"
-```
-
-```r
-b = x # variable x
-b
-```
-
-```
-## [1] 5
-```
-
-
-In addition to standard alphanumeric characters, strings can also store various special characters. Special characters are identified using a backlash followed by a single character, the most relevant are the special character for tab : `\t` and new line : `\n`. To demonstrate the these special characters lets concatenate (cat) together two strings with these characters separating (sep) them:
-
-```r
-cat("Hello", "World", sep= " ")
-```
-
-```
-## Hello World
-```
-
-```r
-cat("Hello", "World", sep= "\t")
-```
-
-```
-## Hello    World
-```
-
-```r
-cat("Hello", "World", sep= "\n")
-```
-
-```
-## Hello
-## World
-```
-Note that special characters work differently in different functions. For instance the `paste` function does the same thing as `cat` but does not recognize special characters.
-
-
-```r
-paste("Hello", "World", sep= " ")
-```
-
-```
-## [1] "Hello World"
-```
-
-```r
-paste("Hello", "World", sep= "\t")
-```
-
-```
-## [1] "Hello\tWorld"
-```
-
-```r
-paste("Hello", "World", sep= "\n")
-```
-
-```
-## [1] "Hello\nWorld"
-```
-
-Single or double backslash is also used as an `escape` character to turn off special characters or allow quotation marks to be included in strings:
-
-
-```r
-cat("This \"string\" contains quotation marks.")
-```
-
-```
-## This "string" contains quotation marks.
-```
-
-
-Special characters are generally only used in pattern matching, and reading/writing data to files. For instance this is how you would read a tab-separated file into R.
-
-```r
-dat = read.delim("file.tsv", sep="\t")
-```
-
-Another special type of character data are colours. Colours can be specified in three main ways: by name from those [available](http://bxhorn.com/r-color-tables/), by red, green, blue values using the `rgb` function, and by hue (colour), saturation (colour vs white) and value (colour/white vs black) using the `hsv` function. By default rgb and hsv expect three values in 0-1 with an optional fourth value for transparency. Alternatively, sets of predetermined colours with useful properties can be loaded from many different packages with [RColorBrewer](http://colorbrewer2.org/) being one of the most popular.
-
-
-```r
-reds = c("red", rgb(1,0,0), hsv(0, 1, 1))
-reds
-```
-
-```
-## [1] "red"     "#FF0000" "#FF0000"
-```
-
-```r
-barplot(c(1,1,1), col=reds, names=c("by_name", "by_rgb", "by_hsv"))
-```
-
-<img src="2019_scWorkshop_files/figure-html/unnamed-chunk-86-1.png" width="90%" style="display: block; margin: auto;" />
-
-### Logical
-
-The `logical` class stores boolean truth values, i.e. TRUE and FALSE. It is used for storing the results of logical operations and conditional statements will be coerced to this class. Most other data-types can be coerced to boolean without triggering (or "throwing") error messages, which may cause unexpected behaviour.
-
-
-```r
-x = TRUE
-class(x)
-```
-
-```
-## [1] "logical"
-```
-
-```r
-y = "T"
-as.logical(y)
-```
-
-```
-## [1] TRUE
-```
-
-```r
-z = 5
-as.logical(z)
-```
-
-```
-## [1] TRUE
-```
-
-```r
-x = FALSE
-class(x)
-```
-
-```
-## [1] "logical"
-```
-
-```r
-y = "F"
-as.logical(y)
-```
-
-```
-## [1] FALSE
-```
-
-```r
-z = 0
-as.logical(z)
-```
-
-```
-## [1] FALSE
-```
-
-
-__Exercise 1__
-Experiment with other character and numeric values, which are coerced to TRUE or FALSE? which are coerced to neither? 
-Do you ever throw a warning/error message?
-
-### Factors
-
-String/Character data is very memory inefficient to store, each letter generally requires the same amount of memory as any integer. Thus when storing a vector of strings with repeated elements it is more efficient assign each element to an integer and store the vector as integers and an additional string-to-integer association table. Thus, by default R will read in text columns of a data table as factors. 
-
-
-```r
-str_vector = c("Apple", "Apple", "Banana", "Banana", "Banana", "Carrot", "Carrot", "Apple", "Banana") 
-factored_vector = factor(str_vector)
-factored_vector
-```
-
-```
-## [1] Apple  Apple  Banana Banana Banana Carrot Carrot Apple  Banana
-## Levels: Apple Banana Carrot
-```
-
-```r
-as.numeric(factored_vector)
-```
-
-```
-## [1] 1 1 2 2 2 3 3 1 2
-```
-
-The double nature of factors can cause some unintuitive behaviour. E.g. joining two factors together will convert them to the numeric form and the original strings will be lost.
-
-
-```r
-c(factored_vector, factored_vector)
-```
-
-```
-##  [1] 1 1 2 2 2 3 3 1 2 1 1 2 2 2 3 3 1 2
-```
-
-Likewise if due to formatting issues numeric data is mistakenly interpretted as strings, then you must convert the factor back to strings before coercing to numeric values:
-
-```r
-x = c("20", "25", "23", "38", "20", "40", "25", "30")
-x = factor(x)
-as.numeric(x)
-```
-
-```
-## [1] 1 3 2 5 1 6 3 4
-```
-
-```r
-as.numeric(as.character(x))
-```
-
-```
-## [1] 20 25 23 38 20 40 25 30
-```
-
-To make R read text as character data instead of factors set the environment option `stringsAsFactors=FALSE`. This must be done at the start of each R session.
-
-
-```r
-options(stringsAsFactors=FALSE)
-```
-__Exercise__
-How would you use factors to create a vector of colours for an arbitrarily long vector of fruits like `str_vector` above?
-__Answer__
-
-
-### Checking class/type
-We recommend checking your data is of the correct class after reading from files:
-
-
-```r
-x = 1.4
-is.numeric(x)
-```
-
-```
-## [1] TRUE
-```
-
-```r
-is.character(x)
-```
-
-```
-## [1] FALSE
-```
-
-```r
-is.logical(x)
-```
-
-```
-## [1] FALSE
-```
-
-```r
-is.factor(x)
-```
-
-```
-## [1] FALSE
-```
-
-
-## Basic data structures
-So far we have only looked at single values and vectors. Vectors are the simplest data structure in R. They are a 1-dimensional array of data all of the same type. If the input when creating a vector is of different types it will be coerced to the data-type that is most consistent with the data.
-
-
-```r
-x = c("Hello", 5, TRUE)
-x
-```
-
-```
-## [1] "Hello" "5"     "TRUE"
-```
-
-```r
-class(x)
-```
-
-```
-## [1] "character"
-```
-Here we tried to put character, numeric and logical data into a single vector so all the values were coerced to `character` data.
-
-A `matrix` is the two dimensional version of a vector, it also requires all data to be of the same type. 
-If we combine a character vector and a numeric vector into a matrix, all the data will be coerced to characters:
-
-
-```r
-x = c("A", "B", "C")
-y = c(1, 2, 3)
-class(x)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(y)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-m = cbind(x, y)
-m
-```
-
-```
-##      x   y  
-## [1,] "A" "1"
-## [2,] "B" "2"
-## [3,] "C" "3"
-```
-
-The quotation marks indicate that the numeric vector has been coerced to characters. Alternatively, to store data with columns of different data-types we can use a dataframe.
-
-
-```r
-z = data.frame(x, y)
-z
-```
-
-```
-##   x y
-## 1 A 1
-## 2 B 2
-## 3 C 3
-```
-
-```r
-class(z[,1])
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(z[,2])
-```
-
-```
-## [1] "numeric"
-```
-
-If you have set stringsAsFactors=FALSE as above you will find the first column remains characters, otherwise it will be automatically converted to a factor.
-
-
-```r
-options(stringsAsFactors=TRUE)
-z = data.frame(x, y)
-class(z[,1])
-```
-
-```
-## [1] "factor"
-```
-
-Another difference between matrices and dataframes is the ability to select columns using the `$` operator:
-
-
-```r
-m$x # throws an error
-z$x # ok
-```
-
-The final basic data structure is the `list`. Lists allow data of different types and different lengths to be stored in a single object. Each element of a list can be any other R object : data of any type, any data structure, even other lists or functions. 
-
-
-```r
-l = list(m, z)
-ll = list(sublist=l, a_matrix=m, numeric_value=42, this_string="Hello World", even_a_function=cbind)
-ll
-```
-
-```
-## $sublist
-## $sublist[[1]]
-##      x   y  
-## [1,] "A" "1"
-## [2,] "B" "2"
-## [3,] "C" "3"
-## 
-## $sublist[[2]]
-##   x y
-## 1 A 1
-## 2 B 2
-## 3 C 3
-## 
-## 
-## $a_matrix
-##      x   y  
-## [1,] "A" "1"
-## [2,] "B" "2"
-## [3,] "C" "3"
-## 
-## $numeric_value
-## [1] 42
-## 
-## $this_string
-## [1] "Hello World"
-## 
-## $even_a_function
-## function (..., deparse.level = 1) 
-## .Internal(cbind(deparse.level, ...))
-## <bytecode: 0x10247d838>
-## <environment: namespace:base>
-```
-
-Lists are most commonly used when returning a large number of results from a function that do not fit into any of the previous data structures. 
-
--->
+<p>Different way to access values. Need to use the @ symbol instead of $</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## example
+object<span class="op">@</span></code></pre></div>
+<div id="sparse-matrix" class="section level4">
+<h4><span class="header-section-number">7.3.3.1</span> Sparse Matrix</h4>
+<p>Triplet format for storing a matrix row, column, value i, p, x</p>
+<p>Different from base R. Uses the S4 methods that Bioconductor uses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]
+<span class="kw">class</span>(sparse_matrix)</code></pre></div>
+<pre><code>## [1] &quot;dgCMatrix&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;Matrix&quot;</code></pre>
+<p><strong>ith row - 1</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>i</code></pre></div>
+<pre><code>##   [1] 1 5 8 3 8 8 8 3 8 3 8 8 3 8 8 1 8 0 1 3 4 5 6 8 0 1 2 3 5 6 7 8 9 0 1
+##  [36] 2 3 4 5 7 8 0 1 2 3 4 5 7 8 9 0 1 2 3 5 6 7 8 9 0 1 2 3 5 7 9 0 1 2 3
+##  [71] 4 5 6 7 8 0 1 2 3 4 5 6 7 8 0 1 2 3 4 5 6 8 9 0 1 2 3 4 5 6 7 8 3 6 8
+## [106] 3 5 7 2 6 3 7 8 0 3 8 3 5 2 3 3 5 7 1 3 8 1 8 3 1 8 3 3 3 8 8 8 8 3 8
+## [141] 3 3 8 8 8 1 3 8 3 5 8 1 3 5 1 3 7 1 3 5 7 8 1 3 6 8 3 8 3 5 7 8 1 3 5
+## [176] 6 8 3 7 8 3 5 7 3 5 7 8 3 5 7 1 2 3 4 5 7 8 1 3 5 7 3 5 7 3 5 7 0 3 5
+## [211] 7 2 3 5 7 8 3 5 7 8 3 8 3 3 3 3 3 5</code></pre>
+<p><strong>pth column - 1</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>p</code></pre></div>
+<pre><code>##  [1]   0   3   5   6   7   9  11  12  14  15  17  24  33  41  50  59  66
+## [18]  75  84  93 102 105 108 110 113 116 116 118 120 123 126 128 129 130
+## [35] 131 132 132 133 134 134 134 134 135 136 137 138 140 141 143 144 145
+## [52] 148 151 154 157 162 166 168 172 177 180 183 187 190 197 201 204 207
+## [69] 211 216 220 221 221 222 222 223 224 225 225 226 228</code></pre>
+<p><strong>value</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>x</code></pre></div>
+<pre><code>##   [1] 4.968821 4.968821 6.062788 4.776153 6.714813 7.143118 6.932079
+##   [8] 4.074201 5.161411 4.968821 6.349888 6.844283 4.940848 6.321767
+##  [15] 5.954840 4.615121 7.650169 5.779448 5.779448 7.722706 6.183883
+##  [22] 5.089387 6.183883 5.779448 4.660719 5.349125 5.571318 7.290953
+##  [29] 5.753005 3.976987 5.349125 6.157411 4.660719 5.984036 5.697193
+##  [36] 5.293404 7.486153 5.293404 5.293404 4.605269 5.293404 6.666083
+##  [43] 6.378826 5.974209 7.225153 6.666083 5.974209 5.283602 6.666083
+##  [50] 5.283602 5.313305 5.313305 6.226636 7.323931 5.313305 5.313305
+##  [57] 5.313305 6.003987 4.625072 5.190573 5.190573 6.167916 7.419181
+##  [64] 6.167916 4.787888 4.103037 6.106491 5.012325 5.012325 6.952515
+##  [71] 6.106491 5.702139 5.702139 5.012325 6.106491 5.694729 5.004940
+##  [78] 5.917200 7.563681 5.408168 5.004940 4.318475 5.004940 6.099073
+##  [85] 5.537982 5.537982 6.451909 7.144267 5.942135 4.848761 4.848761
+##  [92] 6.451909 4.848761 5.621232 6.130608 7.004807 7.292262 5.217575
+##  [99] 5.217575 5.217575 4.529834 6.466459 5.463405 3.542611 3.542611
+## [106] 6.296873 4.316042 3.243785 3.870125 3.870125 6.072815 3.790760
+## [113] 3.790760 3.117873 4.872060 3.117873 4.814816 3.452557 3.820847
+## [120] 4.904746 5.272516 3.356926 4.032499 3.378564 5.911533 3.378564
+## [127] 3.729311 3.729311 4.476843 4.671146 3.997759 4.175964 3.834037
+## [134] 4.208048 4.289671 4.538951 5.500860 6.174727 4.576296 4.576296
+## [141] 4.386580 4.676402 4.676402 5.505730 5.717127 3.330567 5.600427
+## [148] 3.330567 5.558363 3.289886 3.964228 4.289671 5.665630 4.289671
+## [155] 4.625072 4.625072 4.625072 3.831826 4.915886 3.831826 3.160117
+## [162] 3.160117 3.891037 6.510947 3.218108 3.218108 5.299333 3.040721
+## [169] 5.997035 3.461483 3.461483 3.461483 4.641885 5.148847 3.562368
+## [176] 3.562368 4.241228 5.201734 3.160117 3.160117 7.224972 5.590375
+## [183] 3.666620 7.326865 5.841041 3.516896 2.853008 7.268618 4.662449
+## [190] 3.582547 4.472554 5.159975 6.813544 4.472554 4.693411 4.472554
+## [197] 4.693411 2.523157 7.367436 4.845342 4.066279 6.991211 5.050805
+## [204] 3.374468 6.928669 4.906964 2.668812 3.449600 6.127561 3.449600
+## [211] 3.449600 3.284923 6.193245 3.959171 3.284923 3.284923 7.230064
+## [218] 4.989674 4.209353 3.989917 3.874733 4.103037 4.485477 2.994498
+## [225] 3.922071 4.900324 5.708535 3.782335</code></pre>
+<p><strong>Get First Value</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix[<span class="dv">2</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 4.968821</code></pre>
+<p><strong>dense matrix</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dense_matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(sparse_matrix)
+<span class="kw">class</span>(dense_matrix)</code></pre></div>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(dense_matrix)</code></pre></div>
+<pre><code>##  num [1:10, 1:80] 0 4.97 0 0 0 ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : chr [1:10] &quot;MS4A1&quot; &quot;CD79B&quot; &quot;CD79A&quot; &quot;HLA-DRA&quot; ...
+##   ..$ : chr [1:80] &quot;ATGCCAGAACGACT&quot; &quot;CATGGCCTGTGCAT&quot; &quot;GAACCTGATGAACC&quot; &quot;TGACTGGATTCTCA&quot; ...</code></pre>
+<p><strong>Get First Value</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dense_matrix[<span class="dv">2</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 4.968821</code></pre>
+</div>
+<div id="functions" class="section level4">
+<h4><span class="header-section-number">7.3.3.2</span> Functions</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  
+}</code></pre></div>
+</div>
+<div id="reading-files" class="section level4">
+<h4><span class="header-section-number">7.3.3.3</span> Reading Files</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## read csv files
+<span class="kw">read.csv</span>(<span class="st">&quot;PATH/TO/FILENAME.csv&quot;</span>)
+
+## read tsv files
+<span class="kw">read.delim</span>(<span class="st">&quot;PATH/TO/FILENAME.tsv&quot;</span>, <span class="dt">sep =</span> <span class="st">&#39;/t)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1256,49 +863,10 @@ Lists are most commonly used when returning a large number of results from a fun
 <h2><span class="header-section-number">7.4</span> More information</h2>
 <p>You can get more information about any R commands relevant to these datatypes using by typing <code>?function</code> in an interactive session.</p>
 </div>
-<div id="bioconductor-s4-classes" class="section level2">
-<h2><span class="header-section-number">7.5</span> Bioconductor S4 Classes</h2>
-<ul>
-<li>Introduction
-<ul>
-<li>Object-Oriented Programming in R</li>
-<li>Role of S4 in Bioconductor</li>
-</ul></li>
-<li>S4 Basics
-<ul>
-<li>S4 Classes</li>
-<li>S4 Generic Functions &amp; Methods</li>
-</ul></li>
-<li>S4 Exercises</li>
-<li>S4 Constraints
-<ul>
-<li>Copy on Slot Modification</li>
-<li>Object Overhead</li>
-<li>Method Dispatch</li>
-</ul></li>
-<li>S4 Case Studies
-<ul>
-<li>Slot-Oriented Virtual Class (eSet)</li>
-<li>Method-Oriented Virtual Class (Sequence)</li>
-<li>Multiple Inheritance &amp; Vectorization (CompressedIRangesList)</li>
-<li>Build or Reuse? (CompresssedIRangesList)</li>
-<li>Class Union &amp; Group Generic (Rle)</li>
-</ul></li>
-</ul>
-<div id="s4-basics" class="section level3">
-<h3><span class="header-section-number">7.5.1</span> S4 Basics</h3>
-</div>
-<div id="s4-case-studies" class="section level3">
-<h3><span class="header-section-number">7.5.2</span> S4 Case Studies</h3>
-</div>
-<div id="s4-exercises" class="section level3">
-<h3><span class="header-section-number">7.5.3</span> S4 Exercises</h3>
-</div>
-</div>
 <div id="grammer-of-graphics-ggplot2" class="section level2">
-<h2><span class="header-section-number">7.6</span> Grammer of Graphics (ggplot2)</h2>
+<h2><span class="header-section-number">7.5</span> Grammer of Graphics (ggplot2)</h2>
 <div id="what-is-ggplot2" class="section level3">
-<h3><span class="header-section-number">7.6.1</span> What is ggplot2?</h3>
+<h3><span class="header-section-number">7.5.1</span> What is ggplot2?</h3>
 <p>ggplot2 is an R package designed by Hadley Wickham which facilitates data plotting. In this lab, we will touch briefly on some of the features of the package. If you would like to learn more about how to use ggplot2, we would recommend reading “ggplot2 Elegant graphics for data analysis”, by Hadley Wickham or checking out his original paper on the <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">package</a></p>
 <ul>
 <li>Data: Always start with the data, identify the dimensions you want to visualize.</li>
@@ -1309,20 +877,9 @@ Lists are most commonly used when returning a large number of results from a fun
 <li>Facets: Do we need to create subplots based on specific data dimensions?</li>
 <li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># If you don&#39;t have Tmisc installed, first install devtools, then install</span>
-<span class="co"># from github: install.packages(&#39;devtools&#39;)</span>
-<span class="co"># devtools::install_github(&#39;stephenturner/Tmisc&#39;)</span>
-<span class="kw">library</span>(Tmisc)
-<span class="kw">library</span>(ggplot2)
-<span class="kw">data</span>(quartet)
-
-p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(quartet, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
-p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">se =</span> <span class="ot">FALSE</span>)
-p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>set)
-p</code></pre></div>
 </div>
 <div id="principles-of-ggplot2" class="section level3">
-<h3><span class="header-section-number">7.6.2</span> Principles of ggplot2</h3>
+<h3><span class="header-section-number">7.5.2</span> Principles of ggplot2</h3>
 <ul>
 <li>Your data must be a dataframe if you want to plot it using ggplot2.</li>
 <li>Use the <code>aes</code> mapping function to specify how variables in the dataframe map to features on your plot</li>
@@ -1336,32 +893,38 @@ gbm &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data
 
 gbm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(<span class="kw">t</span>(gbm)))
 
-<span class="kw">ggplot</span>(gbm)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-101-1.png" width="90%" style="display: block; margin: auto;" /></p>
+new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code></pre></div>
 <ul>
 <li>Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-102-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><strong>1D Plots</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
+new_plot</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-92-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-103-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
+new_plot2 &lt;-<span class="st"> </span>new_plot <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<div id="lab-a" class="section level4">
+<h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
+<p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-94-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-104-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-95-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><strong>2D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-105-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-96-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-106-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-97-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-107-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-98-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Facets: Do we need to create subplots based on specific data dimensions?</li>
 <li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>
@@ -1491,8 +1054,9 @@ colnames(counts) <- paste("cell", 1:10, sep = "")
 -->
 </div>
 </div>
+</div>
 <div id="reference" class="section level2">
-<h2><span class="header-section-number">7.7</span> Reference</h2>
+<h2><span class="header-section-number">7.6</span> Reference</h2>
 <ul>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
 <li><a href="http://adv-r.had.co.nz/">Advanced R</a></li>
