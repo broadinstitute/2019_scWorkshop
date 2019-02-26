@@ -103,5 +103,5 @@ devtools::install_github('MacoskoLab/liger')
 Same command as above but add the option bash at the end to access the ternimal in the docker container.
 
 ```{bash}
-sudo docker run --rm -it -v $PWD/Share:/Share -v $PWD:/mydir kdgosik/scellbern2019 bash
+docker run --rm -it -v $PWD/Share:/Share -v $PWD:/mydir kdgosik/scellbern2019 bash
 ```

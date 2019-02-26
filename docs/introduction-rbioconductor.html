@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-25">
+<meta name="date" content="2019-02-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -159,7 +159,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor"><i class="fa fa-check"></i><b>7.2.3</b> Bioconductor</a></li>
 <li class="chapter" data-level="7.2.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#source"><i class="fa fa-check"></i><b>7.2.4</b> Source</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#installation-instructions"><i class="fa fa-check"></i><b>7.3</b> Installation instructions:</a></li>
+<li class="chapter" data-level="7.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#installation-instructions"><i class="fa fa-check"></i><b>7.3</b> Installation instructions:</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#classestypes"><i class="fa fa-check"></i><b>7.3.1</b> Classes/Types</a></li>
+<li class="chapter" data-level="7.3.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#data-structures"><i class="fa fa-check"></i><b>7.3.2</b> Data structures</a></li>
+</ul></li>
 <li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.4</b> More information</a></li>
 <li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#bioconductor-s4-classes"><i class="fa fa-check"></i><b>7.5</b> Bioconductor S4 Classes</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#s4-basics"><i class="fa fa-check"></i><b>7.5.1</b> S4 Basics</a></li>
@@ -283,6 +286,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ex">-</span> kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     <span class="ex">-</span> [image link](https://hub.docker.com/r/kdgosik/scellbern2019)</code></pre></div>
 <p><a href="https://localhost:9017">localhost:9017</a> or on AWS <a href="https://:9017"><AWS PUBLIC IP ADDRESS>:9017</a></p>
+<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com ec2-54-202-32-102.us-west-2.compute.amazonaws.com</p>
 <ul>
 <li>R/Rstudio parts</li>
 <li>Data Types and classes</li>
@@ -321,7 +325,7 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 
 <span class="co"># previous commit</span>
 ## Merge branch &#39;develop&#39; into feat/MultiModal
-  <span class="op">-</span><span class="st"> </span>Shiwei Zheng committed on Jul <span class="dv">2</span>, <span class="dv">2018</span>
+##  - Shiwei Zheng committed on Jul 2, 2018
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;tallulandrews/M3Drop&quot;</span>, <span class="dt">ref=</span><span class="st">&quot;551014f488770627ab154a62e59d49df5df98a3f&quot;</span>)</code></pre></div>
 <p>Note: make sure you re-install the M3Drop master branch for later in the course.</p>
 </div>
@@ -344,33 +348,383 @@ BiocManager<span class="op">::</span><span class="kw">install</span>(<span class
 <div id="installation-instructions" class="section level2">
 <h2><span class="header-section-number">7.3</span> Installation instructions:</h2>
 <p>All the packages necessary for this course are available <a href="https://github.com/broadinstitute/2019_scWorkshop">here</a>. A list of the packages will be on the README.md for the repository. A script is also available inside the docker/install.R file.</p>
+<div id="classestypes" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Classes/Types</h3>
+<div id="integer" class="section level4">
+<h4><span class="header-section-number">7.3.1.1</span> Integer</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">4</span> ## assign value of 4 to x
+
+<span class="kw">class</span>(x) ## check class of x</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x) ## check if x is an integer</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x) ## check if x is numeric</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x) ## assign y to be an numeric
+
+<span class="kw">is.numeric</span>(x) ## check if the assignment worked</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(x) ## check if the assignment worked</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x ## check value of x</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="numeric" class="section level4">
+<h4><span class="header-section-number">7.3.1.2</span> Numeric</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign value of 1.414 to y
+
+## check class of y
+
+## check if y is numeric
+
+## check if y is an integer
+
+## assign y to be an integer
+
+## check if the assignment worked
+
+## check value of y</code></pre></div>
+</div>
+<div id="logical-boolean" class="section level4">
+<h4><span class="header-section-number">7.3.1.3</span> Logical/ Boolean</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z &lt;-<span class="st"> </span><span class="ot">TRUE</span> ## assign value of TRUE to z
+<span class="kw">class</span>(z) ## check class of z</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(z) ## check if z is of logical type</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>
+<div id="data-structures" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Data structures</h3>
 <ul>
-<li><p>Data structures</p>
+<li>Homogeneous
 <ul>
-<li>1D</li>
+<li>1D: atomic vector</li>
+<li>2D: matrix</li>
+<li>nD: array</li>
+</ul></li>
+<li>Heterogeneous
+<ul>
+<li>1D: list</li>
+<li>2D: data.frame</li>
 </ul></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">character_vector
+<div id="character-vectors" class="section level4">
+<h4><span class="header-section-number">7.3.2.1</span> Character Vectors</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign a character vector with c() operator
+character_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>)
 
-numeric_vector
+## check class
+<span class="kw">class</span>(character_vector)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access the 3rd element with [] operator
+## *note*: R is index starts at 1 (other programming languages start at 0)
+character_vector[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;T&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access 3rd through 6th elemenet
+character_vector[<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]</code></pre></div>
+<pre><code>## [1] &quot;T&quot; &quot;G&quot; &quot;C&quot; &quot;T&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access the elements 1,4,7,10 with c()
+character_vector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">10</span>)]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;G&quot; &quot;G&quot; &quot;A&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access all the A&#39;s
+character_vector[<span class="kw">grep</span>(<span class="st">&quot;A&quot;</span>, character_vector)]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
+</div>
+<div id="numeric-vector" class="section level4">
+<h4><span class="header-section-number">7.3.2.2</span> Numeric Vector</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign a character vector with c() operator
+numeric_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
 
-factor_vector
+## check class
 
-named_vector</code></pre></div>
+
+## access the 5th element with [] operator
+
+
+## access 2nd through 4th elemenet</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## backticks ` ` allow you to give names with non-typical characters
+<span class="st">`</span><span class="dt">numeric?_vecotr</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
+
+## check vector
+<span class="st">`</span><span class="dt">numeric?_vecotr</span><span class="st">`</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;  &quot;1&quot;  &quot;5&quot;  &quot;21&quot; &quot;17&quot; &quot;98&quot; &quot;35&quot; &quot;11&quot; &quot;13&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## check class (Notice the quotation marks on the numbers!)
+<span class="kw">class</span>(<span class="st">`</span><span class="dt">numeric?_vecotr</span><span class="st">`</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="factor-vector" class="section level4">
+<h4><span class="header-section-number">7.3.2.3</span> Factor Vector</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">factor_vector &lt;-<span class="st"> </span><span class="kw">factor</span>(numeric_vector)</code></pre></div>
+</div>
+<div id="named-vector" class="section level4">
+<h4><span class="header-section-number">7.3.2.4</span> Named Vector</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(numeric_vector) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Patient&quot;</span>, <span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="kw">length</span>(numeric_vector))
+numeric_vector</code></pre></div>
+<pre><code>## Patient1 Patient2 Patient3 Patient4 Patient5 Patient6 Patient7 Patient8 
+##        1        5       21       17       98       35       11       13</code></pre>
+</div>
+<div id="list" class="section level4">
+<h4><span class="header-section-number">7.3.2.5</span> List</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## change the c() operator to list() operator
+new_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
+new_list</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;
+## 
+## [[2]]
+## [1] 1
+## 
+## [[3]]
+## [1] 5
+## 
+## [[4]]
+## [1] 21
+## 
+## [[5]]
+## [1] 17
+## 
+## [[6]]
+## [1] 98
+## 
+## [[7]]
+## [1] 35
+## 
+## [[8]]
+## [1] 11
+## 
+## [[9]]
+## [1] 13</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 2nd element of list
+new_list[[<span class="dv">2</span>]]</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(new_list) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Patient&quot;</span>, <span class="dv">1</span> <span class="op">:</span><span class="st"> </span><span class="kw">length</span>(new_list))
+new_list</code></pre></div>
+<pre><code>## $Patient1
+## [1] &quot;A&quot;
+## 
+## $Patient2
+## [1] 1
+## 
+## $Patient3
+## [1] 5
+## 
+## $Patient4
+## [1] 21
+## 
+## $Patient5
+## [1] 17
+## 
+## $Patient6
+## [1] 98
+## 
+## $Patient7
+## [1] 35
+## 
+## $Patient8
+## [1] 11
+## 
+## $Patient9
+## [1] 13</code></pre>
 <ul>
 <li>2D</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix
-
-sparseMatrix
-
-data.frame</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## create numeric matrix
+numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1000</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>)
+numeric_matrix</code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+##  [1,]    4    6    2    8    4    6    9    2    5     2
+##  [2,]    4    1    8    4    8    4    9    3    6     9
+##  [3,]    1    3   10    8    9    8    5   10    7     4
+##  [4,]    1   10    5    3    7    8    1   10    7     2
+##  [5,]    9   10    2    4    7    3    6    8    8     7
+##  [6,]    5   10    4    6    2    3    4    1    2     2
+##  [7,]    5    8    6   10    9    7    5    6    2     1
+##  [8,]    5    8   10    1    8    5    4    7    8     1
+##  [9,]    8    1    1    4   10    4    1    5    5     9
+## [10,]    4    2    2    3    1    1    6    1    7     4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
+numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
+<pre><code>##  [1]  1  3 10  8  9  8  5 10  7  4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
+numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
+<pre><code>##  [1]  8  4  8  3  4  6 10  1  4  3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data.frame</code></pre></div>
+<pre><code>## function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
+##     fix.empty.names = TRUE, stringsAsFactors = default.stringsAsFactors()) 
+## {
+##     data.row.names &lt;- if (check.rows &amp;&amp; is.null(row.names)) 
+##         function(current, new, i) {
+##             if (is.character(current)) 
+##                 new &lt;- as.character(new)
+##             if (is.character(new)) 
+##                 current &lt;- as.character(current)
+##             if (anyDuplicated(new)) 
+##                 return(current)
+##             if (is.null(current)) 
+##                 return(new)
+##             if (all(current == new) || all(current == &quot;&quot;)) 
+##                 return(new)
+##             stop(gettextf(&quot;mismatch of row names in arguments of &#39;data.frame&#39;, item %d&quot;, 
+##                 i), domain = NA)
+##         }
+##     else function(current, new, i) {
+##         if (is.null(current)) {
+##             if (anyDuplicated(new)) {
+##                 warning(gettextf(&quot;some row.names duplicated: %s --&gt; row.names NOT used&quot;, 
+##                   paste(which(duplicated(new)), collapse = &quot;,&quot;)), 
+##                   domain = NA)
+##                 current
+##             }
+##             else new
+##         }
+##         else current
+##     }
+##     object &lt;- as.list(substitute(list(...)))[-1L]
+##     mirn &lt;- missing(row.names)
+##     mrn &lt;- is.null(row.names)
+##     x &lt;- list(...)
+##     n &lt;- length(x)
+##     if (n &lt; 1L) {
+##         if (!mrn) {
+##             if (is.object(row.names) || !is.integer(row.names)) 
+##                 row.names &lt;- as.character(row.names)
+##             if (anyNA(row.names)) 
+##                 stop(&quot;row names contain missing values&quot;)
+##             if (anyDuplicated(row.names)) 
+##                 stop(gettextf(&quot;duplicate row.names: %s&quot;, paste(unique(row.names[duplicated(row.names)]), 
+##                   collapse = &quot;, &quot;)), domain = NA)
+##         }
+##         else row.names &lt;- integer()
+##         return(structure(list(), names = character(), row.names = row.names, 
+##             class = &quot;data.frame&quot;))
+##     }
+##     vnames &lt;- names(x)
+##     if (length(vnames) != n) 
+##         vnames &lt;- character(n)
+##     no.vn &lt;- !nzchar(vnames)
+##     vlist &lt;- vnames &lt;- as.list(vnames)
+##     nrows &lt;- ncols &lt;- integer(n)
+##     for (i in seq_len(n)) {
+##         xi &lt;- if (is.character(x[[i]]) || is.list(x[[i]])) 
+##             as.data.frame(x[[i]], optional = TRUE, stringsAsFactors = stringsAsFactors)
+##         else as.data.frame(x[[i]], optional = TRUE)
+##         nrows[i] &lt;- .row_names_info(xi)
+##         ncols[i] &lt;- length(xi)
+##         namesi &lt;- names(xi)
+##         if (ncols[i] &gt; 1L) {
+##             if (length(namesi) == 0L) 
+##                 namesi &lt;- seq_len(ncols[i])
+##             vnames[[i]] &lt;- if (no.vn[i]) 
+##                 namesi
+##             else paste(vnames[[i]], namesi, sep = &quot;.&quot;)
+##         }
+##         else if (length(namesi)) {
+##             vnames[[i]] &lt;- namesi
+##         }
+##         else if (fix.empty.names &amp;&amp; no.vn[[i]]) {
+##             tmpname &lt;- deparse(object[[i]], nlines = 1L)[1L]
+##             if (substr(tmpname, 1L, 2L) == &quot;I(&quot;) {
+##                 ntmpn &lt;- nchar(tmpname, &quot;c&quot;)
+##                 if (substr(tmpname, ntmpn, ntmpn) == &quot;)&quot;) 
+##                   tmpname &lt;- substr(tmpname, 3L, ntmpn - 1L)
+##             }
+##             vnames[[i]] &lt;- tmpname
+##         }
+##         if (mirn &amp;&amp; nrows[i] &gt; 0L) {
+##             rowsi &lt;- attr(xi, &quot;row.names&quot;)
+##             if (any(nzchar(rowsi))) 
+##                 row.names &lt;- data.row.names(row.names, rowsi, 
+##                   i)
+##         }
+##         nrows[i] &lt;- abs(nrows[i])
+##         vlist[[i]] &lt;- xi
+##     }
+##     nr &lt;- max(nrows)
+##     for (i in seq_len(n)[nrows &lt; nr]) {
+##         xi &lt;- vlist[[i]]
+##         if (nrows[i] &gt; 0L &amp;&amp; (nr%%nrows[i] == 0L)) {
+##             xi &lt;- unclass(xi)
+##             fixed &lt;- TRUE
+##             for (j in seq_along(xi)) {
+##                 xi1 &lt;- xi[[j]]
+##                 if (is.vector(xi1) || is.factor(xi1)) 
+##                   xi[[j]] &lt;- rep(xi1, length.out = nr)
+##                 else if (is.character(xi1) &amp;&amp; inherits(xi1, &quot;AsIs&quot;)) 
+##                   xi[[j]] &lt;- structure(rep(xi1, length.out = nr), 
+##                     class = class(xi1))
+##                 else if (inherits(xi1, &quot;Date&quot;) || inherits(xi1, 
+##                   &quot;POSIXct&quot;)) 
+##                   xi[[j]] &lt;- rep(xi1, length.out = nr)
+##                 else {
+##                   fixed &lt;- FALSE
+##                   break
+##                 }
+##             }
+##             if (fixed) {
+##                 vlist[[i]] &lt;- xi
+##                 next
+##             }
+##         }
+##         stop(gettextf(&quot;arguments imply differing number of rows: %s&quot;, 
+##             paste(unique(nrows), collapse = &quot;, &quot;)), domain = NA)
+##     }
+##     value &lt;- unlist(vlist, recursive = FALSE, use.names = FALSE)
+##     vnames &lt;- unlist(vnames[ncols &gt; 0L])
+##     if (fix.empty.names &amp;&amp; any(noname &lt;- !nzchar(vnames))) 
+##         vnames[noname] &lt;- paste0(&quot;Var.&quot;, seq_along(vnames))[noname]
+##     if (check.names) {
+##         if (fix.empty.names) 
+##             vnames &lt;- make.names(vnames, unique = TRUE)
+##         else {
+##             nz &lt;- nzchar(vnames)
+##             vnames[nz] &lt;- make.names(vnames[nz], unique = TRUE)
+##         }
+##     }
+##     names(value) &lt;- vnames
+##     if (!mrn) {
+##         if (length(row.names) == 1L &amp;&amp; nr != 1L) {
+##             if (is.character(row.names)) 
+##                 row.names &lt;- match(row.names, vnames, 0L)
+##             if (length(row.names) != 1L || row.names &lt; 1L || 
+##                 row.names &gt; length(vnames)) 
+##                 stop(&quot;&#39;row.names&#39; should specify one of the variables&quot;)
+##             i &lt;- row.names
+##             row.names &lt;- value[[i]]
+##             value &lt;- value[-i]
+##         }
+##         else if (!is.null(row.names) &amp;&amp; length(row.names) != 
+##             nr) 
+##             stop(&quot;row names supplied are of the wrong length&quot;)
+##     }
+##     else if (!is.null(row.names) &amp;&amp; length(row.names) != nr) {
+##         warning(&quot;row names were found from a short variable and have been discarded&quot;)
+##         row.names &lt;- NULL
+##     }
+##     class(value) &lt;- &quot;data.frame&quot;
+##     if (is.null(row.names)) 
+##         attr(value, &quot;row.names&quot;) &lt;- .set_row_names(nr)
+##     else {
+##         if (is.object(row.names) || !is.integer(row.names)) 
+##             row.names &lt;- as.character(row.names)
+##         if (anyNA(row.names)) 
+##             stop(&quot;row names contain missing values&quot;)
+##         if (anyDuplicated(row.names)) 
+##             stop(gettextf(&quot;duplicate row.names: %s&quot;, paste(unique(row.names[duplicated(row.names)]), 
+##                 collapse = &quot;, &quot;)), domain = NA)
+##         row.names(value) &lt;- row.names
+##     }
+##     value
+## }
+## &lt;bytecode: 0x10d2b1320&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
 <ul>
 <li>array/3D or more</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">array
 
-list</code></pre></div>
+nested_list</code></pre></div>
 <p>Subsetting</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">[<span class="dv">1</span>]
 [<span class="st">&#39;X1&#39;</span>]
@@ -571,7 +925,7 @@ reds
 barplot(c(1,1,1), col=reds, names=c("by_name", "by_rgb", "by_hsv"))
 ```
 
-<img src="2019_scWorkshop_files/figure-html/unnamed-chunk-52-1.png" width="90%" style="display: block; margin: auto;" />
+<img src="2019_scWorkshop_files/figure-html/unnamed-chunk-86-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Logical
 
@@ -896,6 +1250,8 @@ Lists are most commonly used when returning a large number of results from a fun
 
 -->
 </div>
+</div>
+</div>
 <div id="more-information" class="section level2">
 <h2><span class="header-section-number">7.4</span> More information</h2>
 <p>You can get more information about any R commands relevant to these datatypes using by typing <code>?function</code> in an interactive session.</p>
@@ -981,31 +1337,31 @@ gbm &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data
 gbm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(<span class="kw">t</span>(gbm)))
 
 <span class="kw">ggplot</span>(gbm)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-67-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-101-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-68-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-102-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-69-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-103-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-70-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-104-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-71-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-105-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-72-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-106-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-73-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-107-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Facets: Do we need to create subplots based on specific data dimensions?</li>
 <li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>

@@ -6,6 +6,11 @@ output: html_document
 ```{r, echo=FALSE}
 library(knitr)
 opts_chunk$set(out.width='90%', fig.align = 'center')
+
+
+library(Seurat)
+library(Matrix)
+library(ggplot2)
 ```
 
 
@@ -52,6 +57,9 @@ docker run --rm -it -e PASSWORD=train \
 [localhost:9017](https://localhost:9017)
 or on AWS
 [<AWS PUBLIC IP ADDRESS>:9017](https://:9017)
+
+ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com
+ec2-54-202-32-102.us-west-2.compute.amazonaws.com
 
   - R/Rstudio parts
   - Data Types and classes
@@ -101,7 +109,7 @@ devtools::install_github("satijalab/seurat", ref="release3.0")
 
 # previous commit
 ## Merge branch 'develop' into feat/MultiModal
-  - Shiwei Zheng committed on Jul 2, 2018
+##  - Shiwei Zheng committed on Jul 2, 2018
 devtools::install_github("tallulandrews/M3Drop", ref="551014f488770627ab154a62e59d49df5df98a3f")
 ```
 Note: make sure you re-install the M3Drop master branch for later in the course.
@@ -134,26 +142,179 @@ All the packages necessary for this course are available [here](https://github.c
 
 
 
-  - Data structures
-  
-    - 1D
-```{r, eval = FALSE}
-character_vector
 
-numeric_vector
 
-factor_vector
+### Classes/Types
 
-named_vector
+#### Integer
 
+```{r}
+x <- 4 ## assign value of 4 to x
+
+class(x) ## check class of x
+
+is.integer(x) ## check if x is an integer
+
+is.numeric(x) ## check if x is numeric
+
+x <- as.numeric(x) ## assign y to be an numeric
+
+is.numeric(x) ## check if the assignment worked
+
+class(x) ## check if the assignment worked
+
+x ## check value of x
 ```
 
+
+#### Numeric
+
+```{r}
+## assign value of 1.414 to y
+
+## check class of y
+
+## check if y is numeric
+
+## check if y is an integer
+
+## assign y to be an integer
+
+## check if the assignment worked
+
+## check value of y
+```
+
+
+#### Logical/ Boolean
+
+```{r}
+z <- TRUE ## assign value of TRUE to z
+class(z) ## check class of z
+is.logical(z) ## check if z is of logical type
+```
+
+
+### Data structures
+  - Homogeneous
+    - 1D: atomic vector
+    - 2D: matrix
+    - nD: array
+  - Heterogeneous
+    - 1D: list
+    - 2D: data.frame
+
+
+#### Character Vectors
+
+```{r}
+## assign a character vector with c() operator
+character_vector <- c("A", "C", "T", "G", "C", "T", "G", "C", "G", "A", "T", "G", "A", "C", "G", "A", "C")
+
+## check class
+class(character_vector)
+
+
+## access the 3rd element with [] operator
+## *note*: R is index starts at 1 (other programming languages start at 0)
+character_vector[3]
+
+
+## access 3rd through 6th elemenet
+character_vector[3:6]
+
+## access the elements 1,4,7,10 with c()
+character_vector[c(1, 4, 7, 10)]
+
+## access all the A's
+character_vector[grep("A", character_vector)]
+```
+
+
+#### Numeric Vector
+
+```{r}
+## assign a character vector with c() operator
+numeric_vector <- c(1, 5, 21, 17, 98, 35, 11, 13)
+
+## check class
+
+
+## access the 5th element with [] operator
+
+
+## access 2nd through 4th elemenet
+```
+
+```{r}
+## backticks ` ` allow you to give names with non-typical characters
+`numeric?_vecotr` <- c("A", 1, 5, 21, 17, 98, 35, 11, 13)
+
+## check vector
+`numeric?_vecotr`
+
+## check class (Notice the quotation marks on the numbers!)
+class(`numeric?_vecotr`)
+```
+
+#### Factor Vector
+
+```{r}
+factor_vector <- factor(numeric_vector)
+```
+
+
+#### Named Vector
+
+```{r}
+names(numeric_vector) <- paste0("Patient", 1 : length(numeric_vector))
+numeric_vector
+```
+
+
+
+#### List
+
+```{r}
+## change the c() operator to list() operator
+new_list <- list("A", 1, 5, 21, 17, 98, 35, 11, 13)
+new_list
+
+## get 2nd element of list
+new_list[[2]]
+```
+
+
+```{r}
+names(new_list) <- paste0("Patient", 1 : length(new_list))
+new_list
+```
+
+
+
   - 2D
-```{r, eval = FALSE}
-matrix
 
-sparseMatrix
+```{r}
+## create numeric matrix
+numeric_matrix <- matrix(sample(1:10, 1000, replace = TRUE), nrow = 10, ncol = 10)
+numeric_matrix
 
+## get 3rd row
+numeric_matrix[3, ]
+
+
+
+## get 4th colum
+numeric_matrix[, 4]
+```
+
+
+```{r}
+sparse_matrix <- pbmc_small@data[1:20, ]
+```
+
+
+```{r}
 data.frame
 ```
 
@@ -163,7 +324,7 @@ data.frame
 ```{r, eval = FALSE}
 array
 
-list
+nested_list
 ```
 
 Subsetting
