@@ -164,7 +164,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#data-structures"><i class="fa fa-check"></i><b>7.3.2</b> Data structures</a></li>
 <li class="chapter" data-level="7.3.3" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#detour-to-s3s4"><i class="fa fa-check"></i><b>7.3.3</b> Detour to S3/S4</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.4</b> More information</a></li>
+<li class="chapter" data-level="7.4" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#more-information"><i class="fa fa-check"></i><b>7.4</b> More information</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#checking-for-help-for-any-function"><i class="fa fa-check"></i><b>7.4.1</b> Checking for help for any function!</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#grammer-of-graphics-ggplot2"><i class="fa fa-check"></i><b>7.5</b> Grammer of Graphics (ggplot2)</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#what-is-ggplot2"><i class="fa fa-check"></i><b>7.5.1</b> What is ggplot2?</a></li>
 <li class="chapter" data-level="7.5.2" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#principles-of-ggplot2"><i class="fa fa-check"></i><b>7.5.2</b> Principles of ggplot2</a></li>
@@ -545,15 +547,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 6 8 3 4 9 2 9 10 3 9 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 10 5 3 9 2 1 3 9 9 4 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 3 5 8 2 3 7 4 6 5 1</code></pre>
+<pre><code>##  [1] 3 5 1 3 6 1 4 6 6 5</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1]  5  8  2 10  9 10  1  6  5  5</code></pre>
+<pre><code>##  [1]  2  3  3  5  9  3  8  4 10  7</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -720,7 +722,7 @@ iris</code></pre></div>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 3 5 8 2 3 7 4 6 5 1</code></pre>
+<pre><code>##  [1] 3 5 1 3 6 1 4 6 6 5</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
@@ -862,6 +864,16 @@ object<span class="op">@</span></code></pre></div>
 <div id="more-information" class="section level2">
 <h2><span class="header-section-number">7.4</span> More information</h2>
 <p>You can get more information about any R commands relevant to these datatypes using by typing <code>?function</code> in an interactive session.</p>
+<div id="checking-for-help-for-any-function" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Checking for help for any function!</h3>
+<ul>
+<li>start with a ? (this indicates you need the help menu)</li>
+<li>then the function name to get help on</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+?ggplot  ## ggplot is a function, how do we use it?</code></pre></div>
+</div>
 </div>
 <div id="grammer-of-graphics-ggplot2" class="section level2">
 <h2><span class="header-section-number">7.5</span> Grammer of Graphics (ggplot2)</h2>
@@ -877,6 +889,8 @@ object<span class="op">@</span></code></pre></div>
 <li>Facets: Do we need to create subplots based on specific data dimensions?</li>
 <li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/components_grammar_graphics.png&quot;</span>)</code></pre></div>
+<p><img src="images/components_grammar_graphics.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="principles-of-ggplot2" class="section level3">
 <h3><span class="header-section-number">7.5.2</span> Principles of ggplot2</h3>
@@ -898,160 +912,64 @@ new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code
 <li>Aesthetics: Confirm the axes based on the data dimensions, positions of various data points in the plot. Also check if any form of encoding is needed including size, shape, color and so on which are useful for plotting multiple data dimensions.</li>
 </ul>
 <p><strong>1D Plots</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
-new_plot</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-92-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
+new_plot_1dx</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-86-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
-new_plot2 &lt;-<span class="st"> </span>new_plot <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
+## or
+## new_plot_1dx &lt;- new_plot_1dx + geom_histogram()  ## reassign
+new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-87-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div id="lab-a" class="section level4">
 <h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
 <p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-94-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-88-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-95-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-89-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><strong>2D Plots</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-96-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-97-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-98-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## scatter plot
+new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-91-1.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="lab-b" class="section level4">
+<h4><span class="header-section-number">7.5.2.2</span> Lab B</h4>
+<p>Use different geom_ to make a different plots - try _bar_abline() - try _bin2d()</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-92-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
-<li>Facets: Do we need to create subplots based on specific data dimensions?</li>
-<li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>
+<li>Adding Statisitics in 2D plots
+<ul>
+<li>Regression line (lm - linear model using OLS regression)</li>
+</ul></li>
 </ul>
-<!-- Hember Lab Example
-
-
-### Using the `aes` mapping function
-
-The `aes` function specifies how variables in your dataframe map to features on your plot. To understand how this works, let's look at an example:
-
-
-```r
-library(ggplot2)
-set.seed(1)
-counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
-Gene_ids <- paste("gene", 1:10, sep = "")
-colnames(counts) <- paste("cell", 1:10, sep = "")
-counts <- data.frame(Gene_ids, counts)
-counts
-ggplot(data = counts, mapping = aes(x = cell1, y = cell2))
-```
-
-Let's take a closer look at the final command, `ggplot(data = counts, mapping = aes(x = cell1, y = cell2))`. `ggplot()` initialises a ggplot object and takes the arguments `data` and `mapping`. We pass our dataframe of counts to `data` and use the `aes()` function to specify that we would like to use the variable cell1 as our x variable and the variable cell2 as our y variable.
-
-Task 1: Modify the command above to initialise a ggplot object where cell10 is the x variable and cell8 is the y variable.
-
-Clearly, the plots we have just created are not very informative because no data is displayed on them. To display data, we will need to use geoms.
-
-### Geoms
-
-We can use geoms to specify how we would like data to be displayed on our graphs. For example, our choice of geom could specify that we would like our data to be displayed as a scatterplot, a barplot or a boxplot.
-
-Let's see how our graph would look as a scatterplot.
-
-
-```r
-ggplot(data = counts, mapping = aes(x = cell1, y = cell2)) + geom_point()
-```
-
-Now we can see that there doesn't seem to be any correlation between gene expression in cell1 and cell2. Given we generated `counts` randomly, this isn't too surprising.
-
-Task 2: Modify the command above to create a line plot. Hint: execute `?ggplot` and scroll down the help page. At the bottom is a link to the ggplot package index. Scroll through the index until you find the geom options.
-
-### Plotting data from more than 2 cells
-
-So far we've been considering the gene counts from 2 of the cells in our dataframe. But there are actually 10 cells in our dataframe and it would be nice to compare all of them. What if we wanted to plot data from all 10 cells at the same time?
-
-At the moment we can't do this because we are treating each individual cell as a variable and assigning that variable to either the x or the y axis. We could create a 10 dimensional graph to plot data from all 10 cells on, but this is a) not possible to do with ggplot and b) not very easy to interpret. What we could do instead is to tidy our data so that we had one variable representing cell ID and another variable representing gene counts, and plot those against each other. In code, this would look like:
-
-
-```r
-counts<-gather(counts, colnames(counts)[2:11], key = 'Cell_ID', value='Counts')
-head(counts)
-```
-
-Essentially, the problem before was that our data was not tidy because one variable (Cell_ID) was spread over multiple columns. Now that we've fixed this problem, it is much easier for us to plot data from all 10 cells on one graph.
-
-
-```r
-ggplot(counts,aes(x=Cell_ID, y=Counts)) + geom_boxplot()
-```
-
-Task 3: Use the updated `counts` dataframe to plot a barplot with Cell_ID as the x variable and Counts as the y variable. Hint: you may find it helpful to read `?geom_bar`.
-
-Task 4: Use the updated `counts` dataframe to plot a scatterplot with Gene_ids as the x variable and Counts as the y variable.
-
-### Plotting heatmaps
-
-A common method for visualising gene expression data is with a heatmap. Here we will use the R package `pheatmap` to perform this analysis with some gene expression data we will name `test`.
-
-
-```r
-library(pheatmap)
-set.seed(2)
-test = matrix(rnorm(200), 20, 10)
-test[1:10, seq(1, 10, 2)] = test[1:10, seq(1, 10, 2)] + 3
-test[11:20, seq(2, 10, 2)] = test[11:20, seq(2, 10, 2)] + 2
-test[15:20, seq(2, 10, 2)] = test[15:20, seq(2, 10, 2)] + 4
-colnames(test) = paste("Cell", 1:10, sep = "")
-rownames(test) = paste("Gene", 1:20, sep = "")
-pheatmap(test)
-```
-
-Let's take a moment to work out what this graphic is showing us. Each row represents a gene and each column represents a cell. How highly expressed each gene is in each cell is represented by the colour of the corresponding box. For example, we can tell from this plot that gene18 is highly expressed in cell10 but lowly expressed in cell1.
-
-This plot also gives us information on the results of a clustering algorithm. In general, clustering algorithms aim to split datapoints (eg.cells) into groups whose members are more alike one another than they are alike the rest of the datapoints. The trees drawn on the top and left hand sides of the graph are the results of clustering algorithms and enable us to see, for example, that cells 4,8,2,6 and 10 are more alike one another than they are alike cells 7,3,5,1 and 9. The tree on the left hand side of the graph represents the results of a clustering algorithm applied to the genes in our dataset.
-
-If we look closely at the trees, we can see that eventually they have the same number of branches as there are cells and genes. In other words, the total number of cell clusters is the same as the total number of cells, and the total number of gene clusters is the same as the total number of genes. Clearly, this is not very informative, and will become impractical when we are looking at more than 10 cells and 20 genes. Fortunately, we can set the number of clusters we see on the plot. Let's try setting the number of gene clusters to 2:
-
-
-```r
-pheatmap(test, kmeans_k = 2)
-```
-
-Now we can see that the genes fall into two clusters - a cluster of 8 genes which are upregulated in cells 2, 10, 6, 4 and 8 relative to the other cells and a cluster of 12 genes which are downregulated in cells 2, 10, 6, 4 and 8 relative to the other cells.
-
-Task 5: Try setting the number of clusters to 3. Which number of clusters do you think is more informative?
-
-### Principal Component Analysis
-
-Principal component analysis (PCA) is a statistical procedure that uses a transformation to convert a set of observations into a set of values of linearly uncorrelated variables called principal components. The transformation is carried out so that the first principle component accounts for as much of the variability in the data as possible, and each following principle component accounts for the greatest amount of variance possible under the contraint that it must be orthogonal to the previous components.
-
-PCA plots are a good way to get an overview of your data, and can sometimes help identify confounders which explain a high amount of the variability in your data. We will investigate how we can use PCA plots in single-cell RNA-seq analysis in more depth in a future lab, here the aim is to give you an overview of what PCA plots are and how they are generated.
-
-Let's make a PCA plot for our `test` data. We can use the  `ggfortify` package to let ggplot know how to interpret principle components.
-
-
-```r
-library(ggfortify)
-Principal_Components<-prcomp(test)
-autoplot(Principal_Components, label=TRUE)
-```
-
-Task 6: Compare your clusters to the pheatmap clusters. Are they related? (Hint: have a look at the gene tree for the first pheatmap we plotted)
-
-Task 7: Produce a heatmap and PCA plot for `counts` (below):
-
-
-```r
-set.seed(1)
-counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
-rownames(counts) <- paste("gene", 1:10, sep = "")
-colnames(counts) <- paste("cell", 1:10, sep = "")
-```
-
--->
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-93-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Adding Text Labels</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## notice plus `+` at the end of each line, adding a new layer!
+<span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st">            </span>## Data layer
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">                            </span>## Geometry layer
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st">              </span>## 
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-94-1.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="lab-c" class="section level4">
+<h4><span class="header-section-number">7.5.2.3</span> Lab C</h4>
+<p>Play arund with ggplot2. See what geoms to add and layers to include.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-95-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>

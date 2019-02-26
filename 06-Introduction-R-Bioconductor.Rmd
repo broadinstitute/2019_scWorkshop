@@ -481,6 +481,18 @@ read.delim("PATH/TO/FILENAME.tsv", sep = '/t)
 
 You can get more information about any R commands relevant to these datatypes using by typing `?function` in an interactive session.
 
+### Checking for help for any function!
+
+  - start with a ? (this indicates you need the help menu)
+  - then the function name to get help on
+
+```{r}
+library(ggplot2)
+
+?ggplot  ## ggplot is a function, how do we use it?
+```
+
+
 
     
 ## Grammer of Graphics (ggplot2)
@@ -498,6 +510,10 @@ ggplot2 is an R package designed by Hadley Wickham which facilitates data plotti
   - Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?
   - Facets: Do we need to create subplots based on specific data dimensions?
   - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
+
+```{r}
+knitr::include_graphics("images/components_grammar_graphics.png")
+```
 
 
 ```{r, eval = FALSE, echo = FALSE}
@@ -539,8 +555,8 @@ new_plot <- ggplot(gbm)
 
 **1D Plots**
 ```{r}
-new_plot <- ggplot(gbm, aes(x = MS4A1))
-new_plot
+new_plot_1dx <- ggplot(gbm, aes(x = MS4A1))
+new_plot_1dx
 ```
 
   - Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?
@@ -549,7 +565,9 @@ new_plot
   
 ```{r}
 ## ggplot(gbm, aes(x = MS4A1)) + geom_histogram()
-new_plot2 <- new_plot + geom_histogram()
+## or
+## new_plot_1dx <- new_plot_1dx + geom_histogram()  ## reassign
+new_plot_1dx + geom_histogram()
 ```
 
 #### Lab A
@@ -559,9 +577,8 @@ Use different geom_ to make a different plots
   - try _density()
   
 ```{r}
-new_plot
+new_plot_1dx
 ```
-
 
 
   - Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?
@@ -572,143 +589,53 @@ ggplot(gbm, aes(x = MS4A1)) + geom_histogram() + stat_bin(bins = 10)
 ```
 
 
-
 **2D Plots**
+ 
+```{r}
+new_plot_2d <- ggplot(gbm, aes(MS4A1, CD79B))
+```
   
 ```{r}
-ggplot(gbm, aes(MS4A1, CD79B)) + geom_point()
+## scatter plot
+new_plot_2d + geom_point()
 ```
 
+
+#### Lab B
+
+Use different geom_ to make a different plots
+  - try _bar_abline()
+  - try _bin2d()
+  
+```{r}
+new_plot_2d
+```
+
+  - Adding Statisitics in 2D plots
+    - Regression line (lm - linear model using OLS regression)
+    
 ```{r}
 ggplot(gbm, aes(MS4A1, CD79B)) + geom_point() + stat_smooth(method = "lm")
 ```
 
+  - Adding Text Labels
 
 ```{r}
-ggplot(gbm, aes(MS4A1, CD79B)) + geom_point() + stat_smooth(method = "lm") + geom_text(aes(label = rownames(gbm)))
+## notice plus `+` at the end of each line, adding a new layer!
+ggplot(gbm, aes(MS4A1, CD79B)) +            ## Data layer
+  geom_point() +                            ## Geometry layer
+  stat_smooth(method = "lm") +              ## 
+  geom_text(aes(label = rownames(gbm)))
 ```
 
-  - Facets: Do we need to create subplots based on specific data dimensions?
-  - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
 
+#### Lab C
 
+Play arund with ggplot2.  See what geoms to add and layers to include.
 
-
-<!-- Hember Lab Example
-
-
-### Using the `aes` mapping function
-
-The `aes` function specifies how variables in your dataframe map to features on your plot. To understand how this works, let's look at an example:
-
-```{R, eval=FALSE, message=FALSE}
-library(ggplot2)
-set.seed(1)
-counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
-Gene_ids <- paste("gene", 1:10, sep = "")
-colnames(counts) <- paste("cell", 1:10, sep = "")
-counts <- data.frame(Gene_ids, counts)
-counts
-ggplot(data = counts, mapping = aes(x = cell1, y = cell2))
+```{r}
+ggplot(gbm, aes(x = MS4A1, y = CD79B))
 ```
-
-Let's take a closer look at the final command, `ggplot(data = counts, mapping = aes(x = cell1, y = cell2))`. `ggplot()` initialises a ggplot object and takes the arguments `data` and `mapping`. We pass our dataframe of counts to `data` and use the `aes()` function to specify that we would like to use the variable cell1 as our x variable and the variable cell2 as our y variable.
-
-Task 1: Modify the command above to initialise a ggplot object where cell10 is the x variable and cell8 is the y variable.
-
-Clearly, the plots we have just created are not very informative because no data is displayed on them. To display data, we will need to use geoms.
-
-### Geoms
-
-We can use geoms to specify how we would like data to be displayed on our graphs. For example, our choice of geom could specify that we would like our data to be displayed as a scatterplot, a barplot or a boxplot.
-
-Let's see how our graph would look as a scatterplot.
-
-```{R, eval=FALSE}
-ggplot(data = counts, mapping = aes(x = cell1, y = cell2)) + geom_point()
-```
-
-Now we can see that there doesn't seem to be any correlation between gene expression in cell1 and cell2. Given we generated `counts` randomly, this isn't too surprising.
-
-Task 2: Modify the command above to create a line plot. Hint: execute `?ggplot` and scroll down the help page. At the bottom is a link to the ggplot package index. Scroll through the index until you find the geom options.
-
-### Plotting data from more than 2 cells
-
-So far we've been considering the gene counts from 2 of the cells in our dataframe. But there are actually 10 cells in our dataframe and it would be nice to compare all of them. What if we wanted to plot data from all 10 cells at the same time?
-
-At the moment we can't do this because we are treating each individual cell as a variable and assigning that variable to either the x or the y axis. We could create a 10 dimensional graph to plot data from all 10 cells on, but this is a) not possible to do with ggplot and b) not very easy to interpret. What we could do instead is to tidy our data so that we had one variable representing cell ID and another variable representing gene counts, and plot those against each other. In code, this would look like:
-
-```{R, eval=FALSE}
-counts<-gather(counts, colnames(counts)[2:11], key = 'Cell_ID', value='Counts')
-head(counts)
-```
-
-Essentially, the problem before was that our data was not tidy because one variable (Cell_ID) was spread over multiple columns. Now that we've fixed this problem, it is much easier for us to plot data from all 10 cells on one graph.
-
-```{R, eval=FALSE}
-ggplot(counts,aes(x=Cell_ID, y=Counts)) + geom_boxplot()
-```
-
-Task 3: Use the updated `counts` dataframe to plot a barplot with Cell_ID as the x variable and Counts as the y variable. Hint: you may find it helpful to read `?geom_bar`.
-
-Task 4: Use the updated `counts` dataframe to plot a scatterplot with Gene_ids as the x variable and Counts as the y variable.
-
-### Plotting heatmaps
-
-A common method for visualising gene expression data is with a heatmap. Here we will use the R package `pheatmap` to perform this analysis with some gene expression data we will name `test`.
-
-```{R, eval=FALSE, message=FALSE}
-library(pheatmap)
-set.seed(2)
-test = matrix(rnorm(200), 20, 10)
-test[1:10, seq(1, 10, 2)] = test[1:10, seq(1, 10, 2)] + 3
-test[11:20, seq(2, 10, 2)] = test[11:20, seq(2, 10, 2)] + 2
-test[15:20, seq(2, 10, 2)] = test[15:20, seq(2, 10, 2)] + 4
-colnames(test) = paste("Cell", 1:10, sep = "")
-rownames(test) = paste("Gene", 1:20, sep = "")
-pheatmap(test)
-```
-
-Let's take a moment to work out what this graphic is showing us. Each row represents a gene and each column represents a cell. How highly expressed each gene is in each cell is represented by the colour of the corresponding box. For example, we can tell from this plot that gene18 is highly expressed in cell10 but lowly expressed in cell1.
-
-This plot also gives us information on the results of a clustering algorithm. In general, clustering algorithms aim to split datapoints (eg.cells) into groups whose members are more alike one another than they are alike the rest of the datapoints. The trees drawn on the top and left hand sides of the graph are the results of clustering algorithms and enable us to see, for example, that cells 4,8,2,6 and 10 are more alike one another than they are alike cells 7,3,5,1 and 9. The tree on the left hand side of the graph represents the results of a clustering algorithm applied to the genes in our dataset.
-
-If we look closely at the trees, we can see that eventually they have the same number of branches as there are cells and genes. In other words, the total number of cell clusters is the same as the total number of cells, and the total number of gene clusters is the same as the total number of genes. Clearly, this is not very informative, and will become impractical when we are looking at more than 10 cells and 20 genes. Fortunately, we can set the number of clusters we see on the plot. Let's try setting the number of gene clusters to 2:
-
-```{R, eval=FALSE}
-pheatmap(test, kmeans_k = 2)
-```
-
-Now we can see that the genes fall into two clusters - a cluster of 8 genes which are upregulated in cells 2, 10, 6, 4 and 8 relative to the other cells and a cluster of 12 genes which are downregulated in cells 2, 10, 6, 4 and 8 relative to the other cells.
-
-Task 5: Try setting the number of clusters to 3. Which number of clusters do you think is more informative?
-
-### Principal Component Analysis
-
-Principal component analysis (PCA) is a statistical procedure that uses a transformation to convert a set of observations into a set of values of linearly uncorrelated variables called principal components. The transformation is carried out so that the first principle component accounts for as much of the variability in the data as possible, and each following principle component accounts for the greatest amount of variance possible under the contraint that it must be orthogonal to the previous components.
-
-PCA plots are a good way to get an overview of your data, and can sometimes help identify confounders which explain a high amount of the variability in your data. We will investigate how we can use PCA plots in single-cell RNA-seq analysis in more depth in a future lab, here the aim is to give you an overview of what PCA plots are and how they are generated.
-
-Let's make a PCA plot for our `test` data. We can use the  `ggfortify` package to let ggplot know how to interpret principle components.
-
-```{R,eval=FALSE, message=FALSE}
-library(ggfortify)
-Principal_Components<-prcomp(test)
-autoplot(Principal_Components, label=TRUE)
-```
-
-Task 6: Compare your clusters to the pheatmap clusters. Are they related? (Hint: have a look at the gene tree for the first pheatmap we plotted)
-
-Task 7: Produce a heatmap and PCA plot for `counts` (below):
-
-```{R,eval=FALSE}
-set.seed(1)
-counts <- as.data.frame(matrix(rpois(100, lambda = 10), ncol=10, nrow=10))
-rownames(counts) <- paste("gene", 1:10, sep = "")
-colnames(counts) <- paste("cell", 1:10, sep = "")
-```
-
--->
 
 
 
