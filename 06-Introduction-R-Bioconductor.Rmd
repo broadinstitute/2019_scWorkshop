@@ -54,12 +54,11 @@ docker run --rm -it -e PASSWORD=train \
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 ```
 
-[localhost:9099](https://localhost:9099)
-or on AWS
-[<AWS PUBLIC IP ADDRESS>:9099](https://:9099)
+  - [localhost:9099](https://localhost:9099)  or on AWS
+  - [<AWS PUBLIC IP ADDRESS>:9099](https://:9099)
 
-ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER>
-ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099
+  - ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:$PORT_NUMBER
+  - ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099
 
   - R/Rstudio parts
   - Data Types and classes
