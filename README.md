@@ -59,7 +59,7 @@ docker run --rm -it -e PASSWORD=train \
 ```
   - no sudo needed
   - Change the PORT NUMBER to your user number (e.g. user1 should use 9001, user99 should use 9099)
-  - ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:$PORT_NUMBER
+  - ec2-$AWS_PUBLIC_IP_ADDRESS.us-west-2.compute.amazonaws.com:$PORT_NUMBER
   - ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9000
 
 

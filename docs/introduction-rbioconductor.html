@@ -373,18 +373,24 @@ BiocManager<span class="op">::</span><span class="kw">install</span>(<span class
 <div id="numeric" class="section level4">
 <h4><span class="header-section-number">7.3.1.2</span> Numeric</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign value of 1.414 to y
-
+y &lt;-<span class="st"> </span><span class="fl">1.414</span>
 ## check class of y
-
-## check if y is numeric
-
-## check if y is an integer
-
-## assign y to be an integer
-
+<span class="kw">class</span>(y)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## check if y is numeric
+<span class="kw">is.numeric</span>(y)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## check if y is an integer
+<span class="kw">is.integer</span>(y)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## assign y to be an integer
+y &lt;-<span class="st"> </span><span class="kw">as.integer</span>(y)
 ## check if the assignment worked
-
-## check value of y</code></pre></div>
+<span class="kw">is.integer</span>(y)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## check value of y
+y</code></pre></div>
+<pre><code>## [1] 1</code></pre>
 </div>
 <div id="logical-boolean" class="section level4">
 <h4><span class="header-section-number">7.3.1.3</span> Logical/ Boolean</h4>
@@ -440,12 +446,14 @@ character_vector[<span class="kw">grep</span>(<span class="st">&quot;A&quot;</sp
 numeric_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
 
 ## check class
-
-
-## access the 5th element with [] operator
-
-
-## access 2nd through 4th elemenet</code></pre></div>
+<span class="kw">class</span>(numeric_vector)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access the 5th element with [] operator
+numeric_vector[<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] 98</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## access 2nd through 4th elemenet
+numeric_vector[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<pre><code>## [1]  5 21 17</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## backticks ` ` allow you to give names with non-typical characters
 <span class="st">`</span><span class="dt">numeric?_vecotr</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">17</span>, <span class="dv">98</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">13</span>)
 
@@ -549,15 +557,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 7 6 1 9 6 10 10 10 7 9 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 3 5 5 9 4 5 1 10 4 1 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1]  1  5  1  3  4  7  5  5  2 10</code></pre>
+<pre><code>##  [1] 5 3 3 7 8 9 9 2 5 4</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1]  4  9  3 10  7  9  3  8  1  6</code></pre>
+<pre><code>##  [1]  9  9  7  1  4  9  6 10 10  4</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -716,15 +724,37 @@ iris</code></pre></div>
 ## 149          6.2         3.4          5.4         2.3  virginica
 ## 150          5.9         3.0          5.1         1.8  virginica</code></pre>
 <p><strong>Check Class</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(iris)</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(iris)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
+iris[<span class="dv">3</span>,]</code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 3          4.7         3.2          1.3         0.2  setosa</code></pre>
 <p><strong>Get 4th Column</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
+iris[,<span class="dv">4</span>]</code></pre></div>
+<pre><code>##   [1] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 0.1 0.1 0.2 0.4 0.4
+##  [18] 0.3 0.3 0.3 0.2 0.4 0.2 0.5 0.2 0.2 0.4 0.2 0.2 0.2 0.2 0.4 0.1 0.2
+##  [35] 0.2 0.2 0.2 0.1 0.2 0.2 0.3 0.3 0.2 0.6 0.4 0.3 0.2 0.2 0.2 0.2 1.4
+##  [52] 1.5 1.5 1.3 1.5 1.3 1.6 1.0 1.3 1.4 1.0 1.5 1.0 1.4 1.3 1.4 1.5 1.0
+##  [69] 1.5 1.1 1.8 1.3 1.5 1.2 1.3 1.4 1.4 1.7 1.5 1.0 1.1 1.0 1.2 1.6 1.5
+##  [86] 1.6 1.5 1.3 1.3 1.3 1.2 1.4 1.2 1.0 1.3 1.2 1.3 1.3 1.1 1.3 2.5 1.9
+## [103] 2.1 1.8 2.2 2.1 1.7 1.8 1.8 2.5 2.0 1.9 2.1 2.0 2.4 2.3 1.8 2.2 2.3
+## [120] 1.5 2.3 2.0 2.0 1.8 2.1 1.8 1.8 1.8 2.1 1.6 1.9 2.0 2.2 1.5 1.4 2.3
+## [137] 2.4 1.8 1.8 2.1 2.4 2.3 1.9 2.3 2.5 2.3 1.9 2.0 2.3 1.8</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1]  1  5  1  3  4  7  5  5  2 10</code></pre>
+<pre><code>##  [1] 5 3 3 7 8 9 9 2 5 4</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
@@ -849,7 +879,7 @@ object<span class="op">@</span></code></pre></div>
 </div>
 <div id="functions" class="section level4">
 <h4><span class="header-section-number">7.3.3.2</span> Functions</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
   
 }</code></pre></div>
 </div>
@@ -859,7 +889,7 @@ object<span class="op">@</span></code></pre></div>
 <span class="kw">read.csv</span>(<span class="st">&quot;PATH/TO/FILENAME.csv&quot;</span>)
 
 ## read tsv files
-<span class="kw">read.delim</span>(<span class="st">&quot;PATH/TO/FILENAME.tsv&quot;</span>, <span class="dt">sep =</span> <span class="st">&#39;/t)</span></code></pre></div>
+<span class="kw">read.delim</span>(<span class="st">&quot;PATH/TO/FILENAME.tsv&quot;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</code></pre></div>
 </div>
 </div>
 </div>
@@ -915,7 +945,7 @@ new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code
 <p><strong>1D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
 new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-75-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-123-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
@@ -925,29 +955,29 @@ new_plot_1dx</code></pre></div>
 ## new_plot_1dx &lt;- new_plot_1dx + geom_histogram()  ## reassign
 new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-76-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-124-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div id="lab-a" class="section level4">
 <h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
 <p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-77-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-125-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-78-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-126-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><strong>2D Plots</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## scatter plot
 new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-80-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-b" class="section level4">
 <h4><span class="header-section-number">7.5.2.2</span> Lab B</h4>
 <p>Use different geom_ to make a different plots - try _bar_abline() - try _bin2d()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-81-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-129-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Statisitics in 2D plots
 <ul>
@@ -955,7 +985,7 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-82-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-130-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Text Labels</li>
 </ul>
@@ -964,13 +994,13 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">                            </span>## Geometry layer
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st">              </span>## 
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-83-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-131-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-c" class="section level4">
 <h4><span class="header-section-number">7.5.2.3</span> Lab C</h4>
 <p>Play arund with ggplot2. See what geoms to add and layers to include.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-84-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-132-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>

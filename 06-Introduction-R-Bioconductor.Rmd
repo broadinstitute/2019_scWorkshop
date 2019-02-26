@@ -173,18 +173,19 @@ x ## check value of x
 
 ```{r}
 ## assign value of 1.414 to y
-
+y <- 1.414
 ## check class of y
-
+class(y)
 ## check if y is numeric
-
+is.numeric(y)
 ## check if y is an integer
-
+is.integer(y)
 ## assign y to be an integer
-
+y <- as.integer(y)
 ## check if the assignment worked
-
+is.integer(y)
 ## check value of y
+y
 ```
 
 
@@ -244,12 +245,13 @@ The "numeric" class is the default class for storing any numeric data - integers
 numeric_vector <- c(1, 5, 21, 17, 98, 35, 11, 13)
 
 ## check class
-
+class(numeric_vector)
 
 ## access the 5th element with [] operator
-
+numeric_vector[5]
 
 ## access 2nd through 4th elemenet
+numeric_vector[2:4]
 ```
 
 ```{r}
@@ -348,25 +350,25 @@ iris
 
 **Check Class**
 ```{r}
-
+class(iris)
 ```
 
 **Check Structure**
 ```{r}
-
+str(iris)
 ```
 
 **Get 3rd Row**
 ```{r}
 ## get 3rd row
-
+iris[3,]
 ```
 
 
 **Get 4th Column**
 ```{r}
 ## get 4th colum
-
+iris[,4]
 ```
 
 **Get 3rd Row**
@@ -456,7 +458,7 @@ dense_matrix[2,1]
 
 ```{r, eval = FALSE}
 
-create_function <- function(x) {
+create_function <- function(x, y) {
   
 }
 ```
@@ -471,7 +473,7 @@ create_function <- function(x) {
 read.csv("PATH/TO/FILENAME.csv")
 
 ## read tsv files
-read.delim("PATH/TO/FILENAME.tsv", sep = '/t)
+read.delim("PATH/TO/FILENAME.tsv", sep = '\t')
 
 ```
 
@@ -576,7 +578,7 @@ Use different geom_ to make a different plots
   - try _density()
   
 ```{r}
-new_plot_1dx
+new_plot_1dx + geom_density()
 ```
 
 
@@ -591,7 +593,7 @@ ggplot(gbm, aes(x = MS4A1)) + geom_histogram() + stat_bin(bins = 10)
 **2D Plots**
  
 ```{r}
-new_plot_2d <- ggplot(gbm, aes(MS4A1, CD79B))
+new_plot_2d <- ggplot(gbm, aes(x = MS4A1, y = CD79B))
 ```
   
 ```{r}
