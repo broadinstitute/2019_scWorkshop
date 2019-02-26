@@ -32,7 +32,7 @@ All additional software is included in the /usr/local/src directory inside the d
 The first thing you will need to do is pull the docker image to your computer.  You do this by running the command:
 
 ```{bash}
-docker pull kdgosik/scellbern2019:latest
+sudo docker pull kdgosik/scellbern2019:latest
 ```
 
 ### Running Rstudio in Docker
