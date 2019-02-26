@@ -43,6 +43,9 @@ sudo docker run --rm -it -e PASSWORD=train \
 -v $PWD:/mydir \
 -p 9000:8787 kdgosik/scellbern2019 bash
 ```
+ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER>
+ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9000
+
 
 **Explaination of commands**
   - docker: command to run docker

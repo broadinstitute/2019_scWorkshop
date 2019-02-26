@@ -58,8 +58,8 @@ docker run --rm -it -e PASSWORD=train \
 or on AWS
 [<AWS PUBLIC IP ADDRESS>:9017](https://:9017)
 
-ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com
-ec2-54-202-32-102.us-west-2.compute.amazonaws.com
+ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER>
+ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9017
 
   - R/Rstudio parts
   - Data Types and classes
