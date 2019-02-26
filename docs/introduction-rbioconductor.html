@@ -283,9 +283,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ex">-</span> -p 9017:8787: map docker container port of 8787(rstudio port default) <span class="ex">to</span> your computer port 9017
   <span class="ex">-</span> kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     <span class="ex">-</span> [image link](https://hub.docker.com/r/kdgosik/scellbern2019)</code></pre></div>
-<p><a href="https://localhost:9099">localhost:9099</a> or on AWS <a href="https://:9099"><AWS PUBLIC IP ADDRESS>:9099</a></p>
-<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER> ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099</p>
 <ul>
+<li><a href="https://localhost:9099">localhost:9099</a> or on AWS</li>
+<li><p><a href="https://:9099"><AWS PUBLIC IP ADDRESS>:9099</a></p></li>
+<li>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:$PORT_NUMBER</li>
+<li><p>ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099</p></li>
 <li>R/Rstudio parts</li>
 <li>Data Types and classes</li>
 <li>Packages and where to get them</li>
@@ -547,15 +549,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 7 2 2 1 3 5 8 4 2 6 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 7 6 1 9 6 10 10 10 7 9 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1]  2  1  1  5  3  8  4  2 10  6</code></pre>
+<pre><code>##  [1]  1  5  1  3  4  7  5  5  2 10</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1] 4 2 5 3 9 3 8 8 1 5</code></pre>
+<pre><code>##  [1]  4  9  3 10  7  9  3  8  1  6</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -722,7 +724,7 @@ iris</code></pre></div>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1]  2  1  1  5  3  8  4  2 10  6</code></pre>
+<pre><code>##  [1]  1  5  1  3  4  7  5  5  2 10</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
