@@ -264,11 +264,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">## run from your home directory</span>
 <span class="bu">cd</span> 
 
-<span class="co">## example for user17</span>
+<span class="co">## example for user99</span>
 <span class="ex">docker</span> run --rm -it -e PASSWORD=train \
   -v <span class="va">$PWD</span>/Share:/Share \
   -v <span class="va">$PWD</span>:/mydir \
-  -p 9017:8787 kdgosik/scellbern2019</code></pre></div>
+  -p 9099:8787 kdgosik/scellbern2019</code></pre></div>
 <p><strong>Explaination of commands</strong></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">  <span class="ex">-</span> docker: command to run docker
   <span class="ex">-</span> run: asking docker to run a container
@@ -283,8 +283,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ex">-</span> -p 9017:8787: map docker container port of 8787(rstudio port default) <span class="ex">to</span> your computer port 9017
   <span class="ex">-</span> kdgosik/scellbern2019: the image to run.  It will be the image into a container if not already built on your computer
     <span class="ex">-</span> [image link](https://hub.docker.com/r/kdgosik/scellbern2019)</code></pre></div>
-<p><a href="https://localhost:9017">localhost:9017</a> or on AWS <a href="https://:9017"><AWS PUBLIC IP ADDRESS>:9017</a></p>
-<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER> ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9017</p>
+<p><a href="https://localhost:9099">localhost:9099</a> or on AWS <a href="https://:9099"><AWS PUBLIC IP ADDRESS>:9099</a></p>
+<p>ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER> ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099</p>
 <ul>
 <li>R/Rstudio parts</li>
 <li>Data Types and classes</li>
@@ -547,15 +547,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 10 5 3 9 2 1 3 9 9 4 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 7 2 2 1 3 5 8 4 2 6 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 3 5 1 3 6 1 4 6 6 5</code></pre>
+<pre><code>##  [1]  2  1  1  5  3  8  4  2 10  6</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1]  2  3  3  5  9  3  8  4 10  7</code></pre>
+<pre><code>##  [1] 4 2 5 3 9 3 8 8 1 5</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -722,7 +722,7 @@ iris</code></pre></div>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 3 5 1 3 6 1 4 6 6 5</code></pre>
+<pre><code>##  [1]  2  1  1  5  3  8  4  2 10  6</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
@@ -889,7 +889,6 @@ object<span class="op">@</span></code></pre></div>
 <li>Facets: Do we need to create subplots based on specific data dimensions?</li>
 <li>Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/components_grammar_graphics.png&quot;</span>)</code></pre></div>
 <p><img src="images/components_grammar_graphics.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="principles-of-ggplot2" class="section level3">
@@ -914,7 +913,7 @@ new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code
 <p><strong>1D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
 new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-86-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-75-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
@@ -924,29 +923,29 @@ new_plot_1dx</code></pre></div>
 ## new_plot_1dx &lt;- new_plot_1dx + geom_histogram()  ## reassign
 new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-87-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-76-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div id="lab-a" class="section level4">
 <h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
 <p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-88-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-77-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-89-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-78-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><strong>2D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## scatter plot
 new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-91-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-80-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-b" class="section level4">
 <h4><span class="header-section-number">7.5.2.2</span> Lab B</h4>
 <p>Use different geom_ to make a different plots - try _bar_abline() - try _bin2d()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-92-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-81-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Statisitics in 2D plots
 <ul>
@@ -954,7 +953,7 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-93-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-82-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Text Labels</li>
 </ul>
@@ -963,13 +962,13 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">                            </span>## Geometry layer
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st">              </span>## 
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-94-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-83-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-c" class="section level4">
 <h4><span class="header-section-number">7.5.2.3</span> Lab C</h4>
 <p>Play arund with ggplot2. See what geoms to add and layers to include.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-95-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-84-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>

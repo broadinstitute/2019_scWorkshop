@@ -30,11 +30,11 @@ cd ..
 ## run from your home directory
 cd 
 
-## example for user17
+## example for user99
 docker run --rm -it -e PASSWORD=train \
   -v $PWD/Share:/Share \
   -v $PWD:/mydir \
-  -p 9017:8787 kdgosik/scellbern2019
+  -p 9099:8787 kdgosik/scellbern2019
 ```
 
 **Explaination of commands**
@@ -54,12 +54,12 @@ docker run --rm -it -e PASSWORD=train \
     - [image link](https://hub.docker.com/r/kdgosik/scellbern2019)
 ```
 
-[localhost:9017](https://localhost:9017)
+[localhost:9099](https://localhost:9099)
 or on AWS
-[<AWS PUBLIC IP ADDRESS>:9017](https://:9017)
+[<AWS PUBLIC IP ADDRESS>:9099](https://:9099)
 
 ec2-<AWS PUBLIC IP ADDRESS>.us-west-2.compute.amazonaws.com:<PORT NUMBER>
-ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9017
+ec2-54-202-32-102.us-west-2.compute.amazonaws.com:9099
 
   - R/Rstudio parts
   - Data Types and classes
@@ -511,7 +511,7 @@ ggplot2 is an R package designed by Hadley Wickham which facilitates data plotti
   - Facets: Do we need to create subplots based on specific data dimensions?
   - Coordinate system: What kind of a coordinate system should the visualization be based on — should it be cartesian or polar?
 
-```{r}
+```{r, echo = FALSE}
 knitr::include_graphics("images/components_grammar_graphics.png")
 ```
 
