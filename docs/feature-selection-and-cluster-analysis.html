@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-26">
+<meta name="date" content="2019-02-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -180,9 +180,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html"><i class="fa fa-check"></i><b>11</b> Feature Selection and Cluster Analysis</a><ul>
 <li class="chapter" data-level="11.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#abstract"><i class="fa fa-check"></i><b>11.1</b> Abstract</a></li>
-<li class="chapter" data-level="11.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#seurat-tutorial"><i class="fa fa-check"></i><b>11.2</b> Seurat Tutorial</a></li>
+<li class="chapter" data-level="11.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#seurat-tutorial"><i class="fa fa-check"></i><b>11.2</b> Seurat Tutorial</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#only-run-if"><i class="fa fa-check"></i><b>11.2.1</b> only run if</a></li>
+<li class="chapter" data-level="11.2.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#preprocessing-steps"><i class="fa fa-check"></i><b>11.2.2</b> Preprocessing Steps</a></li>
+<li class="chapter" data-level="11.2.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#start-of-identifying-cell-types"><i class="fa fa-check"></i><b>11.2.3</b> Start of Identifying Cell Types</a></li>
+</ul></li>
 <li class="chapter" data-level="11.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#feature-selection"><i class="fa fa-check"></i><b>11.3</b> Feature Selection</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#differential-expression-variable-genes"><i class="fa fa-check"></i><b>11.3.1</b> Differential Expression / Variable Genes</a></li>
+<li class="chapter" data-level="11.3.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#differential-expression-analysis"><i class="fa fa-check"></i><b>11.3.1</b> Differential Expression Analysis</a></li>
 <li class="chapter" data-level="11.3.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#dimensionality-reduction"><i class="fa fa-check"></i><b>11.3.2</b> Dimensionality Reduction</a></li>
 <li class="chapter" data-level="11.3.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#independent-components-analysis-ica"><i class="fa fa-check"></i><b>11.3.3</b> Independent Components Analysis (ICA)</a></li>
 <li class="chapter" data-level="11.3.4" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#clustering"><i class="fa fa-check"></i><b>11.3.4</b> Clustering</a></li>
@@ -266,7 +270,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="seurat-tutorial" class="section level2">
 <h2><span class="header-section-number">11.2</span> Seurat Tutorial</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Seurat)
-pbmc &lt;-<span class="st"> </span>pbmc_small</code></pre></div>
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+
+pbmc &lt;-<span class="st"> </span>pbmc_small
+<span class="co"># pbmc@ident &lt;- factor()</span></code></pre></div>
+<div id="only-run-if" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> only run if</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">&quot;CountClust&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CountClust)</code></pre></div>
+</div>
+<div id="preprocessing-steps" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Preprocessing Steps</h3>
+<p>This was all covered in the last Lab!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The number of genes and UMIs (nGene and nUMI) are automatically calculated</span>
 <span class="co"># for every object by Seurat.  For non-UMI data, nUMI represents the sum of</span>
 <span class="co"># the non-normalized values within a cell We calculate the percentage of</span>
@@ -280,7 +296,7 @@ percent.mito &lt;-<span class="st"> </span>Matrix<span class="op">::</span><span
 <span class="co"># AddMetaData adds columns to object@meta.data, and is a great place to</span>
 <span class="co"># stash QC stats</span>
 pbmc &lt;-<span class="st"> </span><span class="kw">AddMetaData</span>(<span class="dt">object =</span> pbmc, <span class="dt">metadata =</span> percent.mito, <span class="dt">col.name =</span> <span class="st">&quot;percent.mito&quot;</span>)
-<span class="kw">VlnPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;nGene&quot;</span>, <span class="st">&quot;nUMI&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>), <span class="dt">nCol =</span> <span class="dv">3</span>)</code></pre></div>
+##VlnPlot(object = pbmc, features.plot = c(&quot;nGene&quot;, &quot;nUMI&quot;), &quot;percent.mito&quot;), nCol = 3)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># GenePlot is typically used to visualize gene-gene relationships, but can</span>
 <span class="co"># be used for anything calculated by the object, i.e. columns in</span>
 <span class="co"># object@meta.data, PC scores etc.  Since there is a rare subset of cells</span>
@@ -289,20 +305,45 @@ pbmc &lt;-<span class="st"> </span><span class="kw">AddMetaData</span>(<span cla
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
 <span class="kw">GenePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">gene1 =</span> <span class="st">&quot;nUMI&quot;</span>, <span class="dt">gene2 =</span> <span class="st">&quot;percent.mito&quot;</span>)
 <span class="kw">GenePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">gene1 =</span> <span class="st">&quot;nUMI&quot;</span>, <span class="dt">gene2 =</span> <span class="st">&quot;nGene&quot;</span>)</code></pre></div>
+<p><strong>Already A Subset of the Data</strong><br />
+This is not run becuase we are already working with a subset. This is here for reference.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We filter out cells that have unique gene counts over 2,500 or less than</span>
 <span class="co"># 200 Note that low.thresholds and high.thresholds are used to define a</span>
 <span class="co"># &#39;gate&#39;.  -Inf and Inf should be used if you don&#39;t want a lower or upper</span>
 <span class="co"># threshold.</span>
-pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span class="dt">object =</span> pbmc, <span class="dt">subset.names =</span> <span class="kw">c</span>(<span class="st">&quot;nGene&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>), 
-    <span class="dt">low.thresholds =</span> <span class="kw">c</span>(<span class="dv">200</span>, <span class="op">-</span><span class="ot">Inf</span>), <span class="dt">high.thresholds =</span> <span class="kw">c</span>(<span class="dv">2500</span>, <span class="fl">0.05</span>))</code></pre></div>
+pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span class="dt">object =</span> pbmc, 
+                    <span class="dt">subset.names =</span> <span class="kw">c</span>(<span class="st">&quot;nGene&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>), 
+                    <span class="dt">low.thresholds =</span> <span class="kw">c</span>(<span class="dv">200</span>, <span class="op">-</span><span class="ot">Inf</span>), 
+                    <span class="dt">high.thresholds =</span> <span class="kw">c</span>(<span class="dv">2500</span>, <span class="fl">0.1</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">NormalizeData</span>(<span class="dt">object =</span> pbmc, <span class="dt">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, <span class="dt">scale.factor =</span> <span class="dv">10000</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">FindVariableGenes</span>(<span class="dt">object =</span> pbmc, <span class="dt">mean.function =</span> ExpMean, <span class="dt">dispersion.function =</span> LogVMR, 
-    <span class="dt">x.low.cutoff =</span> <span class="fl">0.0125</span>, <span class="dt">x.high.cutoff =</span> <span class="dv">3</span>, <span class="dt">y.cutoff =</span> <span class="fl">0.5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">FindVariableGenes</span>(<span class="dt">object =</span> pbmc, 
+                          <span class="dt">mean.function =</span> ExpMean, 
+                          <span class="dt">dispersion.function =</span> LogVMR, 
+                          <span class="dt">do.plot =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="start-of-identifying-cell-types" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Start of Identifying Cell Types</h3>
+<div id="scaling" class="section level4">
+<h4><span class="header-section-number">11.2.3.1</span> Scaling</h4>
+<p>This part is where you mean center the data, substract the mean. You also divide by the standard deviation to make everything to a ‘standard normal’, where the mean is zero and the standard deviation is 1.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(<span class="dt">object =</span> pbmc, <span class="dt">vars.to.regress =</span> <span class="kw">c</span>(<span class="st">&quot;nUMI&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">RunPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">pc.genes =</span> pbmc<span class="op">@</span>var.genes, <span class="dt">do.print =</span> <span class="ot">TRUE</span>, <span class="dt">pcs.print =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, 
-    <span class="dt">genes.print =</span> <span class="dv">5</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Examine and visualize PCA results a few different ways</span>
-<span class="kw">PrintPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">pcs.print =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">genes.print =</span> <span class="dv">5</span>, <span class="dt">use.full =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="running-pca" class="section level4">
+<h4><span class="header-section-number">11.2.3.2</span> Running PCA</h4>
+<p>This will run pca on the</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">RunPCA</span>(<span class="dt">object =</span> pbmc, 
+               <span class="dt">pc.genes =</span> pbmc<span class="op">@</span>var.genes, 
+               <span class="dt">do.print =</span> <span class="ot">TRUE</span>, 
+               <span class="dt">pcs.print =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, 
+               <span class="dt">genes.print =</span> <span class="dv">5</span>)</code></pre></div>
+</div>
+<div id="running-ica" class="section level4">
+<h4><span class="header-section-number">11.2.3.3</span> Running ICA</h4>
+<p>Try running Independent Component Analysis. If you need help with the inputs try using the ?RunICA menu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc_small &lt;-<span class="st"> </span><span class="kw">RunICA</span>() ## try to run ICA</code></pre></div>
+</div>
+<div id="visualizing-pca-in-different-ways" class="section level4">
+<h4><span class="header-section-number">11.2.3.4</span> Visualizing PCA in Different Ways</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">VizPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">pcs.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCAPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">dim.1 =</span> <span class="dv">1</span>, <span class="dt">dim.2 =</span> <span class="dv">2</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ProjectPCA scores each gene in the dataset (including genes not included</span>
@@ -312,9 +353,17 @@ pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span cla
 <span class="co"># passed through variable gene selection.  The results of the projected PCA</span>
 <span class="co"># can be explored by setting use.full=T in the functions above</span>
 pbmc &lt;-<span class="st"> </span><span class="kw">ProjectPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.print =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCHeatmap</span>(<span class="dt">object =</span> pbmc, <span class="dt">pc.use =</span> <span class="dv">1</span>, <span class="dt">cells.use =</span> <span class="dv">500</span>, <span class="dt">do.balanced =</span> <span class="ot">TRUE</span>, <span class="dt">label.columns =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCHeatmap</span>(<span class="dt">object =</span> pbmc, <span class="dt">pc.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">cells.use =</span> <span class="dv">500</span>, <span class="dt">do.balanced =</span> <span class="ot">TRUE</span>, 
-    <span class="dt">label.columns =</span> <span class="ot">FALSE</span>, <span class="dt">use.full =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCHeatmap</span>(<span class="dt">object =</span> pbmc, 
+          <span class="dt">pc.use =</span> <span class="dv">1</span>, 
+          <span class="dt">cells.use =</span> <span class="dv">50</span>, 
+          <span class="dt">do.balanced =</span> <span class="ot">TRUE</span>, 
+          <span class="dt">label.columns =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCHeatmap</span>(<span class="dt">object =</span> pbmc, 
+          <span class="dt">pc.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, 
+          <span class="dt">cells.use =</span> <span class="dv">50</span>, 
+          <span class="dt">do.balanced =</span> <span class="ot">TRUE</span>, 
+          <span class="dt">label.columns =</span> <span class="ot">FALSE</span>, 
+          <span class="dt">use.full =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># </span><span class="al">NOTE</span><span class="co">: This process can take a long time for big datasets, comment out for</span>
 <span class="co"># expediency.  More approximate techniques such as those implemented in</span>
 <span class="co"># PCElbowPlot() can be used to reduce computation time</span>
@@ -325,9 +374,14 @@ pbmc &lt;-<span class="st"> </span><span class="kw">JackStraw</span>(<span class
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># save.SNN = T saves the SNN so that the clustering algorithm can be rerun</span>
 <span class="co"># using the same graph but with a different resolution value (see docs for</span>
 <span class="co"># full details)</span>
-pbmc &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span class="dt">object =</span> pbmc, <span class="dt">reduction.type =</span> <span class="st">&quot;pca&quot;</span>, <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
-    <span class="dt">resolution =</span> <span class="fl">0.6</span>, <span class="dt">print.output =</span> <span class="dv">0</span>, <span class="dt">save.SNN =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">RunTSNE</span>(<span class="dt">object =</span> pbmc, <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">do.fast =</span> <span class="ot">TRUE</span>)
+<span class="kw">set.seed</span>(<span class="dv">2019</span>)
+pbmc &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span class="dt">object =</span> pbmc, 
+                     <span class="dt">reduction.type =</span> <span class="st">&quot;pca&quot;</span>, 
+                     <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
+                     <span class="dt">resolution =</span> <span class="fl">0.6</span>, 
+                     <span class="dt">print.output =</span> <span class="dv">0</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">2019</span>)
+pbmc &lt;-<span class="kw">RunTSNE</span>(pbmc, <span class="dt">reduction.use =</span> <span class="st">&quot;pca&quot;</span>, <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">perplexity=</span><span class="dv">10</span>)
 
 <span class="co"># note that you can set do.label=T to help label individual clusters</span>
 <span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc)</code></pre></div>
@@ -335,8 +389,7 @@ pbmc &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span cl
 cluster1.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">1</span>, <span class="dt">min.pct =</span> <span class="fl">0.25</span>)
 <span class="kw">print</span>(<span class="dt">x =</span> <span class="kw">head</span>(<span class="dt">x =</span> cluster1.markers, <span class="dt">n =</span> <span class="dv">5</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all markers distinguishing cluster 5 from clusters 0 and 3</span>
-cluster5.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">5</span>, <span class="dt">ident.2 =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), 
-    <span class="dt">min.pct =</span> <span class="fl">0.25</span>)
+cluster2.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">5</span>, <span class="dt">ident.2 =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="dt">min.pct =</span> <span class="fl">0.25</span>)
 <span class="kw">print</span>(<span class="dt">x =</span> <span class="kw">head</span>(<span class="dt">x =</span> cluster5.markers, <span class="dt">n =</span> <span class="dv">5</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all markers distinguishing cluster 5 from clusters 0 and 3</span>
 cluster5.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">5</span>, <span class="dt">ident.2 =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="dt">min.pct =</span> <span class="fl">0.25</span>)
@@ -345,13 +398,23 @@ cluster5.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</spa
 <span class="co"># only the positive ones</span>
 pbmc.markers &lt;-<span class="st"> </span><span class="kw">FindAllMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">only.pos =</span> <span class="ot">TRUE</span>, <span class="dt">min.pct =</span> <span class="fl">0.25</span>, <span class="dt">thresh.use =</span> <span class="fl">0.25</span>)
 pbmc.markers <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">2</span>, avg_logFC)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cluster1.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">0</span>, <span class="dt">thresh.use =</span> <span class="fl">0.25</span>, <span class="dt">test.use =</span> <span class="st">&quot;roc&quot;</span>, <span class="dt">only.pos =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cluster1.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, 
+                                <span class="dt">ident.1 =</span> <span class="dv">0</span>, 
+                                <span class="dt">thresh.use =</span> <span class="fl">0.25</span>, 
+                                <span class="dt">test.use =</span> <span class="st">&quot;roc&quot;</span>, 
+                                <span class="dt">only.pos =</span> <span class="ot">TRUE</span>)
 
 
-<span class="kw">VlnPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;CD79A&quot;</span>))s</code></pre></div>
+<span class="kw">VlnPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;CD79A&quot;</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># you can plot raw UMI counts as well</span>
-<span class="kw">VlnPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;NKG7&quot;</span>, <span class="st">&quot;PF4&quot;</span>), <span class="dt">use.raw =</span> <span class="ot">TRUE</span>, <span class="dt">y.log =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">FeaturePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;GNLY&quot;</span>, <span class="st">&quot;CD3E&quot;</span>, <span class="st">&quot;CD14&quot;</span>, <span class="st">&quot;FCER1A&quot;</span>, <span class="st">&quot;FCGR3A&quot;</span>, <span class="st">&quot;LYZ&quot;</span>, <span class="st">&quot;PPBP&quot;</span>, <span class="st">&quot;CD8A&quot;</span>), <span class="dt">cols.use =</span> <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">sreduction.use =</span> <span class="st">&quot;tsne&quot;</span>)</code></pre></div>
+<span class="kw">VlnPlot</span>(<span class="dt">object =</span> pbmc, 
+        <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;NKG7&quot;</span>, <span class="st">&quot;PF4&quot;</span>), 
+        <span class="dt">use.raw =</span> <span class="ot">TRUE</span>, 
+        <span class="dt">y.log =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">FeaturePlot</span>(<span class="dt">object =</span> pbmc, 
+            <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;GNLY&quot;</span>, <span class="st">&quot;CD3E&quot;</span>, <span class="st">&quot;CD14&quot;</span>, <span class="st">&quot;FCER1A&quot;</span>, <span class="st">&quot;FCGR3A&quot;</span>, <span class="st">&quot;LYZ&quot;</span>, <span class="st">&quot;PPBP&quot;</span>, <span class="st">&quot;CD8A&quot;</span>),
+            <span class="dt">cols.use =</span> <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;blue&quot;</span>), 
+            <span class="dt">sreduction.use =</span> <span class="st">&quot;tsne&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">top10 &lt;-<span class="st"> </span>pbmc.markers <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>, avg_logFC)
 <span class="co"># setting slim.col.label to TRUE will print just the cluster IDS instead of</span>
 <span class="co"># every cell name</span>
@@ -360,23 +423,35 @@ pbmc.markers <span class="op">%&gt;%</span><span class="st"> </span><span class=
 new.cluster.ids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;CD4 T cells&quot;</span>, <span class="st">&quot;CD14+ Monocytes&quot;</span>, <span class="st">&quot;B cells&quot;</span>, <span class="st">&quot;CD8 T cells&quot;</span>, <span class="st">&quot;FCGR3A+ Monocytes&quot;</span>, <span class="st">&quot;NK cells&quot;</span>, <span class="st">&quot;Dendritic cells&quot;</span>, <span class="st">&quot;Megakaryocytes&quot;</span>)
 pbmc<span class="op">@</span>ident &lt;-<span class="st"> </span>plyr<span class="op">::</span><span class="kw">mapvalues</span>(<span class="dt">x =</span> pbmc<span class="op">@</span>ident, <span class="dt">from =</span> current.cluster.ids, <span class="dt">to =</span> new.cluster.ids)
 <span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.label =</span> <span class="ot">TRUE</span>, <span class="dt">pt.size =</span> <span class="fl">0.5</span>)</code></pre></div>
+</div>
 <div id="further-subdivisions-within-cell-types" class="section level4">
-<h4><span class="header-section-number">11.2.0.1</span> Further subdivisions within cell types</h4>
+<h4><span class="header-section-number">11.2.3.5</span> Further subdivisions within cell types</h4>
 <p>If you perturb some of our parameter choices above (for example, setting resolution=0.8 or changing the number of PCs), you might see the CD4 T cells subdivide into two groups. You can explore this subdivision to find markers separating the two T cell subsets. However, before reclustering (which will overwrite <a href="mailto:object@ident">object@ident</a>), we can stash our renamed identities to be easily recovered later.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First lets stash our identities for later</span>
 pbmc &lt;-<span class="st"> </span><span class="kw">StashIdent</span>(<span class="dt">object =</span> pbmc, <span class="dt">save.name =</span> <span class="st">&quot;ClusterNames_0.6&quot;</span>)
 <span class="co"># Note that if you set save.snn=T above, you don&#39;t need to recalculate the</span>
 <span class="co"># SNN, and can simply put: pbmc &lt;- FindClusters(pbmc,resolution = 0.8)</span>
-pbmc &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span class="dt">object =</span> pbmc, <span class="dt">reduction.type =</span> <span class="st">&quot;pca&quot;</span>, <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
-    <span class="dt">resolution =</span> <span class="fl">0.8</span>, <span class="dt">print.output =</span> <span class="ot">FALSE</span>)</code></pre></div>
+pbmc &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span class="dt">object =</span> pbmc, 
+                     <span class="dt">reduction.type =</span> <span class="st">&quot;pca&quot;</span>, 
+                     <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
+                     <span class="dt">resolution =</span> <span class="fl">0.8</span>, 
+                     <span class="dt">print.output =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Warning in BuildSNN(object = object, genes.use = genes.use, reduction.type
 ## = reduction.type, : Build parameters exactly match those of already
 ## computed and stored SNN. To force recalculation, set force.recalc to TRUE.
 <span class="co"># Demonstration of how to plot two tSNE plots side by side, and how to color</span>
 <span class="co"># points based on different criteria</span>
-plot1 &lt;-<span class="st"> </span><span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.return =</span> <span class="ot">TRUE</span>, <span class="dt">no.legend =</span> <span class="ot">TRUE</span>, <span class="dt">do.label =</span> <span class="ot">TRUE</span>)
-plot2 &lt;-<span class="st"> </span><span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.return =</span> <span class="ot">TRUE</span>, <span class="dt">group.by =</span> <span class="st">&quot;ClusterNames_0.6&quot;</span>, 
-    <span class="dt">no.legend =</span> <span class="ot">TRUE</span>, <span class="dt">do.label =</span> <span class="ot">TRUE</span>)
+plot1 &lt;-<span class="st"> </span><span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, 
+                  <span class="dt">do.return =</span> <span class="ot">TRUE</span>, 
+                  <span class="dt">no.legend =</span> <span class="ot">TRUE</span>, 
+                  <span class="dt">do.label =</span> <span class="ot">TRUE</span>)
+
+plot2 &lt;-<span class="st"> </span><span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, 
+                  <span class="dt">do.return =</span> <span class="ot">TRUE</span>, 
+                  <span class="dt">group.by =</span> <span class="st">&quot;ClusterNames_0.6&quot;</span>, 
+                  <span class="dt">no.legend =</span> <span class="ot">TRUE</span>, 
+                  <span class="dt">do.label =</span> <span class="ot">TRUE</span>)
+
 <span class="kw">plot_grid</span>(plot1, plot2)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find discriminating markers</span>
 tcell.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, <span class="dt">ident.1 =</span> <span class="dv">0</span>, <span class="dt">ident.2 =</span> <span class="dv">1</span>)
@@ -388,35 +463,34 @@ tcell.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(
 <span class="kw">FeaturePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;S100A4&quot;</span>, <span class="st">&quot;CCR7&quot;</span>), <span class="dt">cols.use =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 </div>
 </div>
+</div>
 <div id="feature-selection" class="section level2">
 <h2><span class="header-section-number">11.3</span> Feature Selection</h2>
-<div id="differential-expression-variable-genes" class="section level3">
-<h3><span class="header-section-number">11.3.1</span> Differential Expression / Variable Genes</h3>
-<div id="variable-genes" class="section level4">
-<h4><span class="header-section-number">11.3.1.1</span> Variable Genes</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">FindVariableGenes</span>(<span class="dt">object =</span> pbmc, <span class="dt">mean.function =</span> ExpMean, <span class="dt">dispersion.function =</span> LogVMR, 
-    <span class="dt">x.low.cutoff =</span> <span class="fl">0.0125</span>, <span class="dt">x.high.cutoff =</span> <span class="dv">3</span>, <span class="dt">y.cutoff =</span> <span class="fl">0.5</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">VariableGenePlot</span>(object, <span class="dt">do.text =</span> <span class="ot">TRUE</span>, <span class="dt">cex.use =</span> <span class="fl">0.5</span>,
-<span class="dt">cex.text.use =</span> <span class="fl">0.5</span>, <span class="dt">do.spike =</span> <span class="ot">FALSE</span>, <span class="dt">pch.use =</span> <span class="dv">16</span>, <span class="dt">col.use =</span> <span class="st">&quot;black&quot;</span>,
-<span class="dt">spike.col.use =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">plot.both =</span> <span class="ot">FALSE</span>, <span class="dt">do.contour =</span> <span class="ot">TRUE</span>,
-<span class="dt">contour.lwd =</span> <span class="dv">3</span>, <span class="dt">contour.col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">contour.lty =</span> <span class="dv">2</span>,
-<span class="dt">x.low.cutoff =</span> <span class="fl">0.1</span>, <span class="dt">x.high.cutoff =</span> <span class="dv">8</span>, <span class="dt">y.cutoff =</span> <span class="dv">1</span>,
-<span class="dt">y.high.cutoff =</span> <span class="ot">Inf</span>)</code></pre></div>
-</div>
-<div id="differential-expression" class="section level4">
-<h4><span class="header-section-number">11.3.1.2</span> Differential Expression</h4>
+<div id="differential-expression-analysis" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Differential Expression Analysis</h3>
+<div id="differential-expression-tests" class="section level4">
+<h4><span class="header-section-number">11.3.1.1</span> Differential Expression Tests</h4>
 <p>One of the most commonly performed tasks for RNA-seq data is differential gene expression (DE) analysis. Although well- established tools exist for such analysis in bulk RNA-seq data6–8, methods for scRNA-seq data are just emerging. Given the special characteristics of scRNA-seq data, including generally low library sizes, high noise levels and a large fraction of so-called ‘dropout’ events, it is unclear whether DE methods that have been devel- oped for bulk RNA-seq are suitable also for scRNA-seq</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Differential expression using DESeq2
-<span class="kw">DESeq2DETest</span>(object, cells.<span class="dv">1</span>, cells.<span class="dv">2</span>, <span class="dt">genes.use =</span> <span class="ot">NULL</span>, <span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>,
-...)
-
-## Likelihood ratio test for zero-inflated data
-<span class="kw">DiffExpTest</span>(object, cells.<span class="dv">1</span>, cells.<span class="dv">2</span>, <span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>, <span class="dt">genes.use =</span> <span class="ot">NULL</span>,
-<span class="dt">print.bar =</span> <span class="ot">TRUE</span>)
-
-## t-test
-<span class="kw">DiffTTest</span>(object, cells.<span class="dv">1</span>, cells.<span class="dv">2</span>, <span class="dt">genes.use =</span> <span class="ot">NULL</span>, <span class="dt">print.bar =</span> <span class="ot">TRUE</span>,
-<span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>)</code></pre></div>
+<span class="kw">DESeq2DETest</span>(<span class="dt">object =</span> pbmc, 
+             cells.<span class="dv">1</span>, 
+             cells.<span class="dv">2</span>, 
+             <span class="dt">genes.use =</span> <span class="ot">NULL</span>, 
+             <span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Likelihood ratio test for zero-inflated data
+<span class="kw">DiffExpTest</span>(<span class="dt">object =</span> pbmc, 
+            cells.<span class="dv">1</span>, 
+            cells.<span class="dv">2</span>, 
+            <span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>, 
+            <span class="dt">genes.use =</span> <span class="ot">NULL</span>,
+            <span class="dt">print.bar =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## t-test
+<span class="kw">DiffTTest</span>(<span class="dt">object =</span> pbmc, 
+          cells.<span class="dv">1</span>, 
+          cells.<span class="dv">2</span>, 
+          <span class="dt">genes.use =</span> <span class="ot">NULL</span>, 
+          <span class="dt">print.bar =</span> <span class="ot">TRUE</span>,
+          <span class="dt">assay.type =</span> <span class="st">&quot;RNA&quot;</span>)</code></pre></div>
 </div>
 </div>
 <div id="dimensionality-reduction" class="section level3">
@@ -429,9 +503,6 @@ tcell.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(
 <div id="independent-components-analysis-ica" class="section level3">
 <h3><span class="header-section-number">11.3.3</span> Independent Components Analysis (ICA)</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RunICA</span>()</code></pre></div>
-<div id="multidimensional-scaling-mds" class="section level4">
-<h4><span class="header-section-number">11.3.3.1</span> Multidimensional Scaling (MDS)</h4>
-</div>
 </div>
 <div id="clustering" class="section level3">
 <h3><span class="header-section-number">11.3.4</span> Clustering</h3>
@@ -460,13 +531,87 @@ tcell.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(
 </div>
 <div id="probabilistic-lda" class="section level4">
 <h4><span class="header-section-number">11.3.4.3</span> Probabilistic (LDA)</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CountClust)
-<span class="kw">library</span>(singleCellRNASeqMouseDeng2014)
-deng.counts &lt;-<span class="st"> </span><span class="kw">exprs</span>(Deng2014MouseESC)
-deng.meta_data &lt;-<span class="st"> </span><span class="kw">pData</span>(Deng2014MouseESC)
-deng.gene_names &lt;-<span class="st"> </span><span class="kw">rownames</span>(deng.counts)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Set Cluster Identity to the clustering using a resolution of 1 (res.1) 
+<span class="kw">SetIdent</span>(pbmc_small, <span class="dt">ident.use =</span> <span class="st">&#39;res.1&#39;</span>)</code></pre></div>
+<pre><code>## An object of class seurat in project SeuratProject 
+##  230 genes across 80 samples.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc_counts &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(pbmc_small<span class="op">@</span>data)
+pbmc_meta &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>meta.data
+gene_names &lt;-<span class="st"> </span><span class="kw">rownames</span>(pbmc_counts)
 
-<span class="kw">FitGoM</span>(<span class="kw">t</span>(deng.counts),<span class="dt">K=</span><span class="dv">3</span>,<span class="dt">path_rda=</span><span class="st">&quot;data/MouseDeng2014.FitGoM.rda&quot;</span>)</code></pre></div>
+
+pbmc_FitGoM &lt;-<span class="st"> </span><span class="kw">FitGoM</span>(<span class="kw">t</span>(pbmc_counts), <span class="dt">K=</span><span class="dv">4</span>)</code></pre></div>
+<pre><code>## options not specified: switching to default BIC, other choice is BF for Bayes factor</code></pre>
+<pre><code>## Fitting a Grade of Membership model
+##             (Taddy M., AISTATS 2012, JMLR 22,
+##             http://proceedings.mlr.press/v22/taddy12/taddy12.pdf)</code></pre>
+<pre><code>## 
+## Estimating on a 80 document collection.
+## Fit and Bayes Factor Estimation for K = 4
+## log posterior increase: 1006, 69.7, 71, done.
+## log BF( 4 ) = 5090.41</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">omega &lt;-<span class="st"> </span>pbmc_FitGoM<span class="op">$</span>fit<span class="op">$</span>omega
+
+annotation &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">sample_id =</span> <span class="kw">rownames</span>(omega),
+                         <span class="dt">tissue_label =</span> <span class="kw">paste0</span>(<span class="st">&quot;topic&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>))
+
+<span class="kw">colnames</span>(omega) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;topic&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)
+<span class="kw">rownames</span>(omega) &lt;-<span class="st"> </span>annotation<span class="op">$</span>sample_id;
+
+<span class="kw">StructureGGplot</span>(<span class="dt">omega =</span> omega,
+                <span class="dt">annotation =</span> annotation,
+                <span class="dt">palette =</span> RColorBrewer<span class="op">::</span><span class="kw">brewer.pal</span>(<span class="dv">4</span>, <span class="st">&quot;Dark2&quot;</span>),
+                <span class="dt">yaxis_label =</span> <span class="st">&quot;Cells&quot;</span>,
+                <span class="dt">order_sample =</span> <span class="ot">TRUE</span>,
+                <span class="dt">axis_tick =</span> <span class="kw">list</span>(<span class="dt">axis_ticks_length =</span> .<span class="dv">1</span>,
+                                 <span class="dt">axis_ticks_lwd_y =</span> .<span class="dv">1</span>,
+                                 <span class="dt">axis_ticks_lwd_x =</span> .<span class="dv">1</span>,
+                                 <span class="dt">axis_label_size =</span> <span class="dv">7</span>,
+                                 <span class="dt">axis_label_face =</span> <span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-126-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Add Topic Scores to Meta Data Part of the Seurat Object
+pbmc_small<span class="op">@</span>meta.data &lt;-<span class="st"> </span><span class="kw">cbind</span>(pbmc_meta, omega)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## ggplot object, you can add layers
+p1 &lt;-<span class="st"> </span><span class="kw">TSNEPlot</span>(pbmc_small, <span class="dt">do.return =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Resolution 1&quot;</span>) ## return ggplot object
+p1</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-127-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span><span class="kw">FeaturePlot</span>(<span class="dt">object =</span> pbmc_small, 
+                  <span class="dt">features.plot =</span> <span class="kw">c</span>(<span class="st">&quot;topic1&quot;</span>, <span class="st">&quot;topic2&quot;</span>, <span class="st">&quot;topic3&quot;</span>, <span class="st">&quot;topic4&quot;</span>), 
+                  <span class="dt">cols.use =</span> <span class="kw">c</span>(<span class="st">&quot;grey&quot;</span>, <span class="st">&quot;blue&quot;</span>), 
+                  <span class="dt">reduction.use =</span> <span class="st">&quot;tsne&quot;</span>, <span class="dt">do.return =</span> <span class="ot">TRUE</span>) ## return ggplot object</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2</code></pre></div>
+<pre><code>## $topic1</code></pre>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-2.png" width="90%" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## $topic2</code></pre>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-3.png" width="90%" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## $topic3</code></pre>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-4.png" width="90%" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## $topic4</code></pre>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-128-5.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_grid</span>(p1, p2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(p2)</code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_grid</span>(p1, p2[[<span class="dv">1</span>]], p2[[<span class="dv">2</span>]], p2[[<span class="dv">3</span>]], p2[[<span class="dv">4</span>]])</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-131-1.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="extract-top-feature" class="section level4">
+<h4><span class="header-section-number">11.3.4.4</span> Extract Top Feature</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;MouseDeng2014.FitGoM&quot;</span>)
+theta_mat &lt;-<span class="st"> </span>MouseDeng2014.FitGoM<span class="op">$</span>clust_<span class="dv">6</span><span class="op">$</span>theta;
+top_features &lt;-<span class="st"> </span><span class="kw">ExtractTopFeatures</span>(theta_mat, <span class="dt">top_features=</span><span class="dv">100</span>,
+                                   <span class="dt">method=</span><span class="st">&quot;poisson&quot;</span>, <span class="dt">options=</span><span class="st">&quot;min&quot;</span>);
+gene_list &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(top_features<span class="op">$</span>indices)[<span class="dv">1</span>],
+                        <span class="cf">function</span>(x) deng.gene_names[top_features<span class="op">$</span>indices[x,]]))</code></pre></div>
+<p>We tabulate the top <span class="math inline">\(5\)</span> genes for these <span class="math inline">\(6\)</span> clusters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tmp &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, <span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="cf">function</span>(i) <span class="kw">toString</span>(gene_list[,i])))
+<span class="kw">rownames</span>(tmp) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Cluster&quot;</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))
+tmp <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable</span>(<span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">kable_styling</span>()</code></pre></div>
 </div>
 </div>
 <div id="check-clusters" class="section level3">
@@ -549,6 +694,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

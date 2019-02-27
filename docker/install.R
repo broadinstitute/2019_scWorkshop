@@ -12,6 +12,7 @@ install.packages("BiocManager")
 install.packages("devtools")
 install.packages('umap')
 install.packages('rmarkdown')
+install.packages("rgl", dependencies=TRUE)
 
 ## Bioconductor Packages
 BiocManager::install("SingleCellExperiment", version = "3.8", update = FALSE)
@@ -21,6 +22,8 @@ BiocManager::install("splatter", version = "3.8", update = FALSE)
 BiocManager::install("scater", version = "3.8", update = FALSE)
 BiocManager::install("DropletUtils", version = "3.8", update = FALSE)
 BiocManager::install("pcaMethods", version = "3.8", update = FALSE)
+BiocManager::install("CountClust", version = "3.8", update = FALSE)
+
 
 ## Github Packages
 devtools::install_github("broadinstitute/inferCNV")

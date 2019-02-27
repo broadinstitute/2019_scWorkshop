@@ -4,3 +4,4 @@
 0.0.4: Included FASTQC, IGViewr and the R package liger
 0.0.5: Installed Samtools
 0.0.6: Included Rmarkdown in the R package install
+0.0.7: Included CountClust and rgl R package  and apt-get install libglu1-mesa-dev

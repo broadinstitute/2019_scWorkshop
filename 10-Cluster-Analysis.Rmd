@@ -17,12 +17,29 @@ Cells are the basic building blocks of organisms and each cell is unique. Single
 
 ## Seurat Tutorial
 
-```{r, eval = FALSE}
+```{r}
 library(Seurat)
+library(dplyr)
+library(ggplot2)
+
 pbmc <- pbmc_small
+# pbmc@ident <- factor()
 ```
 
 
+### only run if 
+```{r, eval = FALSE}
+BiocManager::install("CountClust")
+```
+
+```{r}
+library(CountClust)
+```
+
+
+### Preprocessing Steps
+
+This was all covered in the last Lab!
 
 ```{r, eval = FALSE}
 # The number of genes and UMIs (nGene and nUMI) are automatically calculated
@@ -38,7 +55,7 @@ percent.mito <- Matrix::colSums(pbmc@raw.data[mito.genes, ])/Matrix::colSums(pbm
 # AddMetaData adds columns to object@meta.data, and is a great place to
 # stash QC stats
 pbmc <- AddMetaData(object = pbmc, metadata = percent.mito, col.name = "percent.mito")
-VlnPlot(object = pbmc, features.plot = c("nGene", "nUMI", "percent.mito"), nCol = 3)
+##VlnPlot(object = pbmc, features.plot = c("nGene", "nUMI"), "percent.mito"), nCol = 3)
 ```
 
 
@@ -55,13 +72,17 @@ GenePlot(object = pbmc, gene1 = "nUMI", gene2 = "nGene")
 
 
 
+**Already A Subset of the Data**  
+This is not run becuase we are already working with a subset.  This is here for reference.
 ```{r, eval = FALSE}
 # We filter out cells that have unique gene counts over 2,500 or less than
 # 200 Note that low.thresholds and high.thresholds are used to define a
 # 'gate'.  -Inf and Inf should be used if you don't want a lower or upper
 # threshold.
-pbmc <- FilterCells(object = pbmc, subset.names = c("nGene", "percent.mito"), 
-    low.thresholds = c(200, -Inf), high.thresholds = c(2500, 0.05))
+pbmc <- FilterCells(object = pbmc, 
+                    subset.names = c("nGene", "percent.mito"), 
+                    low.thresholds = c(200, -Inf), 
+                    high.thresholds = c(2500, 0.1))
 ```
 
 
@@ -74,30 +95,49 @@ pbmc <- NormalizeData(object = pbmc, normalization.method = "LogNormalize", scal
 
 
 ```{r, eval = FALSE}
-pbmc <- FindVariableGenes(object = pbmc, mean.function = ExpMean, dispersion.function = LogVMR, 
-    x.low.cutoff = 0.0125, x.high.cutoff = 3, y.cutoff = 0.5)
+pbmc <- FindVariableGenes(object = pbmc, 
+                          mean.function = ExpMean, 
+                          dispersion.function = LogVMR, 
+                          do.plot = FALSE)
 ```
 
+
+
+### Start of Identifying Cell Types
+
+#### Scaling
+
+This part is where you mean center the data, substract the mean.  You also divide by the standard deviation to make everything to a 'standard normal', where the mean is zero and the standard deviation is 1.
 
 ```{r, eval = FALSE}
 pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI", "percent.mito"))
 ```
 
 
+#### Running PCA
 
+This will run pca on the 
 
 ```{r, eval = FALSE}
-pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, 
-    genes.print = 5)
+pbmc <- RunPCA(object = pbmc, 
+               pc.genes = pbmc@var.genes, 
+               do.print = TRUE, 
+               pcs.print = 1:5, 
+               genes.print = 5)
 ```
 
 
+#### Running ICA
+
+Try running Independent Component Analysis.  If you need help with the inputs try using the ?RunICA menu.  
+
+
 ```{r, eval = FALSE}
-# Examine and visualize PCA results a few different ways
-PrintPCA(object = pbmc, pcs.print = 1:5, genes.print = 5, use.full = FALSE)
+pbmc_small <- RunICA() ## try to run ICA
 ```
 
 
+#### Visualizing PCA in Different Ways
 
 ```{r, eval = FALSE}
 VizPCA(object = pbmc, pcs.use = 1:2)
@@ -125,15 +165,23 @@ pbmc <- ProjectPCA(object = pbmc, do.print = FALSE)
 
 
 ```{r, eval = FALSE}
-PCHeatmap(object = pbmc, pc.use = 1, cells.use = 500, do.balanced = TRUE, label.columns = FALSE)
+PCHeatmap(object = pbmc, 
+          pc.use = 1, 
+          cells.use = 50, 
+          do.balanced = TRUE, 
+          label.columns = FALSE)
 ```
 
 
 
 
 ```{r, eval = FALSE}
-PCHeatmap(object = pbmc, pc.use = 1:12, cells.use = 500, do.balanced = TRUE, 
-    label.columns = FALSE, use.full = FALSE)
+PCHeatmap(object = pbmc, 
+          pc.use = 1:12, 
+          cells.use = 50, 
+          do.balanced = TRUE, 
+          label.columns = FALSE, 
+          use.full = FALSE)
 ```
 
 
@@ -155,13 +203,18 @@ PCElbowPlot(object = pbmc)
 # save.SNN = T saves the SNN so that the clustering algorithm can be rerun
 # using the same graph but with a different resolution value (see docs for
 # full details)
-pbmc <- FindClusters(object = pbmc, reduction.type = "pca", dims.use = 1:10, 
-    resolution = 0.6, print.output = 0, save.SNN = TRUE)
+set.seed(2019)
+pbmc <- FindClusters(object = pbmc, 
+                     reduction.type = "pca", 
+                     dims.use = 1:10, 
+                     resolution = 0.6, 
+                     print.output = 0)
 ```
 
 
 ```{r, eval = FALSE}
-pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)
+set.seed(2019)
+pbmc <-RunTSNE(pbmc, reduction.use = "pca", dims.use = 1:5, perplexity=10)
 
 # note that you can set do.label=T to help label individual clusters
 TSNEPlot(object = pbmc)
@@ -177,8 +230,7 @@ print(x = head(x = cluster1.markers, n = 5))
 
 ```{r, eval = FALSE}
 # find all markers distinguishing cluster 5 from clusters 0 and 3
-cluster5.markers <- FindMarkers(object = pbmc, ident.1 = 5, ident.2 = c(0, 3), 
-    min.pct = 0.25)
+cluster2.markers <- FindMarkers(object = pbmc, ident.1 = 5, ident.2 = c(0, 3), min.pct = 0.25)
 print(x = head(x = cluster5.markers, n = 5))
 ```
 
@@ -200,22 +252,32 @@ pbmc.markers %>% group_by(cluster) %>% top_n(2, avg_logFC)
 
 
 ```{r, eval = FALSE}
-cluster1.markers <- FindMarkers(object = pbmc, ident.1 = 0, thresh.use = 0.25, test.use = "roc", only.pos = TRUE)
+cluster1.markers <- FindMarkers(object = pbmc, 
+                                ident.1 = 0, 
+                                thresh.use = 0.25, 
+                                test.use = "roc", 
+                                only.pos = TRUE)
 
 
-VlnPlot(object = pbmc, features.plot = c("MS4A1", "CD79A"))s
+VlnPlot(object = pbmc, features.plot = c("MS4A1", "CD79A"))
 ```
 
 ```{r, eval = FALSE}
 # you can plot raw UMI counts as well
-VlnPlot(object = pbmc, features.plot = c("NKG7", "PF4"), use.raw = TRUE, y.log = TRUE)
+VlnPlot(object = pbmc, 
+        features.plot = c("NKG7", "PF4"), 
+        use.raw = TRUE, 
+        y.log = TRUE)
 ```
 
 
 
 
 ```{r, eval = FALSE}
-FeaturePlot(object = pbmc, features.plot = c("MS4A1", "GNLY", "CD3E", "CD14", "FCER1A", "FCGR3A", "LYZ", "PPBP", "CD8A"), cols.use = c("grey", "blue"), sreduction.use = "tsne")
+FeaturePlot(object = pbmc, 
+            features.plot = c("MS4A1", "GNLY", "CD3E", "CD14", "FCER1A", "FCGR3A", "LYZ", "PPBP", "CD8A"),
+            cols.use = c("grey", "blue"), 
+            sreduction.use = "tsne")
 ```
 
 
@@ -245,8 +307,11 @@ If you perturb some of our parameter choices above (for example, setting resolut
 pbmc <- StashIdent(object = pbmc, save.name = "ClusterNames_0.6")
 # Note that if you set save.snn=T above, you don't need to recalculate the
 # SNN, and can simply put: pbmc <- FindClusters(pbmc,resolution = 0.8)
-pbmc <- FindClusters(object = pbmc, reduction.type = "pca", dims.use = 1:10, 
-    resolution = 0.8, print.output = FALSE)
+pbmc <- FindClusters(object = pbmc, 
+                     reduction.type = "pca", 
+                     dims.use = 1:10, 
+                     resolution = 0.8, 
+                     print.output = FALSE)
 ```
 
 
@@ -256,9 +321,17 @@ pbmc <- FindClusters(object = pbmc, reduction.type = "pca", dims.use = 1:10,
 ## computed and stored SNN. To force recalculation, set force.recalc to TRUE.
 # Demonstration of how to plot two tSNE plots side by side, and how to color
 # points based on different criteria
-plot1 <- TSNEPlot(object = pbmc, do.return = TRUE, no.legend = TRUE, do.label = TRUE)
-plot2 <- TSNEPlot(object = pbmc, do.return = TRUE, group.by = "ClusterNames_0.6", 
-    no.legend = TRUE, do.label = TRUE)
+plot1 <- TSNEPlot(object = pbmc, 
+                  do.return = TRUE, 
+                  no.legend = TRUE, 
+                  do.label = TRUE)
+
+plot2 <- TSNEPlot(object = pbmc, 
+                  do.return = TRUE, 
+                  group.by = "ClusterNames_0.6", 
+                  no.legend = TRUE, 
+                  do.label = TRUE)
+
 plot_grid(plot1, plot2)
 ```
 
@@ -278,42 +351,43 @@ FeaturePlot(object = pbmc, features.plot = c("S100A4", "CCR7"), cols.use = c("gr
 
 ## Feature Selection
 
-### Differential Expression / Variable Genes
+### Differential Expression Analysis
 
 
-#### Variable Genes
-
-```{r, eval = FALSE}
-pbmc <- FindVariableGenes(object = pbmc, mean.function = ExpMean, dispersion.function = LogVMR, 
-    x.low.cutoff = 0.0125, x.high.cutoff = 3, y.cutoff = 0.5)
-```
-
-```{r, eval = FALSE}
-VariableGenePlot(object, do.text = TRUE, cex.use = 0.5,
-cex.text.use = 0.5, do.spike = FALSE, pch.use = 16, col.use = "black",
-spike.col.use = "red", plot.both = FALSE, do.contour = TRUE,
-contour.lwd = 3, contour.col = "white", contour.lty = 2,
-x.low.cutoff = 0.1, x.high.cutoff = 8, y.cutoff = 1,
-y.high.cutoff = Inf)
-```
-
-#### Differential Expression
+#### Differential Expression Tests
 
   One of the most commonly performed tasks for RNA-seq data is differential gene expression (DE) analysis. Although well- established tools exist for such analysis in bulk RNA-seq data6–8, methods for scRNA-seq data are just emerging. Given the special characteristics of scRNA-seq data, including generally low library sizes, high noise levels and a large fraction of so-called ‘dropout’ events, it is unclear whether DE methods that have been devel- oped for bulk RNA-seq are suitable also for scRNA-seq
 
 ```{r, eval = FALSE}
 ## Differential expression using DESeq2
-DESeq2DETest(object, cells.1, cells.2, genes.use = NULL, assay.type = "RNA",
-...)
-
-## Likelihood ratio test for zero-inflated data
-DiffExpTest(object, cells.1, cells.2, assay.type = "RNA", genes.use = NULL,
-print.bar = TRUE)
-
-## t-test
-DiffTTest(object, cells.1, cells.2, genes.use = NULL, print.bar = TRUE,
-assay.type = "RNA")
+DESeq2DETest(object = pbmc, 
+             cells.1, 
+             cells.2, 
+             genes.use = NULL, 
+             assay.type = "RNA")
 ```
+
+```{r, eval = FALSE}
+## Likelihood ratio test for zero-inflated data
+DiffExpTest(object = pbmc, 
+            cells.1, 
+            cells.2, 
+            assay.type = "RNA", 
+            genes.use = NULL,
+            print.bar = TRUE)
+```
+
+
+```{r, eval = FALSE}
+## t-test
+DiffTTest(object = pbmc, 
+          cells.1, 
+          cells.2, 
+          genes.use = NULL, 
+          print.bar = TRUE,
+          assay.type = "RNA")
+```
+
 
 ### Dimensionality Reduction
 
@@ -328,10 +402,6 @@ RunPCA()
 ```{r, eval = FALSE}
 RunICA()
 ```
-
-
-#### Multidimensional Scaling (MDS)
-
 
 
 ### Clustering
@@ -367,14 +437,131 @@ edge.file.name = NULL)
 
 #### Probabilistic (LDA)
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 library(CountClust)
 library(singleCellRNASeqMouseDeng2014)
 deng.counts <- exprs(Deng2014MouseESC)
 deng.meta_data <- pData(Deng2014MouseESC)
 deng.gene_names <- rownames(deng.counts)
 
-FitGoM(t(deng.counts),K=3,path_rda="data/MouseDeng2014.FitGoM.rda")
+FitGoM(t(deng.counts), K=3, path_rda="data/MouseDeng2014.FitGoM.rda")
+```
+
+```{r, eval = FALSE, echo = FALSE}
+data("MouseDeng2014.FitGoM")
+names(MouseDeng2014.FitGoM)
+omega <- MouseDeng2014.FitGoM$clust_6$omega
+
+
+annotation <- data.frame(
+  sample_id = paste0("X", c(1:NROW(omega))),
+  tissue_label = factor(rownames(omega),
+                        levels = rev( c("zy", "early2cell",
+                                        "mid2cell", "late2cell",
+                                        "4cell", "8cell", "16cell",
+                                        "earlyblast","midblast",
+                                         "lateblast") ) ) )
+
+rownames(omega) <- annotation$sample_id;
+
+StructureGGplot(omega = omega,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(8, "Accent"),
+                yaxis_label = "Amplification batch",
+                order_sample = TRUE,
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"))
+```
+
+
+```{r}
+## Set Cluster Identity to the clustering using a resolution of 1 (res.1) 
+SetIdent(pbmc_small, ident.use = 'res.1')
+
+pbmc_counts <- as.matrix(pbmc_small@data)
+pbmc_meta <- pbmc_small@meta.data
+gene_names <- rownames(pbmc_counts)
+
+
+pbmc_FitGoM <- FitGoM(t(pbmc_counts), K=4)
+
+
+omega <- pbmc_FitGoM$fit$omega
+
+annotation <- data.frame(sample_id = rownames(omega),
+                         tissue_label = paste0("topic", 1:4))
+
+colnames(omega) <- paste0("topic", 1:4)
+rownames(omega) <- annotation$sample_id;
+
+StructureGGplot(omega = omega,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(4, "Dark2"),
+                yaxis_label = "Cells",
+                order_sample = TRUE,
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"))
+
+
+## Add Topic Scores to Meta Data Part of the Seurat Object
+pbmc_small@meta.data <- cbind(pbmc_meta, omega)
+```
+
+```{r}
+## ggplot object, you can add layers
+p1 <- TSNEPlot(pbmc_small, do.return = TRUE) + labs(title = "Resolution 1") ## return ggplot object
+p1
+```
+
+```{r}
+p2 <- FeaturePlot(object = pbmc_small, 
+                  features.plot = c("topic1", "topic2", "topic3", "topic4"), 
+                  cols.use = c("grey", "blue"), 
+                  reduction.use = "tsne", do.return = TRUE) ## return ggplot object
+
+p2
+```
+
+
+```{r, eval = FALSE}
+plot_grid(p1, p2)
+```
+
+```{r}
+class(p2)
+```
+
+```{r}
+plot_grid(p1, p2[[1]], p2[[2]], p2[[3]], p2[[4]])
+```
+
+
+#### Extract Top Feature
+
+```{r, eval = FALSE}
+data("MouseDeng2014.FitGoM")
+theta_mat <- MouseDeng2014.FitGoM$clust_6$theta;
+top_features <- ExtractTopFeatures(theta_mat, top_features=100,
+                                   method="poisson", options="min");
+gene_list <- do.call(rbind, lapply(1:dim(top_features$indices)[1],
+                        function(x) deng.gene_names[top_features$indices[x,]]))
+```
+
+
+We tabulate the top $5$ genes for these $6$ clusters.
+
+```{r, eval = FALSE}
+tmp <- do.call(rbind, lapply(1:5, function(i) toString(gene_list[,i])))
+rownames(tmp) <- paste("Cluster", c(1:5))
+tmp %>%
+  kable("html") %>%
+  kable_styling()
 ```
 
 
@@ -398,3 +585,8 @@ GetCentroids(object, cells.use = NULL, get.exact = TRUE)
 
 
 #### UMAP
+
+
+
+
+

@@ -5,7 +5,7 @@ MAINTAINER kgosik@broadinstitute.org
 ### Install Utilities
 #########
 RUN apt-get update && apt-get install -y gcc g++ perl python python3 automake make cmake less vim \
-                                       wget git curl bsdtar libdb-dev \
+                                       wget git curl bsdtar libdb-dev libglu1-mesa-dev \
                                        zlib1g-dev bzip2 libncurses5-dev \
                                        texlive-latex-base \
                                        default-jre \
