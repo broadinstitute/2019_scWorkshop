@@ -45,8 +45,8 @@ sudo docker run --rm -it -e PASSWORD=train \
 ```
   - Need to type your computers password to use sudo
   - You can choose any port (in this exmaple above the PORT NUMBER is 9000)
-  - Go to your web browser at [localhost:9000](https://localhost:9000)
-    - Generic webiste https://localhost:$PORT_NUMBER
+  - Go to your web browser at [localhost:9000](http://localhost:9000)
+    - Generic webiste http://localhost:$PORT_NUMBER
   
 
 ### Running Rstudio in Docker AWS

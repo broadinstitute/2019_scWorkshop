@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
+  <title>16 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta property="og:title" content="16 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://broadinstitute.github.io/2019_scWorkshop/" />
   <meta property="og:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="broadinstitute/2019_scWorkship" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta name="twitter:title" content="16 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="twitter:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -27,14 +27,14 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-27">
+<meta name="date" content="2019-02-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="spatial-genomics.html">
+<link rel="prev" href="pseudotime-cell-trajectories.html">
 <link rel="next" href="single-cell-multiomic-technologies.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -191,7 +191,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.3.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#independent-components-analysis-ica"><i class="fa fa-check"></i><b>11.3.3</b> Independent Components Analysis (ICA)</a></li>
 <li class="chapter" data-level="11.3.4" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#clustering"><i class="fa fa-check"></i><b>11.3.4</b> Clustering</a></li>
 <li class="chapter" data-level="11.3.5" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#check-clusters"><i class="fa fa-check"></i><b>11.3.5</b> Check Clusters</a></li>
-<li class="chapter" data-level="11.3.6" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#visualizingembedding"><i class="fa fa-check"></i><b>11.3.6</b> Visualizing/Embedding</a></li>
+<li class="chapter" data-level="11.3.6" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#practice-visualizingembedding"><i class="fa fa-check"></i><b>11.3.6</b> Practice Visualizing/Embedding</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="batch-effects.html"><a href="batch-effects.html"><i class="fa fa-check"></i><b>12</b> Batch Effects</a></li>
@@ -222,22 +222,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="15" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html"><i class="fa fa-check"></i><b>15</b> Pseudotime Cell Trajectories</a><ul>
 <li class="chapter" data-level="15.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#google-slides-2"><i class="fa fa-check"></i><b>15.1</b> Google Slides</a></li>
 <li class="chapter" data-level="15.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#comparison-abstract"><i class="fa fa-check"></i><b>15.2</b> Comparison Abstract</a></li>
-<li class="chapter" data-level="15.3" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#what-is-pseudotime"><i class="fa fa-check"></i><b>15.3</b> What is Pseudotime</a></li>
-<li class="chapter" data-level="15.4" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#inferring-pseudotime"><i class="fa fa-check"></i><b>15.4</b> Inferring Pseudotime</a><ul>
-<li class="chapter" data-level="15.4.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#diffusion-maps"><i class="fa fa-check"></i><b>15.4.1</b> Diffusion Maps</a></li>
-<li class="chapter" data-level="15.4.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#tree-methods"><i class="fa fa-check"></i><b>15.4.2</b> Tree Methods</a></li>
-<li class="chapter" data-level="15.4.3" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#model-based-methods"><i class="fa fa-check"></i><b>15.4.3</b> Model Based Methods</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="spatial-genomics.html"><a href="spatial-genomics.html"><i class="fa fa-check"></i><b>16</b> Spatial Genomics</a></li>
-<li class="chapter" data-level="17" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>17</b> Functional Pseudotime Analysis</a></li>
-<li class="chapter" data-level="18" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>18</b> Single Cell Multiomic Technologies</a></li>
-<li class="chapter" data-level="19" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>19</b> CITE-seq and scATAC-seq</a></li>
-<li class="chapter" data-level="20" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>20</b> Single Cell Resources</a><ul>
-<li class="chapter" data-level="20.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>20.1</b> Comprehensive list of single-cell resources</a></li>
-<li class="chapter" data-level="20.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>20.2</b> Computational packages for single-cell analysis</a></li>
-<li class="chapter" data-level="20.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>20.3</b> eLife Commentary on the Human Cell Atlas</a></li>
-<li class="chapter" data-level="20.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>20.4</b> Online courses</a></li>
+<li class="chapter" data-level="16" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>16</b> Functional Pseudotime Analysis</a></li>
+<li class="chapter" data-level="17" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>17</b> Single Cell Multiomic Technologies</a></li>
+<li class="chapter" data-level="18" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>18</b> CITE-seq and scATAC-seq</a></li>
+<li class="chapter" data-level="19" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>19</b> Single Cell Resources</a><ul>
+<li class="chapter" data-level="19.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>19.1</b> Comprehensive list of single-cell resources</a></li>
+<li class="chapter" data-level="19.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>19.2</b> Computational packages for single-cell analysis</a></li>
+<li class="chapter" data-level="19.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>19.3</b> eLife Commentary on the Human Cell Atlas</a></li>
+<li class="chapter" data-level="19.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>19.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -261,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="functional-pseudotime-analysis" class="section level1">
-<h1><span class="header-section-number">17</span> Functional Pseudotime Analysis</h1>
+<h1><span class="header-section-number">16</span> Functional Pseudotime Analysis</h1>
 
 </div>
             </section>
@@ -269,7 +262,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="spatial-genomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pseudotime-cell-trajectories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="single-cell-multiomic-technologies.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
