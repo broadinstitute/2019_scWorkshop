@@ -7,7 +7,7 @@
 
 ## Docker Usage
 
-There is a docker image that goes along with this course.  The following explains how to use the docker image and what software it contains.  
+There is a docker image that goes along with this course.  The following explains how to use the docker image and what software it contains.  To rebuild the image from scratch please see this subdirectory labeled docker.  
 
 ### Installing Docker
 
@@ -129,4 +129,13 @@ Same command as above but add the option bash at the end to access the ternimal 
 
 ```{bash}
 docker run --rm -it -v $PWD/Share:/Share -v $PWD:/mydir kdgosik/scellbern2019 bash
+```
+
+
+#### Get Course Material
+
+Once you have docker running and you are in the terminal you can pull the course content to your computer by running the command below.  This will bring all the Rmarkdown files for you to run.
+
+```{bash}
+git clone https://github.com/broadinstitute/2019_scWorkshop.git
 ```

@@ -21,3 +21,4 @@ output: html_document
 ## Online courses
   - https://hemberg-lab.github.io/scRNA.seq.course/
   - https://github.com/SingleCellTranscriptomics
+  - https://r4ds.had.co.nz/

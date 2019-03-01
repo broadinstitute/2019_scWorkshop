@@ -21,20 +21,13 @@ Cells are the basic building blocks of organisms and each cell is unique. Single
 library(Seurat)
 library(dplyr)
 library(ggplot2)
+library(CountClust)
 
 pbmc <- pbmc_small
+pbmc@meta.data$barcode <- row.names(pbmc@meta.data)
 # pbmc@ident <- factor()
 ```
 
-
-### only run if 
-```{r, eval = FALSE}
-BiocManager::install("CountClust")
-```
-
-```{r}
-library(CountClust)
-```
 
 
 ### Preprocessing Steps
@@ -73,16 +66,21 @@ GenePlot(object = pbmc, gene1 = "nUMI", gene2 = "nGene")
 
 
 **Already A Subset of the Data**  
+
 This is not run becuase we are already working with a subset.  This is here for reference.
+
 ```{r, eval = FALSE}
 # We filter out cells that have unique gene counts over 2,500 or less than
 # 200 Note that low.thresholds and high.thresholds are used to define a
 # 'gate'.  -Inf and Inf should be used if you don't want a lower or upper
 # threshold.
+
 pbmc <- FilterCells(object = pbmc, 
                     subset.names = c("nGene", "percent.mito"), 
                     low.thresholds = c(200, -Inf), 
                     high.thresholds = c(2500, 0.1))
+
+
 ```
 
 
@@ -115,7 +113,17 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("batch", "percent.mito"))
 
 Try Regressing Other Variables
 ```{r, eval = FALSE}
-pbmc <- ScaleData(object = pbmc, vars.to.regress = )
+## batch_ids <- read.csv('file_with_batch_ids.csv')
+
+## randomly making a batch id data.frame
+batch_ids <- data.frame(barcode = rownames(pbmc@meta.data), 
+                        batch_id = sample(0:2, 80, replace = TRUE),
+                        stringsAsFactors = FALSE)
+row.names(batch_ids) <- row.names(pbmc@meta.data)
+
+pbmc <- AddMetaData(object = pbmc, metadata = batch_ids, col.name = "batch_id")
+
+pbmc <- ScaleData(object = pbmc, vars.to.regress = 'batch_id')
 ```
 
 #### Running PCA

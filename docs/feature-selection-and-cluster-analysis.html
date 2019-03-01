@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-28">
+<meta name="date" content="2019-03-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,9 +181,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html"><i class="fa fa-check"></i><b>11</b> Feature Selection and Cluster Analysis</a><ul>
 <li class="chapter" data-level="11.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#abstract"><i class="fa fa-check"></i><b>11.1</b> Abstract</a></li>
 <li class="chapter" data-level="11.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#seurat-tutorial"><i class="fa fa-check"></i><b>11.2</b> Seurat Tutorial</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#only-run-if"><i class="fa fa-check"></i><b>11.2.1</b> only run if</a></li>
-<li class="chapter" data-level="11.2.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#preprocessing-steps"><i class="fa fa-check"></i><b>11.2.2</b> Preprocessing Steps</a></li>
-<li class="chapter" data-level="11.2.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#start-of-identifying-cell-types"><i class="fa fa-check"></i><b>11.2.3</b> Start of Identifying Cell Types</a></li>
+<li class="chapter" data-level="11.2.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#preprocessing-steps"><i class="fa fa-check"></i><b>11.2.1</b> Preprocessing Steps</a></li>
+<li class="chapter" data-level="11.2.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#start-of-identifying-cell-types"><i class="fa fa-check"></i><b>11.2.2</b> Start of Identifying Cell Types</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#feature-selection"><i class="fa fa-check"></i><b>11.3</b> Feature Selection</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#differential-expression-analysis"><i class="fa fa-check"></i><b>11.3.1</b> Differential Expression Analysis</a></li>
@@ -265,16 +264,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Seurat)
 <span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(CountClust)
 
 pbmc &lt;-<span class="st"> </span>pbmc_small
+pbmc<span class="op">@</span>meta.data<span class="op">$</span>barcode &lt;-<span class="st"> </span><span class="kw">row.names</span>(pbmc<span class="op">@</span>meta.data)
 <span class="co"># pbmc@ident &lt;- factor()</span></code></pre></div>
-<div id="only-run-if" class="section level3">
-<h3><span class="header-section-number">11.2.1</span> only run if</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BiocManager<span class="op">::</span><span class="kw">install</span>(<span class="st">&quot;CountClust&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(CountClust)</code></pre></div>
-</div>
 <div id="preprocessing-steps" class="section level3">
-<h3><span class="header-section-number">11.2.2</span> Preprocessing Steps</h3>
+<h3><span class="header-section-number">11.2.1</span> Preprocessing Steps</h3>
 <p>This was all covered in the last Lab!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The number of genes and UMIs (nGene and nUMI) are automatically calculated</span>
 <span class="co"># for every object by Seurat.  For non-UMI data, nUMI represents the sum of</span>
@@ -298,12 +294,13 @@ pbmc &lt;-<span class="st"> </span><span class="kw">AddMetaData</span>(<span cla
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
 <span class="kw">GenePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">gene1 =</span> <span class="st">&quot;nUMI&quot;</span>, <span class="dt">gene2 =</span> <span class="st">&quot;percent.mito&quot;</span>)
 <span class="kw">GenePlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">gene1 =</span> <span class="st">&quot;nUMI&quot;</span>, <span class="dt">gene2 =</span> <span class="st">&quot;nGene&quot;</span>)</code></pre></div>
-<p><strong>Already A Subset of the Data</strong><br />
-This is not run becuase we are already working with a subset. This is here for reference.</p>
+<p><strong>Already A Subset of the Data</strong></p>
+<p>This is not run becuase we are already working with a subset. This is here for reference.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We filter out cells that have unique gene counts over 2,500 or less than</span>
 <span class="co"># 200 Note that low.thresholds and high.thresholds are used to define a</span>
 <span class="co"># &#39;gate&#39;.  -Inf and Inf should be used if you don&#39;t want a lower or upper</span>
 <span class="co"># threshold.</span>
+
 pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span class="dt">object =</span> pbmc, 
                     <span class="dt">subset.names =</span> <span class="kw">c</span>(<span class="st">&quot;nGene&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>), 
                     <span class="dt">low.thresholds =</span> <span class="kw">c</span>(<span class="dv">200</span>, <span class="op">-</span><span class="ot">Inf</span>), 
@@ -315,16 +312,26 @@ pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span cla
                           <span class="dt">do.plot =</span> <span class="ot">FALSE</span>)</code></pre></div>
 </div>
 <div id="start-of-identifying-cell-types" class="section level3">
-<h3><span class="header-section-number">11.2.3</span> Start of Identifying Cell Types</h3>
+<h3><span class="header-section-number">11.2.2</span> Start of Identifying Cell Types</h3>
 <div id="scaling" class="section level4">
-<h4><span class="header-section-number">11.2.3.1</span> Scaling</h4>
+<h4><span class="header-section-number">11.2.2.1</span> Scaling</h4>
 <p>This part is where you mean center the data, substract the mean. You also divide by the standard deviation to make everything to a ‘standard normal’, where the mean is zero and the standard deviation is 1.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(<span class="dt">object =</span> pbmc, <span class="dt">vars.to.regress =</span> <span class="kw">c</span>(<span class="st">&quot;batch&quot;</span>, <span class="st">&quot;percent.mito&quot;</span>))</code></pre></div>
 <p>Try Regressing Other Variables</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(<span class="dt">object =</span> pbmc, <span class="dt">vars.to.regress =</span> )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## batch_ids &lt;- read.csv(&#39;file_with_batch_ids.csv&#39;)
+
+## randomly making a batch id data.frame
+batch_ids &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">barcode =</span> <span class="kw">rownames</span>(pbmc<span class="op">@</span>meta.data), 
+                        <span class="dt">batch_id =</span> <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">80</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
+                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">row.names</span>(batch_ids) &lt;-<span class="st"> </span><span class="kw">row.names</span>(pbmc<span class="op">@</span>meta.data)
+
+pbmc &lt;-<span class="st"> </span><span class="kw">AddMetaData</span>(<span class="dt">object =</span> pbmc, <span class="dt">metadata =</span> batch_ids, <span class="dt">col.name =</span> <span class="st">&quot;batch_id&quot;</span>)
+
+pbmc &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(<span class="dt">object =</span> pbmc, <span class="dt">vars.to.regress =</span> <span class="st">&#39;batch_id&#39;</span>)</code></pre></div>
 </div>
 <div id="running-pca" class="section level4">
-<h4><span class="header-section-number">11.2.3.2</span> Running PCA</h4>
+<h4><span class="header-section-number">11.2.2.2</span> Running PCA</h4>
 <p>This will run pca on the</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">RunPCA</span>(<span class="dt">object =</span> pbmc, 
                <span class="dt">pc.genes =</span> pbmc<span class="op">@</span>var.genes, 
@@ -333,16 +340,16 @@ pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span cla
                <span class="dt">genes.print =</span> <span class="dv">5</span>)</code></pre></div>
 </div>
 <div id="running-ica" class="section level4">
-<h4><span class="header-section-number">11.2.3.3</span> Running ICA</h4>
+<h4><span class="header-section-number">11.2.2.3</span> Running ICA</h4>
 <p>Try running Independent Component Analysis. If you need help with the inputs try using the ?RunICA menu.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span><span class="kw">RunICA</span>(pbmc, <span class="dt">ics.compute=</span><span class="dv">5</span>)</code></pre></div>
 </div>
 <div id="visualizing-pca-in-different-ways" class="section level4">
-<h4><span class="header-section-number">11.2.3.4</span> Visualizing PCA in Different Ways</h4>
+<h4><span class="header-section-number">11.2.2.4</span> Visualizing PCA in Different Ways</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">VizPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">pcs.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</code></pre></div>
 </div>
 <div id="visualizing-ica-in-different-ways" class="section level4">
-<h4><span class="header-section-number">11.2.3.5</span> Visualizing ICA in Different Ways</h4>
+<h4><span class="header-section-number">11.2.2.5</span> Visualizing ICA in Different Ways</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">VizICA</span>(<span class="dt">object =</span> pbmc, <span class="dt">ics.use=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCAPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">dim.1 =</span> <span class="dv">1</span>, <span class="dt">dim.2 =</span> <span class="dv">2</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ProjectPCA scores each gene in the dataset (including genes not included</span>
@@ -354,7 +361,7 @@ pbmc &lt;-<span class="st"> </span><span class="kw">FilterCells</span>(<span cla
 pbmc &lt;-<span class="st"> </span><span class="kw">ProjectPCA</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.print =</span> <span class="ot">FALSE</span>)</code></pre></div>
 </div>
 <div id="genes-by-pcs" class="section level4">
-<h4><span class="header-section-number">11.2.3.6</span> Genes by PCs</h4>
+<h4><span class="header-section-number">11.2.2.6</span> Genes by PCs</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">PCHeatmap</span>(<span class="dt">object =</span> pbmc, 
           <span class="dt">pc.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, 
           <span class="dt">cells.use =</span> <span class="dv">50</span>, 
@@ -389,7 +396,7 @@ pbmc.markers &lt;-<span class="st"> </span><span class="kw">FindAllMarkers</span
 pbmc.markers <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">2</span>, avg_logFC)</code></pre></div>
 </div>
 <div id="find-marker-genes" class="section level4">
-<h4><span class="header-section-number">11.2.3.7</span> Find Marker Genes</h4>
+<h4><span class="header-section-number">11.2.2.7</span> Find Marker Genes</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cluster1.markers &lt;-<span class="st"> </span><span class="kw">FindMarkers</span>(<span class="dt">object =</span> pbmc, 
                                 <span class="dt">ident.1 =</span> <span class="dv">0</span>, 
                                 <span class="dt">thresh.use =</span> <span class="fl">0.25</span>, 
@@ -417,7 +424,7 @@ pbmc<span class="op">@</span>ident &lt;-<span class="st"> </span>plyr<span class
 <span class="kw">TSNEPlot</span>(<span class="dt">object =</span> pbmc, <span class="dt">do.label =</span> <span class="ot">TRUE</span>, <span class="dt">pt.size =</span> <span class="fl">0.5</span>)</code></pre></div>
 </div>
 <div id="further-subdivisions-within-cell-types" class="section level4">
-<h4><span class="header-section-number">11.2.3.8</span> Further subdivisions within cell types</h4>
+<h4><span class="header-section-number">11.2.2.8</span> Further subdivisions within cell types</h4>
 <p>If you perturb some of our parameter choices above (for example, setting resolution=0.8 or changing the number of PCs), you might see the CD4 T cells subdivide into two groups. You can explore this subdivision to find markers separating the two T cell subsets. However, before reclustering (which will overwrite <a href="mailto:object@ident">object@ident</a>), we can stash our renamed identities to be easily recovered later.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First lets stash our identities for later</span>
 pbmc &lt;-<span class="st"> </span><span class="kw">StashIdent</span>(<span class="dt">object =</span> pbmc, <span class="dt">save.name =</span> <span class="st">&quot;ClusterNames_0.6&quot;</span>)

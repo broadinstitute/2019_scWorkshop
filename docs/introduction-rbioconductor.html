@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-02-28">
+<meta name="date" content="2019-03-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,9 +181,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html"><i class="fa fa-check"></i><b>11</b> Feature Selection and Cluster Analysis</a><ul>
 <li class="chapter" data-level="11.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#abstract"><i class="fa fa-check"></i><b>11.1</b> Abstract</a></li>
 <li class="chapter" data-level="11.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#seurat-tutorial"><i class="fa fa-check"></i><b>11.2</b> Seurat Tutorial</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#only-run-if"><i class="fa fa-check"></i><b>11.2.1</b> only run if</a></li>
-<li class="chapter" data-level="11.2.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#preprocessing-steps"><i class="fa fa-check"></i><b>11.2.2</b> Preprocessing Steps</a></li>
-<li class="chapter" data-level="11.2.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#start-of-identifying-cell-types"><i class="fa fa-check"></i><b>11.2.3</b> Start of Identifying Cell Types</a></li>
+<li class="chapter" data-level="11.2.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#preprocessing-steps"><i class="fa fa-check"></i><b>11.2.1</b> Preprocessing Steps</a></li>
+<li class="chapter" data-level="11.2.2" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#start-of-identifying-cell-types"><i class="fa fa-check"></i><b>11.2.2</b> Start of Identifying Cell Types</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#feature-selection"><i class="fa fa-check"></i><b>11.3</b> Feature Selection</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="feature-selection-and-cluster-analysis.html"><a href="feature-selection-and-cluster-analysis.html#differential-expression-analysis"><i class="fa fa-check"></i><b>11.3.1</b> Differential Expression Analysis</a></li>
@@ -554,15 +553,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 5 8 5 9 4 7 3 6 2 1 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 4 4 6 5 3 5 6 1 3 4 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 5 3 3 4 8 3 5 5 3 6</code></pre>
+<pre><code>##  [1] 6 6 3 9 4 4 4 2 7 5</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1] 2 2 4 5 4 4 8 5 5 4</code></pre>
+<pre><code>##  [1] 5 7 9 9 8 1 3 4 8 1</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -751,7 +750,7 @@ iris[,<span class="dv">4</span>]</code></pre></div>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 5 3 3 4 8 3 5 5 3 6</code></pre>
+<pre><code>##  [1] 6 6 3 9 4 4 4 2 7 5</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
@@ -942,7 +941,7 @@ new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code
 <p><strong>1D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
 new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-75-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-112-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
@@ -952,29 +951,29 @@ new_plot_1dx</code></pre></div>
 ## new_plot_1dx &lt;- new_plot_1dx + geom_histogram()  ## reassign
 new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-76-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-113-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div id="lab-a" class="section level4">
 <h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
 <p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-77-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-114-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-78-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-115-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><strong>2D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## scatter plot
 new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-80-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-117-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-b" class="section level4">
 <h4><span class="header-section-number">7.5.2.2</span> Lab B</h4>
 <p>Use different geom_ to make a different plots - try _bar_abline() - try _bin2d()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-81-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-118-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Statisitics in 2D plots
 <ul>
@@ -982,7 +981,7 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-82-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-119-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Text Labels</li>
 </ul>
@@ -991,13 +990,13 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">                            </span>## Geometry layer
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st">              </span>## 
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-83-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-120-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-c" class="section level4">
 <h4><span class="header-section-number">7.5.2.3</span> Lab C</h4>
 <p>Play arund with ggplot2. See what geoms to add and layers to include.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-84-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-121-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
