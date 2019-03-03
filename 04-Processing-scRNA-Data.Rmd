@@ -39,7 +39,7 @@ less Share/data/Teichmann_2i_2_2_2.fastq
 We run fastqc from /usr/local/src/FastQC. You may need to give yourself permissions to run the file (hint: chmod)
 
 Task 1: Try to work out what command you should use to produce the FastQC report. Hint: Try executing
-```{r run fastqc, eval = FALSE }
+```{r run_fastqc, eval = FALSE }
 ./usr/local/src/FastQC/fastqc -h
 ```
 
@@ -63,7 +63,7 @@ Feel free to chat to one of the instructors about your ideas.
 FastQ is the most raw form of scRNASeq data you will encounter. All scRNASeq protocols are sequenced with paired-end sequencing. Barcode sequences may occur in one or both reads depending on the protocol employed. However, protocols using unique molecular identifiers (UMIs) will generally contain one read with the cell and UMI barcodes plus adapters but without any transcript sequence. Thus reads will be mapped as if they are single-end sequenced despite actually being paired end.
 
 FastQ files have the format:
-```{r file format, eval = FALSE}
+```{r file_format, eval = FALSE}
 >ReadID
 READ SEQUENCE
 +
@@ -90,12 +90,12 @@ Task 2: Create a genome index
 First create the output folder for the index in your personal folder under results (recommended STAR/indices).
 
 We run STAR from:
-```{r STAR location, eval = FALSE}
+```{r STAR_location, eval = FALSE}
 /usr/local/src/STAR/bin/Linux_x86_64
 ```
 
 using the command:
-```{r STAR command, eval = FALSE}
+```{r STAR_command, eval = FALSE}
 ./usr/local/src/STAR/bin/Linux_x86_64/STAR --runThreadN 4 --runMode genomeGenerate --genomeDir <output STAR indices folder> --genomeFastaFiles Share/data/2000_reference.transcripts.fa
 ```
 
@@ -142,7 +142,7 @@ QUAL : read quality
 
 
 BAM/SAM files can be converted to the other format using ‘samtools’:
-```{r samtools bam/sam, eval = FALSE}
+```{r samtools_bam/sam, eval = FALSE}
 samtools view -S -b file.sam > file.bam
 samtools view -h file.bam > file.sam
 ```
@@ -153,7 +153,7 @@ BAM files can be converted to FastQ using bedtools. To ensure a single copy for 
 
 To make our aligned BAM file easy to navigate (needed for IGViewer) we will sort and index it using samtools.
 Sam tools can be run from everywhere (no need to go to a special directory!) using the command:
-```{r samtools command, eval = FALSE}
+```{r samtools_command, eval = FALSE}
 samtools
 ```
 

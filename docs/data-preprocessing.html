@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-03-01">
+<meta name="date" content="2019-03-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -174,7 +174,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.6" data-path="introduction-rbioconductor.html"><a href="introduction-rbioconductor.html#reference"><i class="fa fa-check"></i><b>7.6</b> Reference</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="expression-qc-and-normalization.html"><a href="expression-qc-and-normalization.html"><i class="fa fa-check"></i><b>8</b> Expression QC and Normalization</a></li>
-<li class="chapter" data-level="9" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling scRNAseq</a></li>
+<li class="chapter" data-level="9" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html"><i class="fa fa-check"></i><b>9</b> Data Wrangling scRNAseq</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#goal-1"><i class="fa fa-check"></i><b>9.1</b> Goal</a></li>
+<li class="chapter" data-level="9.2" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#introduction-1"><i class="fa fa-check"></i><b>9.2</b> Introduction</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#load-necessary-packages"><i class="fa fa-check"></i><b>9.2.1</b> Load necessary packages</a></li>
+<li class="chapter" data-level="9.2.2" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#read-in-nsclc-counts-matrix."><i class="fa fa-check"></i><b>9.2.2</b> Read in NSCLC counts matrix.</a></li>
+<li class="chapter" data-level="9.2.3" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#lets-examine-the-sparse-counts-matrix"><i class="fa fa-check"></i><b>9.2.3</b> Let’s examine the sparse counts matrix</a></li>
+<li class="chapter" data-level="9.2.4" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#how-big-is-the-matrix"><i class="fa fa-check"></i><b>9.2.4</b> How big is the matrix?</a></li>
+<li class="chapter" data-level="9.2.5" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#how-much-memory-does-a-sparse-matrix-take-up-relative-to-a-dense-matrix"><i class="fa fa-check"></i><b>9.2.5</b> How much memory does a sparse matrix take up relative to a dense matrix?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#filtering-low-quality-cells"><i class="fa fa-check"></i><b>9.3</b> Filtering low-quality cells</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#look-at-the-summary-counts-for-genes-and-cells"><i class="fa fa-check"></i><b>9.3.1</b> Look at the summary counts for genes and cells</a></li>
+<li class="chapter" data-level="9.3.2" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#plot-cells-ranked-by-their-number-of-detected-genes."><i class="fa fa-check"></i><b>9.3.2</b> Plot cells ranked by their number of detected genes.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#beginning-with-seurat-httpsatijalab.orgseurat"><i class="fa fa-check"></i><b>9.4</b> Beginning with Seurat: <a href="http://satijalab.org/seurat/" class="uri">http://satijalab.org/seurat/</a></a><ul>
+<li class="chapter" data-level="9.4.1" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#creating-a-seurat-object"><i class="fa fa-check"></i><b>9.4.1</b> Creating a seurat object</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#preprocessing-step-1-filter-out-low-quality-cells"><i class="fa fa-check"></i><b>9.5</b> Preprocessing step 1 : Filter out low-quality cells</a></li>
+<li class="chapter" data-level="9.6" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#examine-contents-of-seurat-object"><i class="fa fa-check"></i><b>9.6</b> Examine contents of Seurat object</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#preprocessing-step-2-expression-normalization"><i class="fa fa-check"></i><b>9.6.1</b> Preprocessing step 2 : Expression normalization</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#detection-of-variable-genes-across-the-single-cells"><i class="fa fa-check"></i><b>9.7</b> Detection of variable genes across the single cells</a></li>
+<li class="chapter" data-level="9.8" data-path="data-wrangling-scrnaseq.html"><a href="data-wrangling-scrnaseq.html#gene-set-expression-across-cells"><i class="fa fa-check"></i><b>9.8</b> Gene set expression across cells</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="identifying-cell-populations.html"><a href="identifying-cell-populations.html"><i class="fa fa-check"></i><b>10</b> Identifying Cell Populations</a><ul>
 <li class="chapter" data-level="10.1" data-path="identifying-cell-populations.html"><a href="identifying-cell-populations.html#google-slides"><i class="fa fa-check"></i><b>10.1</b> Google Slides</a></li>
 </ul></li>
@@ -254,6 +276,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-preprocessing" class="section level1">
 <h1><span class="header-section-number">4</span> Data Preprocessing</h1>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRSGxz82hjp9SIE4cp4gT-81TqNJiLcF0-rEb8P5kBrB_SDwprmEMv18xjlBPfCP381xSmByApzeCTU/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+</iframe>
 
 </div>
             </section>

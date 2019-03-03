@@ -345,7 +345,7 @@ numeric_matrix[, 4]
 **Get data.frame**
 ```{r}
 ## built in R data.frame iris
-iris
+head(iris)
 ```
 
 **Check Class**
@@ -390,12 +390,14 @@ iris$Species
 
   - S3 most of R uses
   - Bioconductor requires R packages to be written as S4 objects
-  - OO field guide
+  - OO field [guide](http://adv-r.had.co.nz/OO-essentials.html)
   - Closer to a typical programming language
     - Classes/Methods and Generics
     - Lots of Generics implemented for Bioinformatics!
   
 Different way to access values.  Need to use the @ symbol instead of $
+
+  - (@ is equivalent to $, and slot() to [[.)
 
 ```{r, eval= FALSE}
 ## example
@@ -650,4 +652,5 @@ ggplot(gbm, aes(x = MS4A1, y = CD79B))
   - [ggplot2 reference](https://ggplot2.tidyverse.org/reference/index.html)
   - [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
   - [blog post](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149)
+  - [Hemberg Lab](https://hemberg-lab.github.io/scRNA.seq.course/introduction-to-rbioconductor.html#an-introduction-to-ggplot2)
   

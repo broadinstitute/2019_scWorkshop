@@ -7,7 +7,9 @@
 
 ## Docker Usage
 
-There is a docker image that goes along with this course.  The following explains how to use the docker image and what software it contains.  To rebuild the image from scratch please see this subdirectory labeled docker.  
+There is a docker image that goes along with this course.  The following explains how to use the docker image and what software it contains.  To rebuild the image from scratch please see this subdirectory labeled docker. 
+
+[More about docker](https://www.youtube.com/watch?v=6aBsjT5HoGY)
 
 ### Installing Docker
 
@@ -32,13 +34,13 @@ All additional software is included in the /usr/local/src directory inside the d
 The first thing you will need to do is pull the docker image to your computer.  You do this by running the command:
 
 ```{bash}
-sudo docker pull kdgosik/scellbern2019:latest
+docker pull kdgosik/scellbern2019:latest
 ```
 
 ### Running Rstudio in Docker locally on your computer
 
 ```{bash}
-sudo docker run --rm -it -e PASSWORD=train \
+docker run --rm -it -e PASSWORD=train \
 -v $PWD/Share:/Share \
 -v $PWD:/mydir \
 -p 9000:8787 kdgosik/scellbern2019

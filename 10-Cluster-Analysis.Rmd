@@ -119,6 +119,8 @@ Try Regressing Other Variables
 batch_ids <- data.frame(barcode = rownames(pbmc@meta.data), 
                         batch_id = sample(0:2, 80, replace = TRUE),
                         stringsAsFactors = FALSE)
+
+
 row.names(batch_ids) <- row.names(pbmc@meta.data)
 
 pbmc <- AddMetaData(object = pbmc, metadata = batch_ids, col.name = "batch_id")

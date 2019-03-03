@@ -124,7 +124,7 @@ Consistent compute enviornment to ensure all software that you need is on the ma
 
 ```{bash, eval = FALSE, echo = FALSE}
 ## maybe take away the --rm so they can save the container for later
-## or whatever port
+## or whatever port for your user number
 docker run --rm -it -e PASSWORD=train -p 9000:8787 kdgosik/scellbern2019 bash
 
 sudo docker run --rm -it -e PASSWORD=train -v $PWD/Share:/data kdgosik/scellbern2019 bash
@@ -241,15 +241,14 @@ cd ..
  
  ```{bash, eval = FALSE}
 cd data
-wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
-cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81905/matrix/GSE81905-GPL19057_series_matrix.txt.gz
+cd data; tar -xzf GSE81905-GPL19057_series_matrix.txt.gz
 cd ..
 ```
 
 ### Single Cell Portal
 
   - https://portals.broadinstitute.org/single_cell
-
   - Study: Salk Institute - Single-cell Methylome Sequencing Identifies Distinct Neuronal Populations in Mouse Frontal Cortex
 
 #### Lab 1d
