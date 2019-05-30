@@ -144,7 +144,7 @@ smartseq2 <- SubsetData(smartseq2, max.cells.per.ident = 500, random.seed = 1)
 # save(celseq, celseq2, fluidigmc1, smartseq2, file = Rda.sparse.path)
 ```
 
-# Cluster pancreatic datasets without batch correction
+## Cluster pancreatic datasets without batch correction
 Let us cluster all the pancreatic islet datasets together and see whether there is a batch effect.
 ```{r no_batch_correction, eval = FALSE}
 # Merge Seurat objects by making a list of the 4 Seurat objects and using MergeMultipleSeuratObjects.
