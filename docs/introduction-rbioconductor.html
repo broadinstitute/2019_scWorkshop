@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-03-03">
+<meta name="date" content="2019-05-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -575,15 +575,15 @@ numeric_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<spa
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
 <p><strong>Check Structure</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(numeric_matrix)</code></pre></div>
-<pre><code>##  int [1:10, 1:10] 6 10 8 8 4 8 1 2 1 10 ...</code></pre>
+<pre><code>##  int [1:10, 1:10] 9 2 6 8 7 6 1 3 1 7 ...</code></pre>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 8 9 3 6 3 2 5 6 8 7</code></pre>
+<pre><code>##  [1]  6  6  6 10  4  6  7  5  4 10</code></pre>
 <p><strong>Get 4th Column</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 4th colum
 numeric_matrix[, <span class="dv">4</span>]</code></pre></div>
-<pre><code>##  [1] 2 7 6 3 9 6 6 5 3 7</code></pre>
+<pre><code>##  [1] 10  4 10  1  1  9  8  1  7  1</code></pre>
 </div>
 <div id="data.frame" class="section level4">
 <h4><span class="header-section-number">7.3.2.7</span> data.frame</h4>
@@ -628,7 +628,7 @@ iris[,<span class="dv">4</span>]</code></pre></div>
 <p><strong>Get 3rd Row</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get 3rd row
 numeric_matrix[<span class="dv">3</span>, ]</code></pre></div>
-<pre><code>##  [1] 8 9 3 6 3 2 5 6 8 7</code></pre>
+<pre><code>##  [1]  6  6  6 10  4  6  7  5  4 10</code></pre>
 <p><strong>Get Species Variable</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get variable
 iris<span class="op">$</span>Species</code></pre></div>
@@ -684,75 +684,20 @@ object<span class="op">@</span></code></pre></div>
 <p>Different from base R. Uses the S4 methods that Bioconductor uses.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]
 <span class="kw">class</span>(sparse_matrix)</code></pre></div>
-<pre><code>## [1] &quot;dgCMatrix&quot;
-## attr(,&quot;package&quot;)
-## [1] &quot;Matrix&quot;</code></pre>
 <p><strong>ith row - 1</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>i</code></pre></div>
-<pre><code>##   [1] 1 5 8 3 8 8 8 3 8 3 8 8 3 8 8 1 8 0 1 3 4 5 6 8 0 1 2 3 5 6 7 8 9 0 1
-##  [36] 2 3 4 5 7 8 0 1 2 3 4 5 7 8 9 0 1 2 3 5 6 7 8 9 0 1 2 3 5 7 9 0 1 2 3
-##  [71] 4 5 6 7 8 0 1 2 3 4 5 6 7 8 0 1 2 3 4 5 6 8 9 0 1 2 3 4 5 6 7 8 3 6 8
-## [106] 3 5 7 2 6 3 7 8 0 3 8 3 5 2 3 3 5 7 1 3 8 1 8 3 1 8 3 3 3 8 8 8 8 3 8
-## [141] 3 3 8 8 8 1 3 8 3 5 8 1 3 5 1 3 7 1 3 5 7 8 1 3 6 8 3 8 3 5 7 8 1 3 5
-## [176] 6 8 3 7 8 3 5 7 3 5 7 8 3 5 7 1 2 3 4 5 7 8 1 3 5 7 3 5 7 3 5 7 0 3 5
-## [211] 7 2 3 5 7 8 3 5 7 8 3 8 3 3 3 3 3 5</code></pre>
 <p><strong>pth column - 1</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>p</code></pre></div>
-<pre><code>##  [1]   0   3   5   6   7   9  11  12  14  15  17  24  33  41  50  59  66
-## [18]  75  84  93 102 105 108 110 113 116 116 118 120 123 126 128 129 130
-## [35] 131 132 132 133 134 134 134 134 135 136 137 138 140 141 143 144 145
-## [52] 148 151 154 157 162 166 168 172 177 180 183 187 190 197 201 204 207
-## [69] 211 216 220 221 221 222 222 223 224 225 225 226 228</code></pre>
 <p><strong>value</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix<span class="op">@</span>x</code></pre></div>
-<pre><code>##   [1] 4.968821 4.968821 6.062788 4.776153 6.714813 7.143118 6.932079
-##   [8] 4.074201 5.161411 4.968821 6.349888 6.844283 4.940848 6.321767
-##  [15] 5.954840 4.615121 7.650169 5.779448 5.779448 7.722706 6.183883
-##  [22] 5.089387 6.183883 5.779448 4.660719 5.349125 5.571318 7.290953
-##  [29] 5.753005 3.976987 5.349125 6.157411 4.660719 5.984036 5.697193
-##  [36] 5.293404 7.486153 5.293404 5.293404 4.605269 5.293404 6.666083
-##  [43] 6.378826 5.974209 7.225153 6.666083 5.974209 5.283602 6.666083
-##  [50] 5.283602 5.313305 5.313305 6.226636 7.323931 5.313305 5.313305
-##  [57] 5.313305 6.003987 4.625072 5.190573 5.190573 6.167916 7.419181
-##  [64] 6.167916 4.787888 4.103037 6.106491 5.012325 5.012325 6.952515
-##  [71] 6.106491 5.702139 5.702139 5.012325 6.106491 5.694729 5.004940
-##  [78] 5.917200 7.563681 5.408168 5.004940 4.318475 5.004940 6.099073
-##  [85] 5.537982 5.537982 6.451909 7.144267 5.942135 4.848761 4.848761
-##  [92] 6.451909 4.848761 5.621232 6.130608 7.004807 7.292262 5.217575
-##  [99] 5.217575 5.217575 4.529834 6.466459 5.463405 3.542611 3.542611
-## [106] 6.296873 4.316042 3.243785 3.870125 3.870125 6.072815 3.790760
-## [113] 3.790760 3.117873 4.872060 3.117873 4.814816 3.452557 3.820847
-## [120] 4.904746 5.272516 3.356926 4.032499 3.378564 5.911533 3.378564
-## [127] 3.729311 3.729311 4.476843 4.671146 3.997759 4.175964 3.834037
-## [134] 4.208048 4.289671 4.538951 5.500860 6.174727 4.576296 4.576296
-## [141] 4.386580 4.676402 4.676402 5.505730 5.717127 3.330567 5.600427
-## [148] 3.330567 5.558363 3.289886 3.964228 4.289671 5.665630 4.289671
-## [155] 4.625072 4.625072 4.625072 3.831826 4.915886 3.831826 3.160117
-## [162] 3.160117 3.891037 6.510947 3.218108 3.218108 5.299333 3.040721
-## [169] 5.997035 3.461483 3.461483 3.461483 4.641885 5.148847 3.562368
-## [176] 3.562368 4.241228 5.201734 3.160117 3.160117 7.224972 5.590375
-## [183] 3.666620 7.326865 5.841041 3.516896 2.853008 7.268618 4.662449
-## [190] 3.582547 4.472554 5.159975 6.813544 4.472554 4.693411 4.472554
-## [197] 4.693411 2.523157 7.367436 4.845342 4.066279 6.991211 5.050805
-## [204] 3.374468 6.928669 4.906964 2.668812 3.449600 6.127561 3.449600
-## [211] 3.449600 3.284923 6.193245 3.959171 3.284923 3.284923 7.230064
-## [218] 4.989674 4.209353 3.989917 3.874733 4.103037 4.485477 2.994498
-## [225] 3.922071 4.900324 5.708535 3.782335</code></pre>
 <p><strong>Get First Value</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sparse_matrix[<span class="dv">2</span>,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] 4.968821</code></pre>
 <p><strong>dense matrix</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dense_matrix &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(sparse_matrix)
 <span class="kw">class</span>(dense_matrix)</code></pre></div>
-<pre><code>## [1] &quot;matrix&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(dense_matrix)</code></pre></div>
-<pre><code>##  num [1:10, 1:80] 0 4.97 0 0 0 ...
-##  - attr(*, &quot;dimnames&quot;)=List of 2
-##   ..$ : chr [1:10] &quot;MS4A1&quot; &quot;CD79B&quot; &quot;CD79A&quot; &quot;HLA-DRA&quot; ...
-##   ..$ : chr [1:80] &quot;ATGCCAGAACGACT&quot; &quot;CATGGCCTGTGCAT&quot; &quot;GAACCTGATGAACC&quot; &quot;TGACTGGATTCTCA&quot; ...</code></pre>
 <p><strong>Get First Value</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dense_matrix[<span class="dv">2</span>,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] 4.968821</code></pre>
 </div>
 <div id="functions" class="section level4">
 <h4><span class="header-section-number">7.3.3.2</span> Functions</h4>
@@ -811,7 +756,7 @@ object<span class="op">@</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Seurat)
 <span class="kw">library</span>(ggplot2)
 
-gbm &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>data
+gbm &lt;-<span class="st"> </span>pbmc_small<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data
 
 gbm &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(<span class="kw">t</span>(gbm)))
 
@@ -822,7 +767,7 @@ new_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm)</code
 <p><strong>1D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1))
 new_plot_1dx</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-75-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/1d_plot-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li><p>Scale: Do we need to scale the potential values, use a specific scale to represent multiple values or a range?</p></li>
 <li><p>Geometric objects: These are popularly known as ‘geoms’. This would cover the way we would depict the data points on the visualization. Should it be points, bars, lines and so on?</p></li>
@@ -832,29 +777,29 @@ new_plot_1dx</code></pre></div>
 ## new_plot_1dx &lt;- new_plot_1dx + geom_histogram()  ## reassign
 new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-76-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/1dx_plot-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <div id="lab-a" class="section level4">
 <h4><span class="header-section-number">7.5.2.1</span> Lab A</h4>
 <p>Use different geom_ to make a different plots - try _bar() - try _density()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_1dx <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-77-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/dense_plot-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Statistics: Do we need to show some statistical measures in the visualization like measures of central tendency, spread, confidence intervals?</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_bin</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-78-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/hist_plot-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><strong>2D Plots</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## scatter plot
 new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-80-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/scatter_plot-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-b" class="section level4">
 <h4><span class="header-section-number">7.5.2.2</span> Lab B</h4>
 <p>Use different geom_ to make a different plots - try _bar_abline() - try _bin2d()</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_plot_2d</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-81-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/2d_exer-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Statisitics in 2D plots
 <ul>
@@ -862,7 +807,7 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(MS4A1, CD79B)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-82-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/2d_exer_2-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Adding Text Labels</li>
 </ul>
@@ -871,13 +816,13 @@ new_plot_2d <span class="op">+</span><span class="st"> </span><span class="kw">g
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">                            </span>## Geometry layer
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st">              </span>## 
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">rownames</span>(gbm)))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-83-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/add_text-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lab-c" class="section level4">
 <h4><span class="header-section-number">7.5.2.3</span> Lab C</h4>
 <p>Play arund with ggplot2. See what geoms to add and layers to include.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gbm, <span class="kw">aes</span>(<span class="dt">x =</span> MS4A1, <span class="dt">y =</span> CD79B))</code></pre></div>
-<p><img src="2019_scWorkshop_files/figure-html/unnamed-chunk-84-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="2019_scWorkshop_files/figure-html/labc-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>

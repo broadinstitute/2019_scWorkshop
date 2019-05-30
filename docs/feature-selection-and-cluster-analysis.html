@@ -27,7 +27,7 @@
 <meta name="author" content="Kirk Gosik">
 
 
-<meta name="date" content="2019-03-03">
+<meta name="date" content="2019-05-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -285,6 +285,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">11.2</span> Seurat Tutorial</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Seurat)
 <span class="kw">library</span>(dplyr)</code></pre></div>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -296,8 +297,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(CountClust)</code></pre></div>
 <pre><code>## Warning: package &#39;CountClust&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: replacing previous import &#39;ggplot2::empty&#39; by &#39;plyr::empty&#39; when
-## loading &#39;CountClust&#39;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pbmc &lt;-<span class="st"> </span>pbmc_small
 pbmc<span class="op">@</span>meta.data<span class="op">$</span>barcode &lt;-<span class="st"> </span><span class="kw">row.names</span>(pbmc<span class="op">@</span>meta.data)
 <span class="co"># pbmc@ident &lt;- factor()</span></code></pre></div>
