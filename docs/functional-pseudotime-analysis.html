@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>21 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
+  <title>17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="21 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta property="og:title" content="17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://broadinstitute.github.io/2019_scWorkshop/" />
   <meta property="og:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="broadinstitute/2019_scWorkship" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="21 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta name="twitter:title" content="17 Functional Pseudotime Analysis | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="twitter:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -223,46 +223,55 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="14" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html"><i class="fa fa-check"></i><b>14</b> Cluster pancreatic datasets without batch correction</a><ul>
 <li class="chapter" data-level="14.0.1" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#batch-correction-canonical-correlation-analysis-cca-using-seurat"><i class="fa fa-check"></i><b>14.0.1</b> Batch correction: canonical correlation analysis (CCA) using Seurat</a></li>
 <li class="chapter" data-level="14.0.2" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#batch-correction-integrative-non-negative-matrix-factorization-nmf-using-liger"><i class="fa fa-check"></i><b>14.0.2</b> Batch correction: integrative non-negative matrix factorization (NMF) using LIGER</a></li>
+<li class="chapter" data-level="14.1" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#additional-exploration-regressing-out-unwanted-covariates"><i class="fa fa-check"></i><b>14.1</b> Additional exploration: Regressing out unwanted covariates</a></li>
+<li class="chapter" data-level="14.2" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#additional-exploration-kbet"><i class="fa fa-check"></i><b>14.2</b> Additional exploration: kBET</a></li>
+<li class="chapter" data-level="14.3" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#additional-exploration-seurat-3"><i class="fa fa-check"></i><b>14.3</b> Additional exploration: Seurat 3</a></li>
+<li class="chapter" data-level="14.4" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#acknowledgements"><i class="fa fa-check"></i><b>14.4</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="additional-exploration-regressing-out-unwanted-covariates.html"><a href="additional-exploration-regressing-out-unwanted-covariates.html"><i class="fa fa-check"></i><b>15</b> Additional exploration: Regressing out unwanted covariates</a></li>
-<li class="chapter" data-level="16" data-path="additional-exploration-kbet.html"><a href="additional-exploration-kbet.html"><i class="fa fa-check"></i><b>16</b> Additional exploration: kBET</a></li>
-<li class="chapter" data-level="17" data-path="additional-exploration-seurat-3.html"><a href="additional-exploration-seurat-3.html"><i class="fa fa-check"></i><b>17</b> Additional exploration: Seurat 3</a></li>
-<li class="chapter" data-level="18" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>18</b> Acknowledgements</a></li>
-<li class="chapter" data-level="19" data-path="functional-analysis.html"><a href="functional-analysis.html"><i class="fa fa-check"></i><b>19</b> Functional Analysis</a><ul>
-<li class="chapter" data-level="19.1" data-path="functional-analysis.html"><a href="functional-analysis.html#google-slides-1"><i class="fa fa-check"></i><b>19.1</b> Google Slides</a></li>
-<li class="chapter" data-level="19.2" data-path="functional-analysis.html"><a href="functional-analysis.html#gene-sets-and-signatures"><i class="fa fa-check"></i><b>19.2</b> Gene sets and signatures</a><ul>
-<li class="chapter" data-level="19.2.1" data-path="functional-analysis.html"><a href="functional-analysis.html#cell-cycle"><i class="fa fa-check"></i><b>19.2.1</b> Cell Cycle</a></li>
+<li class="chapter" data-level="15" data-path="functional-analysis.html"><a href="functional-analysis.html"><i class="fa fa-check"></i><b>15</b> Functional Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="functional-analysis.html"><a href="functional-analysis.html#google-slides-1"><i class="fa fa-check"></i><b>15.1</b> Google Slides</a></li>
+<li class="chapter" data-level="15.2" data-path="functional-analysis.html"><a href="functional-analysis.html#gene-sets-and-signatures"><i class="fa fa-check"></i><b>15.2</b> Gene sets and signatures</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="functional-analysis.html"><a href="functional-analysis.html#cell-cycle"><i class="fa fa-check"></i><b>15.2.1</b> Cell Cycle</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="functional-analysis.html"><a href="functional-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>19.3</b> Pathway analysis</a></li>
-<li class="chapter" data-level="19.4" data-path="functional-analysis.html"><a href="functional-analysis.html#infercnv-honeybadger"><i class="fa fa-check"></i><b>19.4</b> inferCNV / honeybadger</a><ul>
-<li class="chapter" data-level="19.4.1" data-path="functional-analysis.html"><a href="functional-analysis.html#create-the-infercnv-object"><i class="fa fa-check"></i><b>19.4.1</b> Create the InferCNV Object</a></li>
-<li class="chapter" data-level="19.4.2" data-path="functional-analysis.html"><a href="functional-analysis.html#filtering-genes"><i class="fa fa-check"></i><b>19.4.2</b> Filtering genes</a></li>
-<li class="chapter" data-level="19.4.3" data-path="functional-analysis.html"><a href="functional-analysis.html#normalize-each-cells-counts-for-sequencing-depth"><i class="fa fa-check"></i><b>19.4.3</b> Normalize each cell’s counts for sequencing depth</a></li>
-<li class="chapter" data-level="19.4.4" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-anscombe-normalization"><i class="fa fa-check"></i><b>19.4.4</b> Perform Anscombe normalization</a></li>
-<li class="chapter" data-level="19.4.5" data-path="functional-analysis.html"><a href="functional-analysis.html#log-transform-the-normalized-counts"><i class="fa fa-check"></i><b>19.4.5</b> Log transform the normalized counts:</a></li>
-<li class="chapter" data-level="19.4.6" data-path="functional-analysis.html"><a href="functional-analysis.html#apply-maximum-bounds-to-the-expression-data-to-reduce-outlier-effects"><i class="fa fa-check"></i><b>19.4.6</b> Apply maximum bounds to the expression data to reduce outlier effects</a></li>
-<li class="chapter" data-level="19.4.7" data-path="functional-analysis.html"><a href="functional-analysis.html#initial-view-before-infercnv-operations"><i class="fa fa-check"></i><b>19.4.7</b> Initial view, before inferCNV operations:</a></li>
-<li class="chapter" data-level="19.4.8" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-smoothing-across-chromosomes"><i class="fa fa-check"></i><b>19.4.8</b> Perform smoothing across chromosomes</a></li>
-<li class="chapter" data-level="19.4.9" data-path="functional-analysis.html"><a href="functional-analysis.html#subtract-the-reference-values-from-observations-now-have-logfold-change-values"><i class="fa fa-check"></i><b>19.4.9</b> Subtract the reference values from observations, now have log(fold change) values</a></li>
-<li class="chapter" data-level="19.4.10" data-path="functional-analysis.html"><a href="functional-analysis.html#invert-log-values"><i class="fa fa-check"></i><b>19.4.10</b> Invert log values</a></li>
-<li class="chapter" data-level="19.4.11" data-path="functional-analysis.html"><a href="functional-analysis.html#removing-noise"><i class="fa fa-check"></i><b>19.4.11</b> Removing noise</a></li>
-<li class="chapter" data-level="19.4.12" data-path="functional-analysis.html"><a href="functional-analysis.html#remove-outlier-data-points"><i class="fa fa-check"></i><b>19.4.12</b> Remove outlier data points</a></li>
-<li class="chapter" data-level="19.4.13" data-path="functional-analysis.html"><a href="functional-analysis.html#find-de-genes-by-comparing-the-mutant-types-to-normal-types-basic"><i class="fa fa-check"></i><b>19.4.13</b> Find DE genes by comparing the mutant types to normal types, BASIC</a></li>
-<li class="chapter" data-level="19.4.14" data-path="functional-analysis.html"><a href="functional-analysis.html#additional-information"><i class="fa fa-check"></i><b>19.4.14</b> Additional Information</a></li>
+<li class="chapter" data-level="15.3" data-path="functional-analysis.html"><a href="functional-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>15.3</b> Pathway analysis</a></li>
+<li class="chapter" data-level="15.4" data-path="functional-analysis.html"><a href="functional-analysis.html#infercnv-honeybadger"><i class="fa fa-check"></i><b>15.4</b> inferCNV / honeybadger</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="functional-analysis.html"><a href="functional-analysis.html#create-the-infercnv-object"><i class="fa fa-check"></i><b>15.4.1</b> Create the InferCNV Object</a></li>
+<li class="chapter" data-level="15.4.2" data-path="functional-analysis.html"><a href="functional-analysis.html#filtering-genes"><i class="fa fa-check"></i><b>15.4.2</b> Filtering genes</a></li>
+<li class="chapter" data-level="15.4.3" data-path="functional-analysis.html"><a href="functional-analysis.html#normalize-each-cells-counts-for-sequencing-depth"><i class="fa fa-check"></i><b>15.4.3</b> Normalize each cell’s counts for sequencing depth</a></li>
+<li class="chapter" data-level="15.4.4" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-anscombe-normalization"><i class="fa fa-check"></i><b>15.4.4</b> Perform Anscombe normalization</a></li>
+<li class="chapter" data-level="15.4.5" data-path="functional-analysis.html"><a href="functional-analysis.html#log-transform-the-normalized-counts"><i class="fa fa-check"></i><b>15.4.5</b> Log transform the normalized counts:</a></li>
+<li class="chapter" data-level="15.4.6" data-path="functional-analysis.html"><a href="functional-analysis.html#apply-maximum-bounds-to-the-expression-data-to-reduce-outlier-effects"><i class="fa fa-check"></i><b>15.4.6</b> Apply maximum bounds to the expression data to reduce outlier effects</a></li>
+<li class="chapter" data-level="15.4.7" data-path="functional-analysis.html"><a href="functional-analysis.html#initial-view-before-infercnv-operations"><i class="fa fa-check"></i><b>15.4.7</b> Initial view, before inferCNV operations:</a></li>
+<li class="chapter" data-level="15.4.8" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-smoothing-across-chromosomes"><i class="fa fa-check"></i><b>15.4.8</b> Perform smoothing across chromosomes</a></li>
+<li class="chapter" data-level="15.4.9" data-path="functional-analysis.html"><a href="functional-analysis.html#subtract-the-reference-values-from-observations-now-have-logfold-change-values"><i class="fa fa-check"></i><b>15.4.9</b> Subtract the reference values from observations, now have log(fold change) values</a></li>
+<li class="chapter" data-level="15.4.10" data-path="functional-analysis.html"><a href="functional-analysis.html#invert-log-values"><i class="fa fa-check"></i><b>15.4.10</b> Invert log values</a></li>
+<li class="chapter" data-level="15.4.11" data-path="functional-analysis.html"><a href="functional-analysis.html#removing-noise"><i class="fa fa-check"></i><b>15.4.11</b> Removing noise</a></li>
+<li class="chapter" data-level="15.4.12" data-path="functional-analysis.html"><a href="functional-analysis.html#remove-outlier-data-points"><i class="fa fa-check"></i><b>15.4.12</b> Remove outlier data points</a></li>
+<li class="chapter" data-level="15.4.13" data-path="functional-analysis.html"><a href="functional-analysis.html#find-de-genes-by-comparing-the-mutant-types-to-normal-types-basic"><i class="fa fa-check"></i><b>15.4.13</b> Find DE genes by comparing the mutant types to normal types, BASIC</a></li>
+<li class="chapter" data-level="15.4.14" data-path="functional-analysis.html"><a href="functional-analysis.html#additional-information"><i class="fa fa-check"></i><b>15.4.14</b> Additional Information</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html"><i class="fa fa-check"></i><b>20</b> Pseudotime Cell Trajectories</a><ul>
-<li class="chapter" data-level="20.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#google-slides-2"><i class="fa fa-check"></i><b>20.1</b> Google Slides</a></li>
-<li class="chapter" data-level="20.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#comparison-abstract"><i class="fa fa-check"></i><b>20.2</b> Comparison Abstract</a></li>
+<li class="chapter" data-level="16" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html"><i class="fa fa-check"></i><b>16</b> Pseudotime Cell Trajectories</a><ul>
+<li class="chapter" data-level="16.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#google-slides-2"><i class="fa fa-check"></i><b>16.1</b> Google Slides</a></li>
+<li class="chapter" data-level="16.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#comparison-abstract"><i class="fa fa-check"></i><b>16.2</b> Comparison Abstract</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>21</b> Functional Pseudotime Analysis</a></li>
-<li class="chapter" data-level="22" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>22</b> Single Cell Multiomic Technologies</a></li>
-<li class="chapter" data-level="23" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>23</b> CITE-seq and scATAC-seq</a></li>
-<li class="chapter" data-level="24" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>24</b> Single Cell Resources</a><ul>
-<li class="chapter" data-level="24.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>24.1</b> Comprehensive list of single-cell resources</a></li>
-<li class="chapter" data-level="24.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>24.2</b> Computational packages for single-cell analysis</a></li>
-<li class="chapter" data-level="24.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>24.3</b> eLife Commentary on the Human Cell Atlas</a></li>
-<li class="chapter" data-level="24.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>24.4</b> Online courses</a></li>
+<li class="chapter" data-level="17" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>17</b> Functional Pseudotime Analysis</a><ul>
+<li class="chapter" data-level="17.1" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#load-settings-and-packages-1"><i class="fa fa-check"></i><b>17.1</b> Load settings and packages</a></li>
+<li class="chapter" data-level="17.2" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#first-look-at-the-differentiation-data-from-deng-et-al."><i class="fa fa-check"></i><b>17.2</b> First look at the differentiation data from Deng et al.</a></li>
+<li class="chapter" data-level="17.3" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#diffusion-map-pseudotime"><i class="fa fa-check"></i><b>17.3</b> Diffusion map pseudotime</a></li>
+<li class="chapter" data-level="17.4" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#slingshot-map-pseudotime"><i class="fa fa-check"></i><b>17.4</b> Slingshot map pseudotime</a></li>
+<li class="chapter" data-level="17.5" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#find-temporally-expressed-genes"><i class="fa fa-check"></i><b>17.5</b> Find temporally expressed genes</a></li>
+<li class="chapter" data-level="17.6" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#comparison-of-the-different-trajectory-inference-methods"><i class="fa fa-check"></i><b>17.6</b> Comparison of the different trajectory inference methods</a></li>
+<li class="chapter" data-level="17.7" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#plots-of-gene-expression-over-time."><i class="fa fa-check"></i><b>17.7</b> Plots of gene expression over time.</a></li>
+<li class="chapter" data-level="17.8" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html#acknowledgements-1"><i class="fa fa-check"></i><b>17.8</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>18</b> Single Cell Multiomic Technologies</a></li>
+<li class="chapter" data-level="19" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>19</b> CITE-seq and scATAC-seq</a></li>
+<li class="chapter" data-level="20" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>20</b> Single Cell Resources</a><ul>
+<li class="chapter" data-level="20.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>20.1</b> Comprehensive list of single-cell resources</a></li>
+<li class="chapter" data-level="20.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>20.2</b> Computational packages for single-cell analysis</a></li>
+<li class="chapter" data-level="20.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>20.3</b> eLife Commentary on the Human Cell Atlas</a></li>
+<li class="chapter" data-level="20.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>20.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -286,8 +295,378 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="functional-pseudotime-analysis" class="section level1">
-<h1><span class="header-section-number">21</span> Functional Pseudotime Analysis</h1>
+<h1><span class="header-section-number">17</span> Functional Pseudotime Analysis</h1>
+<p>In this lab, we will analyze a single cell RNA-seq dataset that will teach us about several methods to infer the differentiation trajectory of a set of cells. These methods can order a set of individual cells along a path / trajectory / lineage, and assign a pseudotime value to each cell that represents where the cell is along that path. This can be a starting point for further analysis to determine gene expression programs driving interesting cell phenotypes. As you are running the code, think about how the algorithms work and what you like and do not like about the assumptions and utilities provided by the algorithm.</p>
+<p>Note: you can increase the system memory available to Docker by going to Docker -&gt; Preferences -&gt; Advanced and shifting the Memory slider.</p>
+<div id="load-settings-and-packages-1" class="section level2">
+<h2><span class="header-section-number">17.1</span> Load settings and packages</h2>
+</div>
+<div id="first-look-at-the-differentiation-data-from-deng-et-al." class="section level2">
+<h2><span class="header-section-number">17.2</span> First look at the differentiation data from Deng et al.</h2>
+<p>We will use a nice SMART-Seq2 single cell RNA-seq data from <a href="http://science.sciencemag.org/content/343/6167/193">Single-Cell RNA-Seq Reveals Dynamic, Random Monoallelic Gene Expression in Mammalian Cells</a>. Here is one relevant detail from their paper: “To investigate allele-specific gene expression at single-cell resolution, we isolated 269 individual cells dissociated from in vivo F1 embryos (CAST/EiJ × C57BL/6J, hereafter abbreviated as CAST and C57, respectively) from oocyte to blastocyst stages of mouse preimplantation development (PD)”</p>
+<p>Let us take a first look at the Deng data. One simple approach to ordering cells in pseudotime is to use PCA. By carrying out PCA and labeling the cells by the stage at which they were collected, we can see how well the principal components separate cells along a differentiation trajectory.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in single cell data.</span>
+path.deng &lt;-<span class="st"> </span><span class="kw">paste0</span>(mydir, <span class="st">&quot;deng-reads.rds&quot;</span>)
+deng_SCE &lt;-<span class="st"> </span><span class="kw">readRDS</span>(path.deng)
 
+<span class="co"># What class is the deng_SCE object, and how is it organized?</span>
+<span class="kw">class</span>(deng_SCE)</code></pre></div>
+<pre><code>## [1] &quot;SingleCellExperiment&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;SingleCellExperiment&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">structure</span>(deng_SCE)</code></pre></div>
+<pre><code>## class: SingleCellExperiment 
+## dim: 22431 268 
+## metadata(0):
+## assays(2): counts logcounts
+## rownames(22431): Hvcn1 Gbp7 ... Sox5 Alg11
+## rowData names(10): feature_symbol is_feature_control ...
+##   total_counts log10_total_counts
+## colnames(268): 16cell 16cell.1 ... zy.2 zy.3
+## colData names(30): cell_type2 cell_type1 ... pct_counts_ERCC
+##   is_cell_control
+## reducedDimNames(0):
+## spikeNames(1): ERCC</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># How many mouse cells are at each stage?</span>
+<span class="kw">table</span>(deng_SCE<span class="op">$</span>cell_type1)</code></pre></div>
+<pre><code>## 
+## 16cell  2cell  4cell  8cell  blast zygote 
+##     50     22     14     37    133     12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(deng_SCE<span class="op">$</span>cell_type2)</code></pre></div>
+<pre><code>## 
+##     16cell      4cell      8cell early2cell earlyblast  late2cell 
+##         50         14         37          8         43         10 
+##  lateblast   mid2cell   midblast         zy 
+##         30         12         60          4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Re-order the levels of the factor storing the cell developmental stage.</span>
+deng_SCE<span class="op">$</span>cell_type2 &lt;-<span class="st"> </span><span class="kw">factor</span>(deng_SCE<span class="op">$</span>cell_type2,
+                              <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;zy&quot;</span>, <span class="st">&quot;early2cell&quot;</span>, <span class="st">&quot;mid2cell&quot;</span>, <span class="st">&quot;late2cell&quot;</span>, 
+                                         <span class="st">&quot;4cell&quot;</span>, <span class="st">&quot;8cell&quot;</span>, <span class="st">&quot;16cell&quot;</span>, <span class="st">&quot;earlyblast&quot;</span>, <span class="st">&quot;midblast&quot;</span>,
+                                         <span class="st">&quot;lateblast&quot;</span>))
+
+<span class="co"># Run PCA on Deng data. Use the runPCA function from the SingleCellExperiment package.</span>
+deng_SCE &lt;-<span class="st"> </span><span class="kw">runPCA</span>(deng_SCE, <span class="dt">ncomponents =</span> <span class="dv">50</span>)
+
+<span class="co"># Use the reducedDim function to access the PCA and store the results. </span>
+pca &lt;-<span class="st"> </span><span class="kw">reducedDim</span>(deng_SCE, <span class="st">&quot;PCA&quot;</span>)
+
+<span class="co"># Describe how the PCA is stored in a matrix. Why does it have this structure?</span>
+<span class="kw">head</span>(pca)</code></pre></div>
+<pre><code>##                PC1       PC2       PC3        PC4        PC5        PC6
+## 16cell   -4.616718 -13.67367 1.6860222 -0.3971110  0.4331834 -3.3351871
+## 16cell.1 -5.528782 -11.18717 2.9383081  0.2381910  0.1644197 -0.8666549
+## 16cell.2 -5.067554 -13.50145 1.6200888 -1.4489428 -0.3560664 -2.7057527
+## 16cell.3 -5.604999 -12.42408 1.2092483  0.7560287 -0.9812613  0.1008600
+## 16cell.4 -4.989056 -12.64989 0.9518061  2.0114694  2.1210373 -0.5469395
+## 16cell.5 -4.605128 -13.35725 1.2909256 -0.6736846  2.1882002 -2.7699870
+##                 PC7        PC8        PC9      PC10      PC11       PC12
+## 16cell   -0.6236209  0.3621665 -1.2910579  2.386634 -1.824875  0.4400858
+## 16cell.1 -0.4232062 -1.0859542 -2.0577693  2.566871 -2.663335 -3.2087906
+## 16cell.2  1.7515857  0.1552950 -1.5951345  1.879552 -3.237261 -0.9710867
+## 16cell.3  1.0103357 -0.4448119 -0.6081911 -1.059523 -4.416895 -0.7229430
+## 16cell.4  0.0563789 -0.7070924 -1.2665595  2.733815 -1.090173 -0.7688942
+## 16cell.5  0.9010465  1.0445247 -2.8906108  2.886413 -1.844421 -4.2520016
+##                 PC13        PC14       PC15       PC16       PC17
+## 16cell   -0.77758746  2.11643418 -0.8244988  0.4831872 -0.8213527
+## 16cell.1  1.95567784 -1.12330816 -2.0169080  2.0721840  0.4924598
+## 16cell.2  1.77982275  0.02196743 -2.0566764  2.1791387 -1.8205026
+## 16cell.3  1.82741705 -2.96140322 -2.0898322 -1.8926069 -1.2088311
+## 16cell.4  0.01732681 -0.77442110 -2.4652798  2.6683790 -1.0930128
+## 16cell.5  1.26660076 -0.08437871 -1.9085246  0.8621796 -0.2821138
+##                  PC18       PC19       PC20        PC21        PC22
+## 16cell    2.912998472 -0.1114755  0.6633269 -0.88984647  2.73819461
+## 16cell.1  1.555585976 -1.1341038 -2.4003738 -1.00116216  2.79983998
+## 16cell.2  1.544638100  0.2775379 -1.2832673 -0.46297320  0.08161412
+## 16cell.3 -1.164002801  0.8564781 -1.0032480 -0.02165817  2.81656780
+## 16cell.4  0.492283751  0.1123406  0.6449514 -1.48016504  1.69637235
+## 16cell.5 -0.004085098  0.9727746 -0.8545002 -0.82326712 -0.49085584
+##                PC23        PC24       PC25       PC26       PC27
+## 16cell   -1.2833723  0.26093070 -0.9025236 -0.9199517  0.7705592
+## 16cell.1 -2.0626007 -1.49145200 -0.3073604 -1.6213086 -0.4668769
+## 16cell.2 -0.6273122 -0.82463839 -0.3514344 -0.9143962  0.1285442
+## 16cell.3  1.1540990  1.64935692 -2.8926707  0.5279823  1.0364766
+## 16cell.4  1.3036491 -0.04931057 -1.8065901 -2.3286922  0.7928030
+## 16cell.5 -2.4572424  0.28548367  0.9919387 -1.3399723 -0.4663864
+##                PC28       PC29       PC30       PC31          PC32
+## 16cell   -1.1942837  3.3616090 -0.8339894 -2.6264466  0.2088315099
+## 16cell.1  0.9442624 -1.3557627  1.5239438 -0.3786813 -2.0367506324
+## 16cell.2 -1.4033309  0.5669192 -0.5764371  0.2240873  0.2092731123
+## 16cell.3  2.1822899  0.3327657 -3.9188841 -0.2036249 -1.1033810361
+## 16cell.4  1.5970783 -1.1079176 -0.6441109 -2.8524393  0.0004546378
+## 16cell.5  2.7023565  1.1374510 -2.8720566 -1.0064513  1.8063507928
+##                PC33       PC34        PC35       PC36       PC37
+## 16cell    1.1394308  0.3840000 -0.30028319  0.5470062 -2.2521121
+## 16cell.1  0.4802093 -1.5461206  0.57785418  0.2136878 -3.1427911
+## 16cell.2 -0.6020883  0.2587835 -1.39670584  1.0217782 -0.9796248
+## 16cell.3 -2.0222558 -1.5459463  0.98029013  1.6982863 -2.3282394
+## 16cell.4 -0.8323239  0.7580553 -0.08445444 -0.3581607  1.2995240
+## 16cell.5 -0.2765822  1.4528263 -0.01488841 -2.0533203  0.9582204
+##                 PC38       PC39       PC40       PC41        PC42
+## 16cell    1.54130056 -0.5503021  1.8218871 -1.2491319  0.02774323
+## 16cell.1 -0.06859658  1.0455128  3.3915829  0.8911611  1.76258371
+## 16cell.2 -0.93454517 -1.4591025  0.1484064  0.7292182  0.89423648
+## 16cell.3 -0.95838032  0.1684409  0.6182237  0.8339745 -0.21181011
+## 16cell.4  1.57202989  0.8189163 -2.3331272 -0.3108283 -0.31856432
+## 16cell.5  1.45162192  2.1979823  1.0272293 -3.8152357  0.07293698
+##                PC43       PC44      PC45       PC46       PC47       PC48
+## 16cell   -1.2648452  1.3478074 -1.489203  1.6186833 -0.3300131  0.8603107
+## 16cell.1  1.2310412 -0.3182549 -1.857164 -2.9553566 -2.2298687  0.4699274
+## 16cell.2  0.6198856  1.9024444  0.096746  1.0150184  1.5574517 -0.3872533
+## 16cell.3 -1.1234170  1.0566629 -1.311480 -0.4328987  2.7491211 -0.6665591
+## 16cell.4  0.5818659 -1.2131792  1.086794  0.3857532  2.3153699  1.2776942
+## 16cell.5 -0.8961840 -0.1003433  1.667234  1.5554497 -0.9303923 -0.8338826
+##                PC49        PC50
+## 16cell   -1.1294170  0.54900311
+## 16cell.1 -0.9080707 -1.77789141
+## 16cell.2  1.4262577 -0.08018494
+## 16cell.3 -0.4120873  2.00067268
+## 16cell.4 -0.9602715 -0.02929732
+## 16cell.5  1.2653639  1.63364381</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(pca)</code></pre></div>
+<pre><code>## [1] 268  50</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add PCA data to the deng_SCE object.</span>
+deng_SCE<span class="op">$</span>PC1 &lt;-<span class="st"> </span>pca[, <span class="dv">1</span>]
+deng_SCE<span class="op">$</span>PC2 &lt;-<span class="st"> </span>pca[, <span class="dv">2</span>]
+
+<span class="co"># Plot PC biplot with cells colored by cell_type2. </span>
+<span class="co"># colData(deng_SCE) accesses the cell metadata DataFrame object for deng_SCE.</span>
+<span class="co"># Look at Figure 1A of the paper as a comparison to your PC biplot.</span>
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), <span class="kw">aes</span>(<span class="dt">x =</span> PC1, <span class="dt">y =</span> PC2, <span class="dt">color =</span> cell_type2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;PC1&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;PC2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;PC biplot&quot;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/pca_pseudotime-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># PCA is a simple approach and can be good to compare to more complex algorithms </span>
+<span class="co"># designed to capture differentiation processes. As a simple measure of pseudotime </span>
+<span class="co"># we can use the coordinates of PC1.</span>
+<span class="co"># Plot PC1 vs cell_type2. </span>
+deng_SCE<span class="op">$</span>pseudotime_PC1 &lt;-<span class="st"> </span><span class="kw">rank</span>(deng_SCE<span class="op">$</span>PC1)  <span class="co"># rank cells by their PC1 score</span>
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), <span class="kw">aes</span>(<span class="dt">x =</span> pseudotime_PC1, <span class="dt">y =</span> cell_type2, 
+                                             <span class="dt">colour =</span> cell_type2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;PC1&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Timepoint&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Cells ordered by first principal component&quot;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/pca_pseudotime-2.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;/pseudotime_PC1.png&quot;</span>))</code></pre></div>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try separating the cell types using other PCs. How does the separation look?</span></code></pre></div>
+</div>
+<div id="diffusion-map-pseudotime" class="section level2">
+<h2><span class="header-section-number">17.3</span> Diffusion map pseudotime</h2>
+<p>Let us see how a more advance trajectory inference method, diffusion maps and diffusion pseudotime, performs at placing cells along the expected differentiation trajectory.</p>
+<p><a href="https://en.wikipedia.org/wiki/Diffusion_map">Diffusion maps</a> were introduced by <a href="http://www.sciencedirect.com/science/article/pii/S1063520306000546">Ronald Coifman and Stephane Lafon</a>, and the underlying idea is to assume that the data are samples from a diffusion process. The method infers the low-dimensional manifold by estimating the eigenvalues and eigenvectors for the diffusion operator related to the data.</p>
+<p><a href="https://academic.oup.com/bioinformatics/article/32/8/1241/1744143">Angerer et al</a> have applied the diffusion maps concept to the analysis of single-cell RNA-seq data to create an R package called <a href="http://bioconductor.org/packages/destiny">destiny</a>.</p>
+<p>We will use two forms of pseudotime: the first diffusion component and the diffusion pseudotime.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Prepare a counts matrix with labeled rows and columns. </span>
+deng &lt;-<span class="st"> </span><span class="kw">logcounts</span>(deng_SCE)  <span class="co"># access log-transformed counts matrix</span>
+cellLabels &lt;-<span class="st"> </span>deng_SCE<span class="op">$</span>cell_type2
+<span class="kw">colnames</span>(deng) &lt;-<span class="st"> </span>cellLabels
+
+<span class="co"># Make a diffusion map.</span>
+dm &lt;-<span class="st"> </span><span class="kw">DiffusionMap</span>(<span class="kw">t</span>(deng))
+
+<span class="co"># Optional: Try different sigma values when making diffusion map.</span>
+<span class="co"># dm &lt;- DiffusionMap(t(deng), sigma = &quot;local&quot;)  # use local option to set sigma</span>
+<span class="co"># sigmas &lt;- find_sigmas(t(deng), verbose = FALSE)  # find optimal sigma</span>
+<span class="co"># dm &lt;- DiffusionMap(t(deng), sigma = optimal_sigma(sigmas))  </span>
+
+<span class="co"># Plot diffusion component 1 vs diffusion component 2 (DC1 vs DC2). </span>
+tmp &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">DC1 =</span> <span class="kw">eigenvectors</span>(dm)[, <span class="dv">1</span>],
+                  <span class="dt">DC2 =</span> <span class="kw">eigenvectors</span>(dm)[, <span class="dv">2</span>],
+                  <span class="dt">Timepoint =</span> deng_SCE<span class="op">$</span>cell_type2)
+<span class="kw">ggplot</span>(tmp, <span class="kw">aes</span>(<span class="dt">x =</span> DC1, <span class="dt">y =</span> DC2, <span class="dt">colour =</span> Timepoint)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Diffusion component 1&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Diffusion component 2&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_classic</span>()</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/diffusion_pseudotime-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try plotting higher diffusion components against one another.</span>
+
+<span class="co"># Next, let us use the first diffusion component (DC1) as a measure of pseudotime.</span>
+<span class="co"># How does the separation by cell stage look?</span>
+deng_SCE<span class="op">$</span>pseudotime_diffusionmap &lt;-<span class="st"> </span><span class="kw">rank</span>(<span class="kw">eigenvectors</span>(dm)[,<span class="dv">1</span>])    <span class="co"># rank cells by their dpt</span>
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), 
+       <span class="kw">aes</span>(<span class="dt">x =</span> pseudotime_diffusionmap, 
+           <span class="dt">y =</span> cell_type2, <span class="dt">colour =</span> cell_type2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Diffusion component 1 (DC1)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Timepoint&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Cells ordered by DC1&quot;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/diffusion_pseudotime-2.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;/pseudotime_DC1.png&quot;</span>))</code></pre></div>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot eigenvalues of diffusion distance matrix. How many diffusion components would you use?</span>
+<span class="co"># This is analagous to the PC elbow plot (scree plot) that we previously used to assess how </span>
+<span class="co"># many PCs to use in downstream applications like clustering.</span>
+<span class="kw">plot</span>(<span class="kw">eigenvalues</span>(dm), <span class="dt">ylim =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">20</span>, <span class="dt">xlab =</span> <span class="st">&#39;Diffusion component (DC)&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Eigenvalue&#39;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/diffusion_pseudotime-3.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What happens if you run the diffusion map on the PCs? Why would one do this?</span>
+<span class="kw">rownames</span>(pca) &lt;-<span class="st"> </span>cellLabels
+dm &lt;-<span class="st"> </span><span class="kw">DiffusionMap</span>(pca)
+
+<span class="co"># Diffusion pseudotime calculation. </span>
+<span class="co"># Set index or tip of pseudotime calculation to be a zygotic cell (cell 268). </span>
+dpt &lt;-<span class="st"> </span><span class="kw">DPT</span>(dm, <span class="dt">tips =</span> <span class="dv">268</span>)
+
+<span class="co"># Plot DC1 vs DC2 and color the cells by their inferred diffusion pseudotime.</span>
+<span class="co"># We can accesss diffusion pseudotime via dpt$dpt.</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">DC1 =</span> <span class="kw">eigenvectors</span>(dm)[, <span class="dv">1</span>], <span class="dt">DC2 =</span> <span class="kw">eigenvectors</span>(dm)[, <span class="dv">2</span>], 
+                 <span class="dt">dptval =</span> dpt<span class="op">$</span>dpt, <span class="dt">cell_type2 =</span> deng_SCE<span class="op">$</span>cell_type2)
+p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> DC1, <span class="dt">y =</span> DC2, <span class="dt">color =</span> dptval))
+p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> DC1, <span class="dt">y =</span> DC2, <span class="dt">color =</span> cell_type2))
+p &lt;-<span class="st"> </span><span class="kw">plot_grid</span>(p1, p2)
+p</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/diffusion_pseudotime-4.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save_plot</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;/dpt_celltype.png&quot;</span>), p, <span class="dt">base_height =</span> <span class="dv">5</span>, <span class="dt">base_aspect_ratio =</span> <span class="dv">2</span>)
+
+<span class="co"># Plot diffusion pseudotime vs timepoint. </span>
+<span class="co"># Which separates the data better, DC1 or diffusion pseudotime?</span>
+deng_SCE<span class="op">$</span>pseudotime_dpt &lt;-<span class="st"> </span><span class="kw">rank</span>(dpt<span class="op">$</span>dpt) 
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), 
+       <span class="kw">aes</span>(<span class="dt">x =</span> pseudotime_dpt, 
+           <span class="dt">y =</span> cell_type2, <span class="dt">colour =</span> cell_type2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Diffusion map pseudotime (dpt)&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Timepoint&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Cells ordered by diffusion map pseudotime&quot;</span>)</code></pre></div>
+<p><img src="2019_scWorkshop_files/figure-html/diffusion_pseudotime-5.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;/pseudotime_dpt.png&quot;</span>))</code></pre></div>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save current progress.</span>
+<span class="co"># save(deng_SCE, file = Rda.destiny.path)</span>
+<span class="co"># To load the data, run the following command.</span>
+<span class="co"># load(Rda.destiny.path)</span></code></pre></div>
+</div>
+<div id="slingshot-map-pseudotime" class="section level2">
+<h2><span class="header-section-number">17.4</span> Slingshot map pseudotime</h2>
+<p>Let us see how another advance trajectory inference method, Slingshot, performs at placing cells along the expected differentiation trajectory.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(slingshot)
+<span class="kw">library</span>(Seurat)
+
+<span class="co"># Read the Slingshot documentation (?slingshot) and then run Slingshot below. </span>
+<span class="co"># Given your understanding of the algorithm and the documentation, what is one </span>
+<span class="co"># major set of parameters we omitted here when running Slingshot?</span>
+sce &lt;-<span class="st"> </span><span class="kw">slingshot</span>(deng_SCE, <span class="dt">reducedDim =</span> <span class="st">&#39;PCA&#39;</span>)  <span class="co"># no clusters</span>
+
+<span class="co"># Plot PC1 vs PC2 colored by Slingshot pseudotime.</span>
+colors &lt;-<span class="st"> </span><span class="kw">rainbow</span>(<span class="dv">50</span>, <span class="dt">alpha =</span> <span class="dv">1</span>)
+<span class="kw">plot</span>(<span class="kw">reducedDims</span>(sce)<span class="op">$</span>PCA, <span class="dt">col =</span> colors[<span class="kw">cut</span>(sce<span class="op">$</span>slingPseudotime_<span class="dv">1</span>,<span class="dt">breaks=</span><span class="dv">50</span>)], <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">asp =</span> <span class="dv">1</span>)
+<span class="kw">lines</span>(<span class="kw">SlingshotDataSet</span>(sce), <span class="dt">lwd=</span><span class="dv">2</span>)
+
+<span class="co"># Plot Slingshot pseudotime vs cell stage. </span>
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), <span class="kw">aes</span>(<span class="dt">x =</span> sce<span class="op">$</span>slingPseudotime_<span class="dv">1</span>, <span class="dt">y =</span> cell_type2, 
+                              <span class="dt">colour =</span> cell_type2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Slingshot pseudotime&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Timepoint&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Cells ordered by Slingshot pseudotime&quot;</span>)
+
+<span class="co"># Cluster cells using the Seurat workflow below.</span>
+gcdata &lt;-<span class="st"> </span><span class="kw">CreateSeuratObject</span>(<span class="dt">counts =</span> <span class="kw">counts</span>(deng_SCE), <span class="dt">min.cells =</span> <span class="dv">0</span>, <span class="dt">min.genes =</span> <span class="dv">0</span>, <span class="dt">project =</span> <span class="st">&quot;slingshot&quot;</span>)
+gcdata &lt;-<span class="st"> </span><span class="kw">NormalizeData</span>(<span class="dt">object =</span> gcdata, <span class="dt">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, 
+    <span class="dt">scale.factor =</span> <span class="dv">10000</span>)
+gcdata &lt;-<span class="st"> </span><span class="kw">FindVariableGenes</span>(<span class="dt">object =</span> gcdata, <span class="dt">mean.function =</span> ExpMean, <span class="dt">dispersion.function =</span> LogVMR, <span class="dt">x.low.cutoff =</span> <span class="fl">0.1</span>, <span class="dt">x.high.cutoff =</span> <span class="dv">3</span>, <span class="dt">y.cutoff =</span> <span class="fl">0.5</span>)
+gcdata &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(<span class="dt">object =</span> gcdata, <span class="dt">do.center =</span> T, <span class="dt">do.scale =</span> F)
+gcdata &lt;-<span class="st"> </span><span class="kw">RunPCA</span>(<span class="dt">object =</span> gcdata, <span class="dt">pc.genes =</span> gcdata<span class="op">@</span>var.genes, <span class="dt">do.print =</span> <span class="ot">TRUE</span>, <span class="dt">pcs.print =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, 
+    <span class="dt">genes.print =</span> <span class="dv">5</span>)
+gcdata &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(<span class="dt">object =</span> gcdata, <span class="dt">reduction.type =</span> <span class="st">&quot;pca&quot;</span>, <span class="dt">dims.use =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, 
+    <span class="dt">resolution =</span> <span class="fl">0.6</span>, <span class="dt">print.output =</span> <span class="dv">0</span>, <span class="dt">save.SNN =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># Add clustering information from Seurat to the deng_SCE object</span>
+<span class="co"># Then run Slingshot using these cluster assignments.</span>
+deng_SCE<span class="op">$</span>slingPseudotime_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># remove old slingshot pseudotime data</span>
+<span class="kw">colData</span>(deng_SCE)<span class="op">$</span>Seurat_clusters &lt;-<span class="st"> </span><span class="kw">as.character</span>(gcdata<span class="op">@</span>ident)  <span class="co"># go from factor to character</span>
+deng_SCE &lt;-<span class="st"> </span><span class="kw">slingshot</span>(deng_SCE, <span class="dt">clusterLabels =</span> <span class="st">&#39;Seurat_clusters&#39;</span>, <span class="dt">reducedDim =</span> <span class="st">&#39;PCA&#39;</span>)
+
+<span class="co"># Plot PC1 vs PC2 colored by Slingshot pseudotime.</span>
+colors &lt;-<span class="st"> </span><span class="kw">rainbow</span>(<span class="dv">50</span>, <span class="dt">alpha =</span> <span class="dv">1</span>)
+<span class="kw">plot</span>(<span class="kw">reducedDims</span>(deng_SCE)<span class="op">$</span>PCA, <span class="dt">col =</span> colors[<span class="kw">cut</span>(deng_SCE<span class="op">$</span>slingPseudotime_<span class="dv">1</span>,<span class="dt">breaks=</span><span class="dv">50</span>)], <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">asp =</span> <span class="dv">1</span>)
+<span class="kw">lines</span>(<span class="kw">SlingshotDataSet</span>(deng_SCE), <span class="dt">lwd=</span><span class="dv">2</span>)
+
+<span class="co"># Plot Slingshot pseudotime vs cell stage. </span>
+<span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)), <span class="kw">aes</span>(<span class="dt">x =</span> slingPseudotime_<span class="dv">1</span>, <span class="dt">y =</span> cell_type2, 
+                              <span class="dt">colour =</span> cell_type2)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_quasirandom</span>(<span class="dt">groupOnX =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_color_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Slingshot pseudotime&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Timepoint&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Cells ordered by Slingshot pseudotime&quot;</span>)
+<span class="kw">ggsave</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;/pseudotime_slingshot.png&quot;</span>))
+
+<span class="co"># Save current progress.</span>
+<span class="co"># save(deng_SCE, file = Rda.slingshot.path)</span>
+<span class="co"># To load the data, run the following command.</span>
+<span class="co"># load(Rda.slingshot.path)</span></code></pre></div>
+</div>
+<div id="find-temporally-expressed-genes" class="section level2">
+<h2><span class="header-section-number">17.5</span> Find temporally expressed genes</h2>
+<p>In this final analysis code chunk, we will identify temporally expressed genes, ie those genes whose expression is changing in a continuous manner over pseudotime. To do this, we will fit a GAM with a LOESS term for pseudotime. Functions for fitting and working with generalized additive models, as described in “Generalized Additive Models” (Hastie and Tibshirani, 1990). <a href="https://multithreaded.stitchfix.com/blog/2015/07/30/gam/">Read more about GAMs</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;gam&quot;</span>)
+<span class="kw">library</span>(gam)
+
+<span class="co"># Only look at the 1,000 most variable genes when identifying temporally expressesd genes.</span>
+<span class="co"># Identify the variable genes by ranking all genes by their variance.</span>
+Y &lt;-<span class="st"> </span><span class="kw">log2</span>(<span class="kw">counts</span>(deng_SCE) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
+var1K &lt;-<span class="st"> </span><span class="kw">names</span>(<span class="kw">sort</span>(<span class="kw">apply</span>(Y, <span class="dv">1</span>, var),<span class="dt">decreasing =</span> <span class="ot">TRUE</span>))[<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>]
+Y &lt;-<span class="st"> </span>Y[var1K, ]  <span class="co"># only counts for variable genes</span>
+
+<span class="co"># Fit GAM for each gene using pseudotime as independent variable.</span>
+t &lt;-<span class="st"> </span>deng_SCE<span class="op">$</span>slingPseudotime_<span class="dv">1</span>
+gam.pval &lt;-<span class="st"> </span><span class="kw">apply</span>(Y, <span class="dv">1</span>, <span class="cf">function</span>(z){
+  d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">z=</span>z, <span class="dt">t=</span>t)
+  tmp &lt;-<span class="st"> </span><span class="kw">gam</span>(z <span class="op">~</span><span class="st"> </span><span class="kw">lo</span>(t), <span class="dt">data=</span>d)
+  p &lt;-<span class="st"> </span><span class="kw">summary</span>(tmp)[<span class="dv">4</span>][[<span class="dv">1</span>]][<span class="dv">1</span>,<span class="dv">5</span>]
+  p
+})
+
+<span class="co"># Identify genes with the most significant time-dependent model fit.</span>
+topgenes &lt;-<span class="st"> </span><span class="kw">names</span>(<span class="kw">sort</span>(gam.pval, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>))[<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>]  
+
+<span class="co"># Prepare and plot a heatmap of the top genes that vary their expression over pseudotime.</span>
+<span class="kw">require</span>(clusterExperiment)
+heatdata &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(gcdata<span class="op">@</span>data[<span class="kw">rownames</span>(gcdata<span class="op">@</span>data) <span class="op">%in%</span><span class="st"> </span>topgenes, <span class="kw">order</span>(t, <span class="dt">na.last =</span> <span class="ot">NA</span>)])
+heatclus &lt;-<span class="st"> </span>gcdata<span class="op">@</span>ident[<span class="kw">order</span>(t, <span class="dt">na.last =</span> <span class="ot">NA</span>)]
+<span class="kw">png</span>(<span class="kw">paste0</span>(mydir, <span class="st">&quot;heatmap_time_genes.png&quot;</span>), <span class="dt">width=</span><span class="dv">10</span>, <span class="dt">height=</span><span class="dv">10</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res=</span><span class="dv">200</span>)
+ce &lt;-<span class="st"> </span><span class="kw">ClusterExperiment</span>(heatdata, heatclus, <span class="dt">transformation =</span> log1p)
+clusterExperiment<span class="op">::</span><span class="kw">plotHeatmap</span>(ce, <span class="dt">clusterSamplesData =</span> <span class="st">&quot;orderSamplesValue&quot;</span>, <span class="dt">visualizeData =</span> <span class="st">&#39;transformed&#39;</span>, <span class="dt">cexRow =</span> <span class="fl">1.5</span>, <span class="dt">fontsize =</span> <span class="dv">15</span>)
+<span class="kw">dev.off</span>()</code></pre></div>
+</div>
+<div id="comparison-of-the-different-trajectory-inference-methods" class="section level2">
+<h2><span class="header-section-number">17.6</span> Comparison of the different trajectory inference methods</h2>
+<p>How do the trajectories inferred by PCA, diffusion pseudotime, and slingshot pseudotime compare to one another?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;corrplot&quot;</span>)
+<span class="kw">library</span>(corrplot)
+
+<span class="co"># Prepare data frame with different pseudotime measures.</span>
+df_pseudotime &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">colData</span>(deng_SCE)[, <span class="kw">c</span>(<span class="st">&quot;pseudotime_PC1&quot;</span>, <span class="st">&quot;pseudotime_dpt&quot;</span>, <span class="st">&quot;slingPseudotime_1&quot;</span>)])
+<span class="kw">colnames</span>(df_pseudotime) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PC1&quot;</span>, <span class="st">&quot;diffusion&quot;</span>, <span class="st">&quot;slingshot&quot;</span>)
+
+<span class="co"># Plot correlation between different pseudotime measures.</span>
+<span class="kw">corrplot.mixed</span>(<span class="kw">cor</span>(df_pseudotime, <span class="dt">use =</span> <span class="st">&quot;na.or.complete&quot;</span>), 
+               <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>, <span class="dt">tl.col =</span> <span class="st">&quot;black&quot;</span>,
+               <span class="dt">main =</span> <span class="st">&quot;Correlation matrix for pseudotime results&quot;</span>,
+               <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">3.1</span>, <span class="dv">0</span>))</code></pre></div>
+</div>
+<div id="plots-of-gene-expression-over-time." class="section level2">
+<h2><span class="header-section-number">17.7</span> Plots of gene expression over time.</h2>
+<p>Visualize how some of the temporally expressed genes change in time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotExpression</span>(deng_SCE, <span class="st">&quot;Obox5&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;PC1&quot;</span>, 
+               <span class="dt">colour_by =</span> <span class="st">&quot;cell_type2&quot;</span>, <span class="dt">show_violin =</span> <span class="ot">FALSE</span>,
+               <span class="dt">show_smooth =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">plotExpression</span>(deng_SCE, <span class="st">&quot;Obox5&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;pseudotime_dpt&quot;</span>, 
+               <span class="dt">colour_by =</span> <span class="st">&quot;cell_type2&quot;</span>, <span class="dt">show_violin =</span> <span class="ot">FALSE</span>,
+               <span class="dt">show_smooth =</span> <span class="ot">TRUE</span>)
+
+<span class="kw">plotExpression</span>(deng_SCE, <span class="st">&quot;Obox5&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;slingPseudotime_1&quot;</span>, 
+               <span class="dt">colour_by =</span> <span class="st">&quot;cell_type2&quot;</span>, <span class="dt">show_violin =</span> <span class="ot">FALSE</span>,
+               <span class="dt">show_smooth =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="acknowledgements-1" class="section level2">
+<h2><span class="header-section-number">17.8</span> Acknowledgements</h2>
+<p>This document builds off chapter 8.4 from the <a href="http://hemberg-lab.github.io/scRNA.seq.course/biological-analysis.html#pseudotime-analysis">Hemberg lab single cell RNA-seq course</a>, from the <a href="https://bioconductor.org/packages/release/bioc/html/destiny.html">Destiny vignette</a> and from the <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/slingshot/inst/doc/slingshot.html">Slingshot vignette</a>.</p>
+
+</div>
 </div>
             </section>
 
