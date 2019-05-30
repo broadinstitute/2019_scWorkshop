@@ -217,3 +217,13 @@ Present a set of methods and orders in which to try them
 #### Lecture 9 - Group presentations 
 
 Review, Questions and Answers
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

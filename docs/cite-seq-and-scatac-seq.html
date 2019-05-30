@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>18 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
+  <title>23 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="18 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta property="og:title" content="23 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://broadinstitute.github.io/2019_scWorkshop/" />
   <meta property="og:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="broadinstitute/2019_scWorkship" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="18 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
+  <meta name="twitter:title" content="23 CITE-seq and scATAC-seq | ANALYSIS OF SINGLE CELL RNA-SEQ DATA" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="twitter:image" content="https://broadinstitute.github.io/2019_scWorkshop/images/cover.png" />
@@ -216,42 +216,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="batch-effects.html"><a href="batch-effects.html"><i class="fa fa-check"></i><b>12</b> Batch Effects</a></li>
-<li class="chapter" data-level="13" data-path="correcting-batch-effects.html"><a href="correcting-batch-effects.html"><i class="fa fa-check"></i><b>13</b> Correcting Batch Effects</a></li>
-<li class="chapter" data-level="14" data-path="functional-analysis.html"><a href="functional-analysis.html"><i class="fa fa-check"></i><b>14</b> Functional Analysis</a><ul>
-<li class="chapter" data-level="14.1" data-path="functional-analysis.html"><a href="functional-analysis.html#google-slides-1"><i class="fa fa-check"></i><b>14.1</b> Google Slides</a></li>
-<li class="chapter" data-level="14.2" data-path="functional-analysis.html"><a href="functional-analysis.html#gene-sets-and-signatures"><i class="fa fa-check"></i><b>14.2</b> Gene sets and signatures</a><ul>
-<li class="chapter" data-level="14.2.1" data-path="functional-analysis.html"><a href="functional-analysis.html#cell-cycle"><i class="fa fa-check"></i><b>14.2.1</b> Cell Cycle</a></li>
+<li class="chapter" data-level="13" data-path="correcting-batch-effects.html"><a href="correcting-batch-effects.html"><i class="fa fa-check"></i><b>13</b> Correcting Batch Effects</a><ul>
+<li class="chapter" data-level="13.1" data-path="correcting-batch-effects.html"><a href="correcting-batch-effects.html#load-settings-and-packages"><i class="fa fa-check"></i><b>13.1</b> Load settings and packages</a></li>
+<li class="chapter" data-level="13.2" data-path="correcting-batch-effects.html"><a href="correcting-batch-effects.html#preparing-the-individual-seurat-objects-for-each-pancreas-dataset-without-batch-correction"><i class="fa fa-check"></i><b>13.2</b> Preparing the individual Seurat objects for each pancreas dataset without batch correction</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="functional-analysis.html"><a href="functional-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>14.3</b> Pathway analysis</a></li>
-<li class="chapter" data-level="14.4" data-path="functional-analysis.html"><a href="functional-analysis.html#infercnv-honeybadger"><i class="fa fa-check"></i><b>14.4</b> inferCNV / honeybadger</a><ul>
-<li class="chapter" data-level="14.4.1" data-path="functional-analysis.html"><a href="functional-analysis.html#create-the-infercnv-object"><i class="fa fa-check"></i><b>14.4.1</b> Create the InferCNV Object</a></li>
-<li class="chapter" data-level="14.4.2" data-path="functional-analysis.html"><a href="functional-analysis.html#filtering-genes"><i class="fa fa-check"></i><b>14.4.2</b> Filtering genes</a></li>
-<li class="chapter" data-level="14.4.3" data-path="functional-analysis.html"><a href="functional-analysis.html#normalize-each-cells-counts-for-sequencing-depth"><i class="fa fa-check"></i><b>14.4.3</b> Normalize each cell’s counts for sequencing depth</a></li>
-<li class="chapter" data-level="14.4.4" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-anscombe-normalization"><i class="fa fa-check"></i><b>14.4.4</b> Perform Anscombe normalization</a></li>
-<li class="chapter" data-level="14.4.5" data-path="functional-analysis.html"><a href="functional-analysis.html#log-transform-the-normalized-counts"><i class="fa fa-check"></i><b>14.4.5</b> Log transform the normalized counts:</a></li>
-<li class="chapter" data-level="14.4.6" data-path="functional-analysis.html"><a href="functional-analysis.html#apply-maximum-bounds-to-the-expression-data-to-reduce-outlier-effects"><i class="fa fa-check"></i><b>14.4.6</b> Apply maximum bounds to the expression data to reduce outlier effects</a></li>
-<li class="chapter" data-level="14.4.7" data-path="functional-analysis.html"><a href="functional-analysis.html#initial-view-before-infercnv-operations"><i class="fa fa-check"></i><b>14.4.7</b> Initial view, before inferCNV operations:</a></li>
-<li class="chapter" data-level="14.4.8" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-smoothing-across-chromosomes"><i class="fa fa-check"></i><b>14.4.8</b> Perform smoothing across chromosomes</a></li>
-<li class="chapter" data-level="14.4.9" data-path="functional-analysis.html"><a href="functional-analysis.html#subtract-the-reference-values-from-observations-now-have-logfold-change-values"><i class="fa fa-check"></i><b>14.4.9</b> Subtract the reference values from observations, now have log(fold change) values</a></li>
-<li class="chapter" data-level="14.4.10" data-path="functional-analysis.html"><a href="functional-analysis.html#invert-log-values"><i class="fa fa-check"></i><b>14.4.10</b> Invert log values</a></li>
-<li class="chapter" data-level="14.4.11" data-path="functional-analysis.html"><a href="functional-analysis.html#removing-noise"><i class="fa fa-check"></i><b>14.4.11</b> Removing noise</a></li>
-<li class="chapter" data-level="14.4.12" data-path="functional-analysis.html"><a href="functional-analysis.html#remove-outlier-data-points"><i class="fa fa-check"></i><b>14.4.12</b> Remove outlier data points</a></li>
-<li class="chapter" data-level="14.4.13" data-path="functional-analysis.html"><a href="functional-analysis.html#find-de-genes-by-comparing-the-mutant-types-to-normal-types-basic"><i class="fa fa-check"></i><b>14.4.13</b> Find DE genes by comparing the mutant types to normal types, BASIC</a></li>
-<li class="chapter" data-level="14.4.14" data-path="functional-analysis.html"><a href="functional-analysis.html#additional-information"><i class="fa fa-check"></i><b>14.4.14</b> Additional Information</a></li>
+<li class="chapter" data-level="14" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html"><i class="fa fa-check"></i><b>14</b> Cluster pancreatic datasets without batch correction</a><ul>
+<li class="chapter" data-level="14.0.1" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#batch-correction-canonical-correlation-analysis-cca-using-seurat"><i class="fa fa-check"></i><b>14.0.1</b> Batch correction: canonical correlation analysis (CCA) using Seurat</a></li>
+<li class="chapter" data-level="14.0.2" data-path="cluster-pancreatic-datasets-without-batch-correction.html"><a href="cluster-pancreatic-datasets-without-batch-correction.html#batch-correction-integrative-non-negative-matrix-factorization-nmf-using-liger"><i class="fa fa-check"></i><b>14.0.2</b> Batch correction: integrative non-negative matrix factorization (NMF) using LIGER</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="additional-exploration-regressing-out-unwanted-covariates.html"><a href="additional-exploration-regressing-out-unwanted-covariates.html"><i class="fa fa-check"></i><b>15</b> Additional exploration: Regressing out unwanted covariates</a></li>
+<li class="chapter" data-level="16" data-path="additional-exploration-kbet.html"><a href="additional-exploration-kbet.html"><i class="fa fa-check"></i><b>16</b> Additional exploration: kBET</a></li>
+<li class="chapter" data-level="17" data-path="additional-exploration-seurat-3.html"><a href="additional-exploration-seurat-3.html"><i class="fa fa-check"></i><b>17</b> Additional exploration: Seurat 3</a></li>
+<li class="chapter" data-level="18" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>18</b> Acknowledgements</a></li>
+<li class="chapter" data-level="19" data-path="functional-analysis.html"><a href="functional-analysis.html"><i class="fa fa-check"></i><b>19</b> Functional Analysis</a><ul>
+<li class="chapter" data-level="19.1" data-path="functional-analysis.html"><a href="functional-analysis.html#google-slides-1"><i class="fa fa-check"></i><b>19.1</b> Google Slides</a></li>
+<li class="chapter" data-level="19.2" data-path="functional-analysis.html"><a href="functional-analysis.html#gene-sets-and-signatures"><i class="fa fa-check"></i><b>19.2</b> Gene sets and signatures</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="functional-analysis.html"><a href="functional-analysis.html#cell-cycle"><i class="fa fa-check"></i><b>19.2.1</b> Cell Cycle</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="functional-analysis.html"><a href="functional-analysis.html#pathway-analysis"><i class="fa fa-check"></i><b>19.3</b> Pathway analysis</a></li>
+<li class="chapter" data-level="19.4" data-path="functional-analysis.html"><a href="functional-analysis.html#infercnv-honeybadger"><i class="fa fa-check"></i><b>19.4</b> inferCNV / honeybadger</a><ul>
+<li class="chapter" data-level="19.4.1" data-path="functional-analysis.html"><a href="functional-analysis.html#create-the-infercnv-object"><i class="fa fa-check"></i><b>19.4.1</b> Create the InferCNV Object</a></li>
+<li class="chapter" data-level="19.4.2" data-path="functional-analysis.html"><a href="functional-analysis.html#filtering-genes"><i class="fa fa-check"></i><b>19.4.2</b> Filtering genes</a></li>
+<li class="chapter" data-level="19.4.3" data-path="functional-analysis.html"><a href="functional-analysis.html#normalize-each-cells-counts-for-sequencing-depth"><i class="fa fa-check"></i><b>19.4.3</b> Normalize each cell’s counts for sequencing depth</a></li>
+<li class="chapter" data-level="19.4.4" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-anscombe-normalization"><i class="fa fa-check"></i><b>19.4.4</b> Perform Anscombe normalization</a></li>
+<li class="chapter" data-level="19.4.5" data-path="functional-analysis.html"><a href="functional-analysis.html#log-transform-the-normalized-counts"><i class="fa fa-check"></i><b>19.4.5</b> Log transform the normalized counts:</a></li>
+<li class="chapter" data-level="19.4.6" data-path="functional-analysis.html"><a href="functional-analysis.html#apply-maximum-bounds-to-the-expression-data-to-reduce-outlier-effects"><i class="fa fa-check"></i><b>19.4.6</b> Apply maximum bounds to the expression data to reduce outlier effects</a></li>
+<li class="chapter" data-level="19.4.7" data-path="functional-analysis.html"><a href="functional-analysis.html#initial-view-before-infercnv-operations"><i class="fa fa-check"></i><b>19.4.7</b> Initial view, before inferCNV operations:</a></li>
+<li class="chapter" data-level="19.4.8" data-path="functional-analysis.html"><a href="functional-analysis.html#perform-smoothing-across-chromosomes"><i class="fa fa-check"></i><b>19.4.8</b> Perform smoothing across chromosomes</a></li>
+<li class="chapter" data-level="19.4.9" data-path="functional-analysis.html"><a href="functional-analysis.html#subtract-the-reference-values-from-observations-now-have-logfold-change-values"><i class="fa fa-check"></i><b>19.4.9</b> Subtract the reference values from observations, now have log(fold change) values</a></li>
+<li class="chapter" data-level="19.4.10" data-path="functional-analysis.html"><a href="functional-analysis.html#invert-log-values"><i class="fa fa-check"></i><b>19.4.10</b> Invert log values</a></li>
+<li class="chapter" data-level="19.4.11" data-path="functional-analysis.html"><a href="functional-analysis.html#removing-noise"><i class="fa fa-check"></i><b>19.4.11</b> Removing noise</a></li>
+<li class="chapter" data-level="19.4.12" data-path="functional-analysis.html"><a href="functional-analysis.html#remove-outlier-data-points"><i class="fa fa-check"></i><b>19.4.12</b> Remove outlier data points</a></li>
+<li class="chapter" data-level="19.4.13" data-path="functional-analysis.html"><a href="functional-analysis.html#find-de-genes-by-comparing-the-mutant-types-to-normal-types-basic"><i class="fa fa-check"></i><b>19.4.13</b> Find DE genes by comparing the mutant types to normal types, BASIC</a></li>
+<li class="chapter" data-level="19.4.14" data-path="functional-analysis.html"><a href="functional-analysis.html#additional-information"><i class="fa fa-check"></i><b>19.4.14</b> Additional Information</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html"><i class="fa fa-check"></i><b>15</b> Pseudotime Cell Trajectories</a><ul>
-<li class="chapter" data-level="15.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#google-slides-2"><i class="fa fa-check"></i><b>15.1</b> Google Slides</a></li>
-<li class="chapter" data-level="15.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#comparison-abstract"><i class="fa fa-check"></i><b>15.2</b> Comparison Abstract</a></li>
+<li class="chapter" data-level="20" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html"><i class="fa fa-check"></i><b>20</b> Pseudotime Cell Trajectories</a><ul>
+<li class="chapter" data-level="20.1" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#google-slides-2"><i class="fa fa-check"></i><b>20.1</b> Google Slides</a></li>
+<li class="chapter" data-level="20.2" data-path="pseudotime-cell-trajectories.html"><a href="pseudotime-cell-trajectories.html#comparison-abstract"><i class="fa fa-check"></i><b>20.2</b> Comparison Abstract</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>16</b> Functional Pseudotime Analysis</a></li>
-<li class="chapter" data-level="17" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>17</b> Single Cell Multiomic Technologies</a></li>
-<li class="chapter" data-level="18" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>18</b> CITE-seq and scATAC-seq</a></li>
-<li class="chapter" data-level="19" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>19</b> Single Cell Resources</a><ul>
-<li class="chapter" data-level="19.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>19.1</b> Comprehensive list of single-cell resources</a></li>
-<li class="chapter" data-level="19.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>19.2</b> Computational packages for single-cell analysis</a></li>
-<li class="chapter" data-level="19.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>19.3</b> eLife Commentary on the Human Cell Atlas</a></li>
-<li class="chapter" data-level="19.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>19.4</b> Online courses</a></li>
+<li class="chapter" data-level="21" data-path="functional-pseudotime-analysis.html"><a href="functional-pseudotime-analysis.html"><i class="fa fa-check"></i><b>21</b> Functional Pseudotime Analysis</a></li>
+<li class="chapter" data-level="22" data-path="single-cell-multiomic-technologies.html"><a href="single-cell-multiomic-technologies.html"><i class="fa fa-check"></i><b>22</b> Single Cell Multiomic Technologies</a></li>
+<li class="chapter" data-level="23" data-path="cite-seq-and-scatac-seq.html"><a href="cite-seq-and-scatac-seq.html"><i class="fa fa-check"></i><b>23</b> CITE-seq and scATAC-seq</a></li>
+<li class="chapter" data-level="24" data-path="single-cell-resources.html"><a href="single-cell-resources.html"><i class="fa fa-check"></i><b>24</b> Single Cell Resources</a><ul>
+<li class="chapter" data-level="24.1" data-path="single-cell-resources.html"><a href="single-cell-resources.html#comprehensive-list-of-single-cell-resources"><i class="fa fa-check"></i><b>24.1</b> Comprehensive list of single-cell resources</a></li>
+<li class="chapter" data-level="24.2" data-path="single-cell-resources.html"><a href="single-cell-resources.html#computational-packages-for-single-cell-analysis"><i class="fa fa-check"></i><b>24.2</b> Computational packages for single-cell analysis</a></li>
+<li class="chapter" data-level="24.3" data-path="single-cell-resources.html"><a href="single-cell-resources.html#elife-commentary-on-the-human-cell-atlas"><i class="fa fa-check"></i><b>24.3</b> eLife Commentary on the Human Cell Atlas</a></li>
+<li class="chapter" data-level="24.4" data-path="single-cell-resources.html"><a href="single-cell-resources.html#online-courses"><i class="fa fa-check"></i><b>24.4</b> Online courses</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -275,7 +286,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="cite-seq-and-scatac-seq" class="section level1">
-<h1><span class="header-section-number">18</span> CITE-seq and scATAC-seq</h1>
+<h1><span class="header-section-number">23</span> CITE-seq and scATAC-seq</h1>
 
 </div>
             </section>
