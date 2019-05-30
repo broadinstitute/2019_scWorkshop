@@ -1,5 +1,5 @@
 ---
-title: "12-Correcting-Batch-Effects"
+title: "13-Correcting-Batch-Effects"
 output: html_document
 ---
 
@@ -70,6 +70,7 @@ MergeMultipleSeuratObjects <- function(gcdata, project) {
 ```
 
 ## Preparing the individual Seurat objects for each pancreas dataset without batch correction
+
 ```{r prepare_seurat, eval = FALSE}
 # What is the size of each single cell RNA-seq dataset? 
 # Briefly describe the technology used to collect each dataset.
@@ -145,6 +146,7 @@ smartseq2 <- SubsetData(smartseq2, max.cells.per.ident = 500, random.seed = 1)
 ```
 
 ## Cluster pancreatic datasets without batch correction
+
 Let us cluster all the pancreatic islet datasets together and see whether there is a batch effect.
 ```{r no_batch_correction, eval = FALSE}
 # Merge Seurat objects by making a list of the 4 Seurat objects and using MergeMultipleSeuratObjects.
@@ -196,7 +198,9 @@ adj.rand.index(as.numeric(ari$tech), as.numeric(ari$res.0.8))
 ```
 
 ### Batch correction: canonical correlation analysis (CCA) using Seurat
+
 Here we use canonical correlation analysis to see to what extent it can remove potential batch effects.
+
 ```{r batchcorrect_CCA, eval = FALSE}
 # The first piece of code will identify variable genes that are highly variable in at least 2/4 datasets. We will use these variable genes in our batch correction.
 # Why would we implement such a requirement?
@@ -282,6 +286,7 @@ FeatureHeatmap(gcdata.CCA, features.plot = rownames(markers)[1:5], group.by = "t
 ```
 
 ### Batch correction: integrative non-negative matrix factorization (NMF) using LIGER
+
 Here we use integrative non-negative matrix factorization to see to what extent it can remove potential batch effects.
 
 The important parameters in the batch correction are the number of factors (k), the penalty parameter (lambda), and the clustering resolution. The number of factors sets the number of factors (consisting of shared and dataset-specific factors) used in factorizing the matrix. The penalty parameter sets the balance between factors shared across the batches and factors specific to the individual batches. The default setting of lambda=5.0 is usually used by the Macosko lab. Resolution=1.0 is used in the Louvain clustering of the shared neighbor factors that have been quantile normalized.
@@ -388,18 +393,22 @@ plotGeneViolin(data.liger, gene = "INS")
 
 ## Additional exploration: Regressing out unwanted covariates 
 Learn how to regress out different technical covariates (number of UMIs, number of genes, percent mitochondrial reads) by studying [Seurat's PBMC tutorial](https://satijalab.org/seurat/pbmc3k_tutorial.html) and the ScaleData() function.
+
 ```{r regress}
 
 ```
 
 ## Additional exploration: kBET
+
 Within your RStudio session, install [k-nearest neighbour batch effect test](https://github.com/theislab/kBET) and learn how to use its functionality to quantify batch effects in the pancreatic data.
 ```{r kBET}
 
 ```
 
 ## Additional exploration: Seurat 3
+
 Read how new version of Seurat does [data integration](https://satijalab.org/seurat/pancreas_integration_label_transfer.html)
 
 ## Acknowledgements
+
 This document builds off a tutorial from the [Seurat website](https://www.dropbox.com/s/aji4ielg8gc70vj/multiple_pancreas_workflow.R?dl=1) and a tutorial from the [LIGER website](https://github.com/MacoskoLab/liger/blob/master/vignettes/liger-vignette.html).

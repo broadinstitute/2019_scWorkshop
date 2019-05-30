@@ -1,5 +1,5 @@
 ---
-title: "scRNA-Seq Experimental Design"
+title: "02-scRNA-Seq-Experimental-Design"
 output: html_document
 ---
 
