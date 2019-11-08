@@ -129,16 +129,16 @@ How many genes are you left with? How many cells?
 
 
 ```{r, eval = FALSE} 
-### seurat<-CreateSeuratObject(raw.data = counts, ? = 3, ? = 350, project = "10X_NSCLC")
-seurat<-CreateSeuratObject(raw.data = counts, min.cells = 3, min.genes = 350, project = "10X_NSCLC")
+### seurat<-CreateSeuratObject(counts = counts, min.cells = ?, min.features = ?, project = "10X_NSCLC")
+seurat<-CreateSeuratObject(counts = counts, min.cells = 3, min.features = 350, project = "10X_NSCLC")
 ```
 
 Almost all our analysis will be on the single object, of class Seurat. This object contains various "slots" (designated by seurat@slotname) that will store not only the raw count data, but also the results from various computations below. This has the advantage that we do not need to keep track of inidividual variables of interest - they can all be collapsed into a single object as long as these slots are pre-defined.
 
-`seurat@raw.data` is a slot that stores the original gene count matrix. We can view the first 10 rows (genes) and the first 10 columns (cells).
+`seurat@assays$RNA@counts` is a slot that stores the original gene count matrix. We can view the first 10 rows (genes) and the first 10 columns (cells).
 
 ```{r, cache.lazy=FALSE, eval = FALSE}
-seurat@raw.data[1:10,1:10]
+seurat@assays$RNA@counts[1:10,1:10]
 ```
 
 ## Preprocessing step 1 : Filter out low-quality cells
