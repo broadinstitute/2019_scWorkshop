@@ -153,7 +153,7 @@ The Seurat object initialization step above only considered cells that expressed
 # We use object@raw.data since this represents non-transformed and
 # non-log-normalized counts The % of UMI mapping to MT-genes is a common
 # scRNA-seq QC metric.
-mito.genes <- grep(pattern = "^MT-", x = rownames(x = seurat@data), value = TRUE)
+mito.genes <- grep(pattern = "^MT-", x = rownames(x = seurat@assays$RNA@data), value = TRUE)
 percent.mito <- Matrix::colSums(seurat@raw.data[mito.genes, ])/Matrix::colSums(seurat@raw.data)
 
 # AddMetaData adds columns to object@meta.data, and is a great place to stash QC stats.
@@ -167,7 +167,7 @@ If you dont remember the name of the parameter you can type ?AddMetaData in the 
 #### seurat <- AddMetaData(object = seurat, ? = ?, col.name = "percent.mito")
 seurat <- AddMetaData(object = seurat, metadata = percent.mito, col.name = "percent.mito")
 head(seurat@meta.data) # After adding
-VlnPlot(object = seurat, features.plot = c("nGene", "nUMI", "percent.mito"), nCol = 3,  point.size.use = 0.1)
+VlnPlot(object = seurat, features = c("nGene", "nUMI", "percent.mito"), nCol = 3,  point.size.use = 0.1)
 ```
 
 Here we calculated the percent mitochondrial reads and added it to the Seurat object in the slot named meta.data. This allowed us to plot using the violin plot function provided by Seurat.
